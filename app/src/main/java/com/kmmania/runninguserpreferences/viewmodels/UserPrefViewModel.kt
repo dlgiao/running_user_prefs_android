@@ -1,9 +1,6 @@
 package com.kmmania.runninguserpreferences.viewmodels
 
-import androidx.lifecycle.LiveData
-import androidx.lifecycle.ViewModel
-import androidx.lifecycle.asLiveData
-import androidx.lifecycle.viewModelScope
+import androidx.lifecycle.*
 import com.kmmania.runninguserpreferences.model.UserPref
 import com.kmmania.runninguserpreferences.repositories.UserPrefRepository
 import kotlinx.coroutines.launch
@@ -13,5 +10,15 @@ class UserPrefViewModel(private val userPrefRepository: UserPrefRepository): Vie
 
     fun insert(userPref: UserPref) = viewModelScope.launch {
         userPrefRepository.insert(userPref)
+    }
+}
+
+class UserPrefViewModelFactory(private val userPrefRepository: UserPrefRepository) : ViewModelProvider.Factory {
+    override fun <T : ViewModel> create(modelClass: Class<T>): T {
+        if (modelClass.isAssignableFrom(UserPrefViewModel::class.java)) {
+            @Suppress("UNCHECKED_CAST")
+            return UserPrefViewModel(userPrefRepository) as T
+        }
+        throw IllegalArgumentException("Unknown ViewModel class")
     }
 }
