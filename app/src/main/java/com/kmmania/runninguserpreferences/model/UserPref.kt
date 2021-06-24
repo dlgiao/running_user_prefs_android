@@ -5,6 +5,7 @@ import androidx.room.Entity
 import androidx.room.PrimaryKey
 import com.kmmania.runninguserpreferences.utils.units.MeasuringSystemUnit
 import com.kmmania.runninguserpreferences.utils.units.SpeedUnit
+import java.util.*
 
 @Entity(tableName = "user_pref_table")
 data class UserPref(
@@ -13,7 +14,9 @@ data class UserPref(
     @ColumnInfo(name = "mas")
     val mas: Double,
     @ColumnInfo(name = "unit_mas")
-    val unitMas: SpeedUnit
+    val unitMas: SpeedUnit,
+    @ColumnInfo(name = "dob")
+    val dob: Date
 ) {
     @PrimaryKey(autoGenerate = true)
     var id: Long = 0
