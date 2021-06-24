@@ -13,4 +13,7 @@ interface UserPrefDao {
     @Query("DELETE FROM user_pref_table")
     suspend fun delete(userPref: UserPref)
 
+    @Query("SELECT * FROM user_pref_table ORDER BY id ASC")
+    fun getAllUserPref(): List<UserPref>
+
 }
