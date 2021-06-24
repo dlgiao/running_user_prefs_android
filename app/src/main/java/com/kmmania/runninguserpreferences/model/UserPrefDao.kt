@@ -12,7 +12,7 @@ interface UserPrefDao {
     suspend fun insert(userPref: UserPref)
 
     @Query("DELETE FROM user_pref_table")
-    suspend fun delete(userPref: UserPref)
+    suspend fun deleteAll()
 
     @Query("SELECT * FROM user_pref_table ORDER BY id ASC")
     fun getAllUserPref(): Flow<List<UserPref>>
