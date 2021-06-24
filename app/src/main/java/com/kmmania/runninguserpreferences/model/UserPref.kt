@@ -18,7 +18,7 @@ data class UserPref(
     @ColumnInfo(name = "unit_mas")
     val unitMas: SpeedUnit,
     @ColumnInfo(name = "dob")
-    val dob: Date,
+    val dob: String,
     @ColumnInfo(name = "height")
     val height: Int,
     @ColumnInfo(name = "unit_height")
