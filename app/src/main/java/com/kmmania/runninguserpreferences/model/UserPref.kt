@@ -1,3 +1,14 @@
 package com.kmmania.runninguserpreferences.model
 
-data class UserPref()
+import androidx.room.ColumnInfo
+import androidx.room.Entity
+import androidx.room.PrimaryKey
+import com.kmmania.runninguserpreferences.utils.units.MeasuringSystemUnit
+
+@Entity(tableName = "user_pref_table")
+data class UserPref(
+
+) {
+    @PrimaryKey(autoGenerate = true)
+    var id: Long = 0
+}
