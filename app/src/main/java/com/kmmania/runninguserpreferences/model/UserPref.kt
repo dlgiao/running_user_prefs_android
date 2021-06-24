@@ -6,6 +6,7 @@ import androidx.room.PrimaryKey
 import com.kmmania.runninguserpreferences.utils.units.LengthUnit
 import com.kmmania.runninguserpreferences.utils.units.MeasuringSystemUnit
 import com.kmmania.runninguserpreferences.utils.units.SpeedUnit
+import com.kmmania.runninguserpreferences.utils.units.WeightUnit
 import java.util.*
 
 @Entity(tableName = "user_pref_table")
@@ -21,7 +22,11 @@ data class UserPref(
     @ColumnInfo(name = "height")
     val height: Int,
     @ColumnInfo(name = "unit_height")
-    val unitHeight: LengthUnit
+    val unitHeight: LengthUnit,
+    @ColumnInfo(name = "weight")
+    val weight: Double,
+    @ColumnInfo(name = "unit_weight")
+    val unitWeightUnit: WeightUnit
 
 ) {
     @PrimaryKey(autoGenerate = true)
