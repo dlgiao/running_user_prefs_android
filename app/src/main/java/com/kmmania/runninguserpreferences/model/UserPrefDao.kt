@@ -15,5 +15,4 @@ interface UserPrefDao {
 
     @Query("SELECT * FROM user_pref_table ORDER BY id ASC")
     fun getAllUserPref(): List<UserPref>
-
 }
