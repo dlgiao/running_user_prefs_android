@@ -1,7 +1,8 @@
-package com.kmmania.runninguserpreferences
+package com.kmmania.runninguserpreferences.views
 
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
+import com.kmmania.runninguserpreferences.R
 
 class MainActivity : AppCompatActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
