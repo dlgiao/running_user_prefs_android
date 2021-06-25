@@ -10,9 +10,9 @@ import com.kmmania.runninguserpreferences.viewmodels.UserPrefViewModel
 import com.kmmania.runninguserpreferences.viewmodels.UserPrefViewModelFactory
 
 class MainActivity : AppCompatActivity() {
-//    private val userPrefViewModel: UserPrefViewModel by viewModels {
-//        UserPrefViewModelFactory((application as UserPrefApplication).repository)
-//    }
+    private val userPrefViewModel: UserPrefViewModel by viewModels {
+        UserPrefViewModelFactory((application as UserPrefApplication).repository)
+    }
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_main)
