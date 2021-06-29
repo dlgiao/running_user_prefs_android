@@ -4,7 +4,6 @@ import androidx.room.ColumnInfo
 import androidx.room.Entity
 import androidx.room.PrimaryKey
 import com.kmmania.runninguserpreferences.utils.units.*
-import java.util.*
 
 @Entity(tableName = "user_pref_table")
 data class UserPref(
