@@ -7,7 +7,7 @@ import kotlinx.coroutines.flow.Flow
 
 class MeasuringSystemRepository(private val measuringSystemDao: MeasuringSystemDao) {
 
-    val lastMeasuringSystem: Flow<MeasuringSystem> = measuringSystemDao.getLastMeasuringSystem()
+    val lastMeasuringSystem: Flow<MeasuringSystem> = measuringSystemDao.getMeasuringSystem()
 
     @Suppress("RedundantSuspendModifier")
     @WorkerThread
