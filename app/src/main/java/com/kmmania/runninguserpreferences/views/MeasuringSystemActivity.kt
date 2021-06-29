@@ -5,6 +5,7 @@ import android.os.Bundle
 import androidx.activity.viewModels
 import com.kmmania.runninguserpreferences.R
 import com.kmmania.runninguserpreferences.RunningUserPrefApplication
+import com.kmmania.runninguserpreferences.databinding.ActivityMeasuringSystemBinding
 import com.kmmania.runninguserpreferences.viewmodels.MeasuringSystemViewModel
 import com.kmmania.runninguserpreferences.viewmodels.MeasuringSystemViewModelFactory
 
@@ -14,9 +15,12 @@ class MeasuringSystemActivity : AppCompatActivity() {
             .measuringSystemRepository
         )
     }
+    private lateinit var measuringSystemBinding: ActivityMeasuringSystemBinding
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
-        setContentView(R.layout.activity_measuring_system)
+        measuringSystemBinding = ActivityMeasuringSystemBinding.inflate(layoutInflater)
+        setContentView(measuringSystemBinding.root)
+        //setContentView(R.layout.activity_measuring_system)
     }
 }
