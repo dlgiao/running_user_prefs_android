@@ -7,4 +7,35 @@
     android:layout_height="match_parent"
     tools:context=".views.MeasuringSystemActivity">
 
+    <TextView
+        android:id="@+id/textView"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="32dp"
+        android:text="@string/measuring_system"
+        android:textSize="30sp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <RadioGroup
+        android:id="@+id/rg_MS"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:checkedButton="@+id/rb_metric"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/textView">
+
+        <RadioButton
+            android:id="@+id/rb_metric"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:text="@string/metric" />
+
+        <RadioButton
+            android:id="@+id/rb_imperial"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:text="@string/imperial" />
+    </RadioGroup>
 </androidx.constraintlayout.widget.ConstraintLayout>
