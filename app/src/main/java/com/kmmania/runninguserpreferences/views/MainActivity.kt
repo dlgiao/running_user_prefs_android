@@ -4,6 +4,7 @@ import android.content.Intent
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import androidx.activity.viewModels
+import com.kmmania.runninguserpreferences.R
 import com.kmmania.runninguserpreferences.RunningUserPrefApplication
 import com.kmmania.runninguserpreferences.databinding.ActivityMainBinding
 import com.kmmania.runninguserpreferences.viewmodels.MeasuringSystemViewModel
@@ -28,7 +29,12 @@ class MainActivity : AppCompatActivity() {
 
         msViewModel.lastMeasuringSystem.observe(this, { last ->
             last?.let {
-                mainBinding.tvMsValue.text = it.toString()
+                var msValue = ""
+                when(it.measuringSystem.toString()) {
+                    "METRIC" -> msValue = getString(R.string.metric)
+                    "IMPERIAL" -> msValue = getString(R.string.imperial)
+                }
+                mainBinding.tvMsValue.text = msValue
             }
         })
     }
