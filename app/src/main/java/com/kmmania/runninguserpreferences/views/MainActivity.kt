@@ -38,7 +38,7 @@ class MainActivity : AppCompatActivity() {
 
         msViewModel.lastMeasuringSystem.observe(this, { last ->
             last?.let {
-                //
+                mainBinding.tvMeasuringSystem1.text = it.toString()
             }
         })
     }
