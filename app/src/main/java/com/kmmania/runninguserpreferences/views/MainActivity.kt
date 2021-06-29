@@ -1,5 +1,6 @@
 package com.kmmania.runninguserpreferences.views
 
+import android.content.Intent
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import androidx.activity.viewModels
@@ -22,5 +23,10 @@ class MainActivity : AppCompatActivity() {
 //        userPrefViewModel.allUserPref.observe(this, { userPrefs ->
 //            //
 //        })
+
+        mainBinding.tvMeasuringSystem.setOnClickListener {
+            val intent = Intent(this, MeasuringSystemActivity::class.java)
+            startActivity(intent)
+        }
     }
 }
