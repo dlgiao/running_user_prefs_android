@@ -22,7 +22,6 @@
         android:id="@+id/rg_MS"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:checkedButton="@+id/rb_metric"
         android:orientation="horizontal"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/textView">
