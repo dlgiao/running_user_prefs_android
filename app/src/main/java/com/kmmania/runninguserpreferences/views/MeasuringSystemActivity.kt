@@ -3,8 +3,11 @@ package com.kmmania.runninguserpreferences.views
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import androidx.activity.viewModels
+import com.kmmania.runninguserpreferences.R
 import com.kmmania.runninguserpreferences.RunningUserPrefApplication
 import com.kmmania.runninguserpreferences.databinding.ActivityMeasuringSystemBinding
+import com.kmmania.runninguserpreferences.model.MeasuringSystem
+import com.kmmania.runninguserpreferences.utils.units.MeasuringSystemUnit
 import com.kmmania.runninguserpreferences.viewmodels.MeasuringSystemViewModel
 import com.kmmania.runninguserpreferences.viewmodels.MeasuringSystemViewModelFactory
 
@@ -29,5 +32,12 @@ class MeasuringSystemActivity : AppCompatActivity() {
                 }
             }
         })
+
+        msBinding.rgMS.setOnCheckedChangeListener { _, checkedId ->
+            when(checkedId) {
+                R.id.rb_metric -> msBinding.tvMsTitle.text = "METRIC"
+                R.id.rb_imperial -> msBinding.tvMsTitle.text = "IMPERIAL"
+            }
+        }
     }
 }
