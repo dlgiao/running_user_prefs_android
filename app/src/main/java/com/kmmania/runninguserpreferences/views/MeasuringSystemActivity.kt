@@ -10,17 +10,27 @@ import com.kmmania.runninguserpreferences.viewmodels.MeasuringSystemViewModel
 import com.kmmania.runninguserpreferences.viewmodels.MeasuringSystemViewModelFactory
 
 class MeasuringSystemActivity : AppCompatActivity() {
-    private val measuringSystemViewModel: MeasuringSystemViewModel by viewModels {
+    private val msViewModel: MeasuringSystemViewModel by viewModels {
         MeasuringSystemViewModelFactory((application as RunningUserPrefApplication)
             .measuringSystemRepository
         )
     }
-    private lateinit var measuringSystemBinding: ActivityMeasuringSystemBinding
+    private lateinit var msBinding: ActivityMeasuringSystemBinding
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
-        measuringSystemBinding = ActivityMeasuringSystemBinding.inflate(layoutInflater)
-        setContentView(measuringSystemBinding.root)
+        msBinding = ActivityMeasuringSystemBinding.inflate(layoutInflater)
+        setContentView(msBinding.root)
         //setContentView(R.layout.activity_measuring_system)
+
+        val checkedRadioButtonId = msBinding.rgMS.checkedRadioButtonId
+        msBinding.rgMS.setOnCheckedChangeListener { group, checkedId ->
+            //
+        }
+
+        // to listen for a radio button's checked, unchecked state changes
+        msBinding.rgMS.setOnCheckedChangeListener { buttonView, isChecked ->
+            //
+        }
     }
 }
