@@ -23,19 +23,20 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:checkedButton="@+id/rb_metric"
+        android:orientation="horizontal"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/textView">
 
         <RadioButton
             android:id="@+id/rb_metric"
-            android:layout_width="match_parent"
-            android:layout_height="match_parent"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
             android:text="@string/metric" />
 
         <RadioButton
             android:id="@+id/rb_imperial"
-            android:layout_width="match_parent"
-            android:layout_height="match_parent"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
             android:text="@string/imperial" />
     </RadioGroup>
 </androidx.constraintlayout.widget.ConstraintLayout>
