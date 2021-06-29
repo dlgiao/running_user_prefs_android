@@ -8,13 +8,13 @@ import com.kmmania.runninguserpreferences.RunningUserPrefApplication
 import com.kmmania.runninguserpreferences.databinding.ActivityMainBinding
 import com.kmmania.runninguserpreferences.viewmodels.MeasuringSystemViewModel
 import com.kmmania.runninguserpreferences.viewmodels.MeasuringSystemViewModelFactory
-import com.kmmania.runninguserpreferences.viewmodels.UserPrefViewModel
-import com.kmmania.runninguserpreferences.viewmodels.UserPrefViewModelFactory
+//import com.kmmania.runninguserpreferences.viewmodels.UserPrefViewModel
+//import com.kmmania.runninguserpreferences.viewmodels.UserPrefViewModelFactory
 
 class MainActivity : AppCompatActivity() {
-    private val userPrefViewModel: UserPrefViewModel by viewModels {
-        UserPrefViewModelFactory((application as RunningUserPrefApplication).repository)
-    }
+//    private val userPrefViewModel: UserPrefViewModel by viewModels {
+//        UserPrefViewModelFactory((application as RunningUserPrefApplication).repository)
+//    }
     private val msViewModel: MeasuringSystemViewModel by viewModels {
         MeasuringSystemViewModelFactory(
             (application as RunningUserPrefApplication).measuringSystemRepository
