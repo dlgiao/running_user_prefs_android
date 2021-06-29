@@ -35,8 +35,8 @@ class MeasuringSystemActivity : AppCompatActivity() {
 
         msBinding.rgMS.setOnCheckedChangeListener { _, checkedId ->
             when(checkedId) {
-                R.id.rb_metric -> msBinding.tvMsTitle.text = "METRIC"
-                R.id.rb_imperial -> msBinding.tvMsTitle.text = "IMPERIAL"
+                R.id.rb_metric -> msViewModel.insert(MeasuringSystem(MeasuringSystemUnit.METRIC))
+                R.id.rb_imperial -> msViewModel.insert(MeasuringSystem(MeasuringSystemUnit.IMPERIAL))
             }
         }
     }
