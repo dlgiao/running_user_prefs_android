@@ -7,8 +7,8 @@ import com.kmmania.runninguserpreferences.utils.units.*
 
 @Entity(tableName = "user_pref_table")
 data class UserPref(
-    @ColumnInfo(name = "measuring_system")
-    val measuringSystem: MeasuringSystemUnit,
+//    @ColumnInfo(name = "measuring_system")
+//    val measuringSystem: MeasuringSystemUnit,
     @ColumnInfo(name = "mas")
     val mas: Double,
     @ColumnInfo(name = "unit_mas")
