@@ -23,7 +23,10 @@ class MeasuringSystemActivity : AppCompatActivity() {
 
         msViewModel.lastMeasuringSystem.observe(this, { last ->
             last?.let {
-
+                when(it.measuringSystem.toString()) {
+                    "METRIC" -> msBinding.rbMetric.isChecked = true
+                    "IMPERIAL" -> msBinding.rbImperial.isChecked = true
+                }
             }
         })
     }
