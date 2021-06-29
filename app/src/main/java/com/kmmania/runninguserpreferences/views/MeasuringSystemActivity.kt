@@ -20,24 +20,11 @@ class MeasuringSystemActivity : AppCompatActivity() {
         super.onCreate(savedInstanceState)
         msBinding = ActivityMeasuringSystemBinding.inflate(layoutInflater)
         setContentView(msBinding.root)
-        //setContentView(R.layout.activity_measuring_system)
 
         msViewModel.lastMeasuringSystem.observe(this, { last ->
-//            if (last.toString() == MeasuringSystemUnit.METRIC.toString()) {
-//                msBinding.rbMetric.isChecked = true
-//            } else if (last.toString() == MeasuringSystemUnit.IMPERIAL.toString()) {
-//                msBinding.rbImperial.isChecked = true
-//            }
-        })
+            last?.let {
 
-//        val checkedRadioButtonId = msBinding.rgMS.checkedRadioButtonId
-//        msBinding.rgMS.setOnCheckedChangeListener { group, checkedId ->
-//            //
-//        }
-//
-//        // to listen for a radio button's checked, unchecked state changes
-//        msBinding.rgMS.setOnCheckedChangeListener { buttonView, isChecked ->
-//            //
-//        }
+            }
+        })
     }
 }
