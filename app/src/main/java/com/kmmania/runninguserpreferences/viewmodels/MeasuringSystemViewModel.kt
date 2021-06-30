@@ -5,9 +5,10 @@ import com.kmmania.runninguserpreferences.model.MeasuringSystem
 import com.kmmania.runninguserpreferences.repositories.MeasuringSystemRepository
 import dagger.hilt.android.lifecycle.HiltViewModel
 import kotlinx.coroutines.launch
+import javax.inject.Inject
 
 @HiltViewModel
-class MeasuringSystemViewModel(
+class MeasuringSystemViewModel @Inject constructor(
     private val msRepository: MeasuringSystemRepository
 ): ViewModel() {
     val msValue: LiveData<MeasuringSystem> = msRepository.msValue.asLiveData()
