@@ -12,6 +12,7 @@ class MeasuringSystemRepository(private val msDao: MeasuringSystemDao) {
     @Suppress("RedundantSuspendModifier")
     @WorkerThread
     suspend fun insert(measuringSystem: MeasuringSystem) {
+        msDao.deleteAll()
         msDao.insert(measuringSystem)
     }
 }
