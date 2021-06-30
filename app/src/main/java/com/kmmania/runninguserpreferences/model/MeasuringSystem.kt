@@ -11,7 +11,3 @@ data class MeasuringSystem(
     @ColumnInfo(name = "measuring_system")
     val measuringSystem: MeasuringSystemUnit
 )
-//{
-//    @PrimaryKey(autoGenerate = true)
-//    var id: Long = 0
-//}
