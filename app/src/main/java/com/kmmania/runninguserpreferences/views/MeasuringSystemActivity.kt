@@ -12,9 +12,7 @@ import com.kmmania.runninguserpreferences.viewmodels.MeasuringSystemViewModelFac
 
 class MeasuringSystemActivity : AppCompatActivity() {
     private val msViewModel: MeasuringSystemViewModel by viewModels {
-        MeasuringSystemViewModelFactory(
-            (application as RunningUserPrefApplication).measuringSystemRepository
-        )
+        MeasuringSystemViewModelFactory((application as RunningUserPrefApplication).msRepository)
     }
     private lateinit var msBinding: ActivityMeasuringSystemBinding
 
