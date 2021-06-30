@@ -4,6 +4,8 @@ import android.app.Activity
 import android.content.Intent
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
+import androidx.activity.result.ActivityResult
+import androidx.activity.result.contract.ActivityResultContracts
 import androidx.activity.viewModels
 import com.kmmania.runninguserpreferences.R
 import com.kmmania.runninguserpreferences.RunningUserPrefApplication
@@ -18,7 +20,22 @@ class MainActivity : AppCompatActivity() {
         MeasuringSystemViewModelFactory((application as RunningUserPrefApplication).msRepository)
     }
     private lateinit var mainBinding: ActivityMainBinding
-    private val msActivityRequestCode = 1
+
+    private val startForResult = registerForActivityResult(
+        ActivityResultContracts.StartActivityForResult()
+    ) { result: ActivityResult ->
+        if (result.resultCode == Activity.RESULT_OK) {
+            val data = result.data
+            data?.getStringExtra(MeasuringSystemActivity.EXTRA_REPLY)?.let {
+                when(it) {
+                    "metric" -> msViewModel.insert(MeasuringSystem(MeasuringSystemUnit.METRIC))
+                    "imperial" -> msViewModel.insert(MeasuringSystem(MeasuringSystemUnit.IMPERIAL))
+                    // TODO replace code
+                    else -> ""
+                }
+            }
+        }
+    }
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -26,8 +43,7 @@ class MainActivity : AppCompatActivity() {
         setContentView(mainBinding.root)
 
         mainBinding.tvMsTitle.setOnClickListener {
-            val intent = Intent(this@MainActivity, MeasuringSystemActivity::class.java)
-            startActivityForResult(intent, msActivityRequestCode)
+            startForResult.launch(Intent(this, MeasuringSystemActivity::class.java))
         }
 
         msViewModel.lastMS.observe(this, { last ->
@@ -38,19 +54,5 @@ class MainActivity : AppCompatActivity() {
                 }
             }
         })
-    }
-
-    override fun onActivityResult(requestCode: Int, resultCode: Int, data: Intent?) {
-        super.onActivityResult(requestCode, resultCode, data)
-        if (requestCode == msActivityRequestCode && resultCode == Activity.RESULT_OK) {
-            data?.getStringExtra(MeasuringSystemActivity.EXTRA_REPLY)?.let {
-                when(it) {
-                    "metric" -> msViewModel.insert(MeasuringSystem(MeasuringSystemUnit.METRIC))
-                    "imperial" -> msViewModel.insert(MeasuringSystem(MeasuringSystemUnit.IMPERIAL))
-                    // TODO replace code
-                    else -> ""
-                }
-            }
-        }
     }
 }
