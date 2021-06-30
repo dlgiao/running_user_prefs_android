@@ -2,6 +2,7 @@ package com.kmmania.runninguserpreferences.di
 
 import android.content.Context
 import androidx.room.Room
+import com.kmmania.runninguserpreferences.model.MeasuringSystemDao
 import com.kmmania.runninguserpreferences.model.MeasuringSystemDatabase
 import dagger.Module
 import dagger.Provides
@@ -26,6 +27,13 @@ object DatabaseModule {
         )
             .addCallback(MeasuringSystemDatabase.MeasuringSystemDatabaseCallback(scope))
             .build()
+    }
+
+    @Provides
+    fun provideMeasuringSystemDao(
+        measuringSystemDatabase: MeasuringSystemDatabase
+    ): MeasuringSystemDao {
+        return measuringSystemDatabase.measuringSystemDao()
     }
 
 
