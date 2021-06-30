@@ -45,16 +45,8 @@ class MainActivity : AppCompatActivity() {
         if (requestCode == msActivityRequestCode && resultCode == Activity.RESULT_OK) {
             data?.getStringExtra(MeasuringSystemActivity.EXTRA_REPLY)?.let {
                 when(it) {
-                    "metric" -> {
-                        val metricMS = MeasuringSystem(MeasuringSystemUnit.METRIC)
-                        msViewModel.insert(metricMS)
-                        mainBinding.tvMsTitle.text = it
-                    }
-                    "imperial" -> {
-                        val imperialMS = MeasuringSystem(MeasuringSystemUnit.IMPERIAL)
-                        msViewModel.insert(imperialMS)
-                        mainBinding.tvMsTitle.text = it
-                    }
+                    "metric" -> msViewModel.insert(MeasuringSystem(MeasuringSystemUnit.METRIC))
+                    "imperial" -> msViewModel.insert(MeasuringSystem(MeasuringSystemUnit.IMPERIAL))
                     // TODO replace code
                     else -> ""
                 }
