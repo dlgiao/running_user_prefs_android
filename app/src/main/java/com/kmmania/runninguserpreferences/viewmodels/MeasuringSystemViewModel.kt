@@ -8,7 +8,7 @@ import kotlinx.coroutines.launch
 class MeasuringSystemViewModel(
     private val msRepository: MeasuringSystemRepository
 ): ViewModel() {
-    val lastMS: LiveData<MeasuringSystem> = msRepository.lastMS.asLiveData()
+    val msValue: LiveData<MeasuringSystem> = msRepository.msValue.asLiveData()
 
     fun insert(measuringSystem: MeasuringSystem) = viewModelScope.launch {
         msRepository.insert(measuringSystem)

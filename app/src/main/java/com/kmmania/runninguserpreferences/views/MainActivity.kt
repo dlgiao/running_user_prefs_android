@@ -45,7 +45,7 @@ class MainActivity : AppCompatActivity() {
             startForResult.launch(Intent(this, MeasuringSystemActivity::class.java))
         }
 
-        msViewModel.lastMS.observe(this, { last ->
+        msViewModel.msValue.observe(this, { last ->
             last?.let {
                 when(it.measuringSystem.toString()) {
                     "METRIC" -> mainBinding.tvMsValue.text = getString(R.string.metric)
