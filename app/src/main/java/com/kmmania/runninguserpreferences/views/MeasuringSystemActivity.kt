@@ -8,9 +8,11 @@ import androidx.activity.viewModels
 //import com.kmmania.runninguserpreferences.application.RunningUserPrefApplication
 import com.kmmania.runninguserpreferences.databinding.ActivityMeasuringSystemBinding
 import com.kmmania.runninguserpreferences.viewmodels.MeasuringSystemViewModel
+import dagger.hilt.android.AndroidEntryPoint
 //import com.kmmania.runninguserpreferences.viewmodels.MeasuringSystemViewModel
 //import com.kmmania.runninguserpreferences.viewmodels.MeasuringSystemViewModelFactory
 
+@AndroidEntryPoint
 class MeasuringSystemActivity : AppCompatActivity() {
     private val msViewModel: MeasuringSystemViewModel by viewModels()
 //    private val msViewModel: MeasuringSystemViewModel by viewModels {
