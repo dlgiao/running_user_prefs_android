@@ -30,7 +30,7 @@ class MainActivity : AppCompatActivity() {
             startActivityForResult(intent, msActivityRequestCode)
         }
 
-        msViewModel.lastMeasuringSystem.observe(this, { last ->
+        msViewModel.lastMS.observe(this, { last ->
             last?.let {
                 when(it.measuringSystem.toString()) {
                     "METRIC" -> mainBinding.tvMsValue.text = getString(R.string.metric)

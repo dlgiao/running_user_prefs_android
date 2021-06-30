@@ -21,7 +21,7 @@ class MeasuringSystemActivity : AppCompatActivity() {
         msBinding = ActivityMeasuringSystemBinding.inflate(layoutInflater)
         setContentView(msBinding.root)
 
-        msViewModel.lastMeasuringSystem.observe(this, { last ->
+        msViewModel.lastMS.observe(this, { last ->
             last?.let {
                 when(it.measuringSystem.toString()) {
                     "METRIC" -> msBinding.rbMetric.isChecked = true
@@ -46,6 +46,7 @@ class MeasuringSystemActivity : AppCompatActivity() {
         finish()
     }
 
+    // TODO: Create CONSTANTS file
     companion object {
         const val EXTRA_REPLY = "com.example.android.wordlistsql.REPLY"
     }
