@@ -3,8 +3,10 @@ package com.kmmania.runninguserpreferences.viewmodels
 import androidx.lifecycle.*
 import com.kmmania.runninguserpreferences.model.MeasuringSystem
 import com.kmmania.runninguserpreferences.repositories.MeasuringSystemRepository
+import dagger.hilt.android.lifecycle.HiltViewModel
 import kotlinx.coroutines.launch
 
+@HiltViewModel
 class MeasuringSystemViewModel(
     private val msRepository: MeasuringSystemRepository
 ): ViewModel() {
