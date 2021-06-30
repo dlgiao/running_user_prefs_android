@@ -20,7 +20,6 @@ class MainActivity : AppCompatActivity() {
         MeasuringSystemViewModelFactory((application as RunningUserPrefApplication).msRepository)
     }
     private lateinit var mainBinding: ActivityMainBinding
-
     private val startForResult = registerForActivityResult(
         ActivityResultContracts.StartActivityForResult()
     ) { result: ActivityResult ->
