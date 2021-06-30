@@ -15,9 +15,7 @@ import com.kmmania.runninguserpreferences.viewmodels.MeasuringSystemViewModelFac
 
 class MainActivity : AppCompatActivity() {
     private val msViewModel: MeasuringSystemViewModel by viewModels {
-        MeasuringSystemViewModelFactory(
-            (application as RunningUserPrefApplication).measuringSystemRepository
-        )
+        MeasuringSystemViewModelFactory((application as RunningUserPrefApplication).msRepository)
     }
     private lateinit var mainBinding: ActivityMainBinding
     private val msActivityRequestCode = 1
