@@ -18,14 +18,14 @@ class MeasuringSystemViewModel @Inject constructor(
     }
 }
 
-class MeasuringSystemViewModelFactory(
-    private val msRepository: MeasuringSystemRepository
-) : ViewModelProvider.Factory {
-    override fun <T : ViewModel> create(modelClass: Class<T>): T {
-        if (modelClass.isAssignableFrom(MeasuringSystemViewModel::class.java)) {
-            @Suppress("UNCHECKED_CAST")
-            return MeasuringSystemViewModel(msRepository) as T
-        }
-        throw IllegalArgumentException("Unknown ViewModel class")
-    }
-}
+//class MeasuringSystemViewModelFactory(
+//    private val msRepository: MeasuringSystemRepository
+//) : ViewModelProvider.Factory {
+//    override fun <T : ViewModel> create(modelClass: Class<T>): T {
+//        if (modelClass.isAssignableFrom(MeasuringSystemViewModel::class.java)) {
+//            @Suppress("UNCHECKED_CAST")
+//            return MeasuringSystemViewModel(msRepository) as T
+//        }
+//        throw IllegalArgumentException("Unknown ViewModel class")
+//    }
+//}

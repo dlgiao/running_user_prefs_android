@@ -14,46 +14,46 @@ abstract class MeasuringSystemDatabase: RoomDatabase() {
 
     abstract  fun measuringSystemDao(): MeasuringSystemDao
 
-    class MeasuringSystemDatabaseCallback(
-        private val scope: CoroutineScope
-    ): RoomDatabase.Callback() {
-        override fun onCreate(db: SupportSQLiteDatabase) {
-            super.onCreate(db)
-            INSTANCE?.let { database ->
-                scope.launch {
-                    val measuringSystemDao = database.measuringSystemDao()
-                    measuringSystemDao.deleteAll()
-                    val initialMeasuringSystem = MeasuringSystem(MeasuringSystemUnit.METRIC)
-                    measuringSystemDao.insert(initialMeasuringSystem)
-                }
-            }
-        }
-    }
+//    private class MeasuringSystemDatabaseCallback(
+//        private val scope: CoroutineScope
+//    ): RoomDatabase.Callback() {
+//        override fun onCreate(db: SupportSQLiteDatabase) {
+//            super.onCreate(db)
+//            INSTANCE?.let { database ->
+//                scope.launch {
+//                    val measuringSystemDao = database.measuringSystemDao()
+//                    measuringSystemDao.deleteAll()
+//                    val initialMeasuringSystem = MeasuringSystem(MeasuringSystemUnit.METRIC)
+//                    measuringSystemDao.insert(initialMeasuringSystem)
+//                }
+//            }
+//        }
+//    }
 
-    companion object {
-        // Singleton prevents multiple instances of database opening at the
-        // same time.
-        @Volatile
-        private var INSTANCE: MeasuringSystemDatabase? = null
-
-        fun getDatabase(
-            context: RunningUserPrefApplication,
-            scope: CoroutineScope
-        ): MeasuringSystemDatabase {
-            // if the INSTANCE is not null, then return it,
-            // if it is, then create the database
-            return INSTANCE ?: synchronized(this) {
-                val instance = Room.databaseBuilder(
-                    context.applicationContext,
-                    MeasuringSystemDatabase::class.java,
-                    "measuring_system_database"
-                )
-                    .addCallback(MeasuringSystemDatabaseCallback(scope))
-                    .build()
-                INSTANCE = instance
-                // return instance
-                instance
-            }
-        }
-    }
+//    companion object {
+//        // Singleton prevents multiple instances of database opening at the
+//        // same time.
+//        @Volatile
+//        private var INSTANCE: MeasuringSystemDatabase? = null
+//
+//        fun getDatabase(
+//            context: RunningUserPrefApplication,
+//            scope: CoroutineScope
+//        ): MeasuringSystemDatabase {
+//            // if the INSTANCE is not null, then return it,
+//            // if it is, then create the database
+//            return INSTANCE ?: synchronized(this) {
+//                val instance = Room.databaseBuilder(
+//                    context.applicationContext,
+//                    MeasuringSystemDatabase::class.java,
+//                    "measuring_system_database"
+//                )
+//                    .addCallback(MeasuringSystemDatabaseCallback(scope))
+//                    .build()
+//                INSTANCE = instance
+//                // return instance
+//                instance
+//            }
+//        }
+//    }
 }

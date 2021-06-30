@@ -5,15 +5,17 @@ import android.content.Intent
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import androidx.activity.viewModels
-import com.kmmania.runninguserpreferences.application.RunningUserPrefApplication
+//import com.kmmania.runninguserpreferences.application.RunningUserPrefApplication
 import com.kmmania.runninguserpreferences.databinding.ActivityMeasuringSystemBinding
 import com.kmmania.runninguserpreferences.viewmodels.MeasuringSystemViewModel
-import com.kmmania.runninguserpreferences.viewmodels.MeasuringSystemViewModelFactory
+//import com.kmmania.runninguserpreferences.viewmodels.MeasuringSystemViewModel
+//import com.kmmania.runninguserpreferences.viewmodels.MeasuringSystemViewModelFactory
 
 class MeasuringSystemActivity : AppCompatActivity() {
-    private val msViewModel: MeasuringSystemViewModel by viewModels {
-        MeasuringSystemViewModelFactory((application as RunningUserPrefApplication).msRepository)
-    }
+    private val msViewModel: MeasuringSystemViewModel by viewModels()
+//    private val msViewModel: MeasuringSystemViewModel by viewModels {
+//        MeasuringSystemViewModelFactory((application as RunningUserPrefApplication).msRepository)
+//    }
     private lateinit var msBinding: ActivityMeasuringSystemBinding
 
     override fun onCreate(savedInstanceState: Bundle?) {
