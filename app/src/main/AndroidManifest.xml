@@ -3,7 +3,7 @@
     package="com.kmmania.runninguserpreferences">
 
     <application
-        android:name=".application.RunningUserPrefApplication"
+        android:name=".RunningUserPrefApplication"
         android:allowBackup="true"
         android:icon="@mipmap/ic_launcher"
         android:label="@string/app_name"
