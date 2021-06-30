@@ -4,10 +4,11 @@ import androidx.annotation.WorkerThread
 import com.kmmania.runninguserpreferences.model.MeasuringSystem
 import com.kmmania.runninguserpreferences.model.MeasuringSystemDao
 import kotlinx.coroutines.flow.Flow
+import javax.inject.Inject
 import javax.inject.Singleton
 
 @Singleton
-class MeasuringSystemRepository(private val msDao: MeasuringSystemDao) {
+class MeasuringSystemRepository @Inject constructor(private val msDao: MeasuringSystemDao) {
 
     val msValue: Flow<MeasuringSystem> = msDao.getMeasuringSystem()
 
