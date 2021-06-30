@@ -4,7 +4,7 @@ import androidx.room.Database
 import androidx.room.Room
 import androidx.room.RoomDatabase
 import androidx.sqlite.db.SupportSQLiteDatabase
-import com.kmmania.runninguserpreferences.RunningUserPrefApplication
+import com.kmmania.runninguserpreferences.application.RunningUserPrefApplication
 import com.kmmania.runninguserpreferences.utils.units.MeasuringSystemUnit
 import kotlinx.coroutines.CoroutineScope
 import kotlinx.coroutines.launch
