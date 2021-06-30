@@ -6,24 +6,22 @@ import com.kmmania.runninguserpreferences.repositories.MeasuringSystemRepository
 import kotlinx.coroutines.launch
 
 class MeasuringSystemViewModel(
-    private val measuringSystemRepository: MeasuringSystemRepository
+    private val msRepository: MeasuringSystemRepository
 ): ViewModel() {
-    val lastMeasuringSystem: LiveData<MeasuringSystem> = measuringSystemRepository
-        .lastMeasuringSystem
-        .asLiveData()
+    val lastMeasuringSystem: LiveData<MeasuringSystem> = msRepository.lastMeasuringSystem.asLiveData()
 
     fun insert(measuringSystem: MeasuringSystem) = viewModelScope.launch {
-        measuringSystemRepository.insert(measuringSystem)
+        msRepository.insert(measuringSystem)
     }
 }
 
 class MeasuringSystemViewModelFactory(
-    private val measuringSystemRepository: MeasuringSystemRepository
+    private val msRepository: MeasuringSystemRepository
 ) : ViewModelProvider.Factory {
     override fun <T : ViewModel> create(modelClass: Class<T>): T {
         if (modelClass.isAssignableFrom(MeasuringSystemViewModel::class.java)) {
             @Suppress("UNCHECKED_CAST")
-            return MeasuringSystemViewModel(measuringSystemRepository) as T
+            return MeasuringSystemViewModel(msRepository) as T
         }
         throw IllegalArgumentException("Unknown ViewModel class")
     }
