@@ -14,7 +14,7 @@ abstract class MeasuringSystemDatabase: RoomDatabase() {
 
     abstract  fun measuringSystemDao(): MeasuringSystemDao
 
-    private class MeasuringSystemDatabaseCallback(
+    class MeasuringSystemDatabaseCallback(
         private val scope: CoroutineScope
     ): RoomDatabase.Callback() {
         override fun onCreate(db: SupportSQLiteDatabase) {
