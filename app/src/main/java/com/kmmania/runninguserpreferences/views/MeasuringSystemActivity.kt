@@ -1,7 +1,10 @@
 package com.kmmania.runninguserpreferences.views
 
+import android.app.Activity
+import android.content.Intent
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
+import android.widget.RadioButton
 import androidx.activity.viewModels
 import com.kmmania.runninguserpreferences.R
 import com.kmmania.runninguserpreferences.RunningUserPrefApplication
@@ -33,11 +36,23 @@ class MeasuringSystemActivity : AppCompatActivity() {
             }
         })
 
-        msBinding.rgMS.setOnCheckedChangeListener { _, checkedId ->
-            when(checkedId) {
-                R.id.rb_metric -> msViewModel.insert(MeasuringSystem(MeasuringSystemUnit.METRIC))
-                R.id.rb_imperial -> msViewModel.insert(MeasuringSystem(MeasuringSystemUnit.IMPERIAL))
-            }
+        msBinding.rbMetric.setOnClickListener {
+            replyIntent("metric")
         }
+        msBinding.rbImperial.setOnClickListener {
+            replyIntent("imperial")
+        }
+    }
+
+    private fun replyIntent(msValue: String) {
+        val replyIntentValue = Intent()
+        replyIntentValue.putExtra(EXTRA_REPLY, msValue)
+        setResult(Activity.RESULT_OK, replyIntentValue)
+
+        finish()
+    }
+
+    companion object {
+        const val EXTRA_REPLY = "com.example.android.wordlistsql.REPLY"
     }
 }
