@@ -2,9 +2,7 @@ package com.kmmania.runninguserpreferences.application
 
 import android.app.Application
 import com.kmmania.runninguserpreferences.model.MeasuringSystemDatabase
-import com.kmmania.runninguserpreferences.model.UserPrefDatabase
 import com.kmmania.runninguserpreferences.repositories.MeasuringSystemRepository
-import com.kmmania.runninguserpreferences.repositories.UserPrefRepository
 import kotlinx.coroutines.CoroutineScope
 import kotlinx.coroutines.SupervisorJob
 
