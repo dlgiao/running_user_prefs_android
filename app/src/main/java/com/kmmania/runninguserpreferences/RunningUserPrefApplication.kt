@@ -11,13 +11,10 @@ import kotlinx.coroutines.SupervisorJob
 class RunningUserPrefApplication: Application() {
     private val applicationScope = CoroutineScope(SupervisorJob())
 
-    private val database by lazy { UserPrefDatabase.getDatabase(this) }
-    val repository by lazy { UserPrefRepository(database.userPrefDao()) }
-
-    private val measuringSystemDatabase by lazy {
+    private val msDatabase by lazy {
         MeasuringSystemDatabase.getDatabase(this, applicationScope)
     }
-    val measuringSystemRepository by lazy {
-        MeasuringSystemRepository(measuringSystemDatabase.measuringSystemDao())
+    val msRepository by lazy {
+        MeasuringSystemRepository(msDatabase.measuringSystemDao())
     }
 }
