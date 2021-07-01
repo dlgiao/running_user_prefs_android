@@ -10,7 +10,9 @@ import androidx.activity.viewModels
 import com.kmmania.runninguserpreferences.R
 //import com.kmmania.runninguserpreferences.application.RunningUserPrefApplication
 import com.kmmania.runninguserpreferences.databinding.ActivityMainBinding
+import com.kmmania.runninguserpreferences.model.Gender
 import com.kmmania.runninguserpreferences.model.MeasuringSystem
+import com.kmmania.runninguserpreferences.utils.units.GenderUnit
 import com.kmmania.runninguserpreferences.utils.units.MeasuringSystemUnit
 import com.kmmania.runninguserpreferences.viewmodels.GenderViewModel
 import com.kmmania.runninguserpreferences.viewmodels.MeasuringSystemViewModel
@@ -19,12 +21,13 @@ import dagger.hilt.android.AndroidEntryPoint
 
 @AndroidEntryPoint
 class MainActivity : AppCompatActivity() {
+    private lateinit var mainBinding: ActivityMainBinding
+
     // ViewModel
     private val msViewModel: MeasuringSystemViewModel by viewModels()
     private val genderViewModel: GenderViewModel by viewModels()
 
-    private lateinit var mainBinding: ActivityMainBinding
-
+    // StartForResult
     private val msStartForResult = registerForActivityResult(
         ActivityResultContracts.StartActivityForResult()
     ) { result: ActivityResult ->
@@ -34,6 +37,21 @@ class MainActivity : AppCompatActivity() {
                 when(it) {
                     "metric" -> msViewModel.insert(MeasuringSystem(MeasuringSystemUnit.METRIC))
                     "imperial" -> msViewModel.insert(MeasuringSystem(MeasuringSystemUnit.IMPERIAL))
+                    // TODO replace code
+                    else -> ""
+                }
+            }
+        }
+    }
+    private val genderStartForResult = registerForActivityResult(
+        ActivityResultContracts.StartActivityForResult()
+    ) { result: ActivityResult ->
+        if (result.resultCode == Activity.RESULT_OK) {
+            val data = result.data
+            data?.getStringExtra(MeasuringSystemActivity.EXTRA_REPLY)?.let {
+                when(it) {
+                    "male" -> genderViewModel.insert(Gender(GenderUnit.MALE))
+                    "female" -> genderViewModel.insert(Gender(GenderUnit.FEMALE))
                     // TODO replace code
                     else -> ""
                 }
