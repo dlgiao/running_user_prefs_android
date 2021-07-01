@@ -2,10 +2,7 @@ package com.kmmania.runninguserpreferences.di
 
 import android.content.Context
 import androidx.room.Room
-import com.kmmania.runninguserpreferences.model.GenderDao
-import com.kmmania.runninguserpreferences.model.GenderDatabase
-import com.kmmania.runninguserpreferences.model.MeasuringSystemDao
-import com.kmmania.runninguserpreferences.model.MeasuringSystemDatabase
+import com.kmmania.runninguserpreferences.model.*
 import dagger.Module
 import dagger.Provides
 import dagger.hilt.InstallIn
@@ -55,6 +52,19 @@ object DatabaseModule {
     @Provides
     fun provideGenderDao(genderDatabase: GenderDatabase): GenderDao {
         return genderDatabase.genderDao()
+    }
+
+    @Provides
+    @Singleton
+    fun provideDobDao(
+        @ApplicationContext AppContext: Context
+    ): DobDatabase {
+        return Room.databaseBuilder(
+            AppContext.applicationContext,
+            DobDatabase::class.java,
+            "dob_database"
+        )
+            .build()
     }
 
 }
