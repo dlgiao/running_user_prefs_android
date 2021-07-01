@@ -1,5 +1,5 @@
 package com.kmmania.runninguserpreferences.utils.units
 
-enum class Gender {
+enum class GenderUnit {
     MALE, FEMALE
 }
