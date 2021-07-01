@@ -20,5 +20,9 @@ class DobActivity : AppCompatActivity() {
         dobViewModel.dobValue.observe(this, { value ->
             //
         })
+
+        dobBinding.btnDatepicker.setOnClickListener {
+            //
+        }
     }
 }
