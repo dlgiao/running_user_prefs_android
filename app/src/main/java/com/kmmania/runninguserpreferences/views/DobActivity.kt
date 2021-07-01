@@ -16,5 +16,9 @@ class DobActivity : AppCompatActivity() {
         super.onCreate(savedInstanceState)
         dobBinding = ActivityDobBinding.inflate(layoutInflater)
         setContentView(dobBinding.root)
+
+        dobViewModel.dobValue.observe(this, { value ->
+            //
+        })
     }
 }
