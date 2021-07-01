@@ -10,7 +10,7 @@ import java.util.*
 @Dao
 interface DobDao {
     @Insert(onConflict = OnConflictStrategy.REPLACE)
-    suspend fun insert(dob: Date)
+    suspend fun insert(dob: Dob)
 
     @Query("DELETE FROM dob_table")
     suspend fun deleteAll()
