@@ -67,4 +67,9 @@ object DatabaseModule {
             .build()
     }
 
+    @Provides
+    fun provideDobDao(dobDatabase: DobDatabase): DobDao {
+        return dobDatabase.dobDao()
+    }
+
 }
