@@ -50,9 +50,8 @@ class MainActivity : AppCompatActivity() {
         mainBinding.tvMsTitle.setOnClickListener {
             msStartForResult.launch(Intent(this, MeasuringSystemActivity::class.java))
         }
-
-        msViewModel.msValue.observe(this, { last ->
-            last?.let {
+        msViewModel.msValue.observe(this, { value ->
+            value?.let {
                 when(it.measuringSystem.toString()) {
                     "METRIC" -> mainBinding.tvMsValue.text = getString(R.string.metric)
                     "IMPERIAL" -> mainBinding.tvMsValue.text = getString(R.string.imperial)
@@ -64,5 +63,13 @@ class MainActivity : AppCompatActivity() {
         mainBinding.tvGenderTitle.setOnClickListener {
             //
         }
+        genderViewModel.genderValue.observe(this, { value ->
+            value?.let {
+                when(it.gender.toString()) {
+                    "MALE" -> mainBinding.tvGenderValue.text = getString(R.string.male)
+                    "FEMALE" -> mainBinding.tvGenderValue.text = getString(R.string.female)
+                }
+            }
+        })
     }
 }
