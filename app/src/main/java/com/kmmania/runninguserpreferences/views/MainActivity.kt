@@ -73,6 +73,7 @@ class MainActivity : AppCompatActivity() {
                 when(it.measuringSystem.toString()) {
                     "METRIC" -> mainBinding.tvMsValue.text = getString(R.string.metric)
                     "IMPERIAL" -> mainBinding.tvMsValue.text = getString(R.string.imperial)
+                    else -> mainBinding.tvMsValue.text = getString(R.string.unknown)
                 }
             }
         })
@@ -86,6 +87,7 @@ class MainActivity : AppCompatActivity() {
                 when(it.gender.toString()) {
                     "MALE" -> mainBinding.tvGenderValue.text = getString(R.string.male)
                     "FEMALE" -> mainBinding.tvGenderValue.text = getString(R.string.female)
+                    else -> mainBinding.tvGenderValue.text = getString(R.string.unknown)
                 }
             }
         })
