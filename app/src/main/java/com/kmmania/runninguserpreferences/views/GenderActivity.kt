@@ -25,6 +25,13 @@ class GenderActivity : AppCompatActivity() {
                 }
             }
         })
+
+        genderBinding.rbMale.setOnClickListener {
+            replyIntent("male")
+        }
+        genderBinding.rbFemale.setOnClickListener {
+            replyIntent("female")
+        }
     }
 
     private fun replyIntent(msValue: String) {
