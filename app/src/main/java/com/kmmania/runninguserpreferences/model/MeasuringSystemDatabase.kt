@@ -12,7 +12,7 @@ import androidx.room.RoomDatabase
 @Database(entities = [MeasuringSystem::class], version = 1, exportSchema = false)
 abstract class MeasuringSystemDatabase: RoomDatabase() {
 
-    abstract  fun measuringSystemDao(): MeasuringSystemDao
+    abstract fun measuringSystemDao(): MeasuringSystemDao
 
 //    class MeasuringSystemDatabaseCallback(
 //        private val scope: CoroutineScope
