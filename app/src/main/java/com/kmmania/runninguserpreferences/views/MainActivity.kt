@@ -46,6 +46,7 @@ class MainActivity : AppCompatActivity() {
         mainBinding = ActivityMainBinding.inflate(layoutInflater)
         setContentView(mainBinding.root)
 
+        // Measuring system
         mainBinding.tvMsTitle.setOnClickListener {
             msStartForResult.launch(Intent(this, MeasuringSystemActivity::class.java))
         }
@@ -58,5 +59,10 @@ class MainActivity : AppCompatActivity() {
                 }
             }
         })
+
+        // Gender
+        mainBinding.tvGenderTitle.setOnClickListener {
+            //
+        }
     }
 }
