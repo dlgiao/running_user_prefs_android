@@ -7,7 +7,9 @@ import android.os.Bundle
 import androidx.activity.viewModels
 import com.kmmania.runninguserpreferences.databinding.ActivityGenderBinding
 import com.kmmania.runninguserpreferences.viewmodels.GenderViewModel
+import dagger.hilt.android.AndroidEntryPoint
 
+@AndroidEntryPoint
 class GenderActivity : AppCompatActivity() {
     private val genderViewModel: GenderViewModel by viewModels()
     private lateinit var genderBinding: ActivityGenderBinding
@@ -34,9 +36,9 @@ class GenderActivity : AppCompatActivity() {
         }
     }
 
-    private fun replyIntent(msValue: String) {
+    private fun replyIntent(genderValue: String) {
         val replyIntentValue = Intent()
-        replyIntentValue.putExtra(EXTRA_REPLY, msValue)
+        replyIntentValue.putExtra(EXTRA_REPLY, genderValue)
         setResult(Activity.RESULT_OK, replyIntentValue)
 
         finish()
