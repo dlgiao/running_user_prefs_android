@@ -3,4 +3,7 @@
     <string name="measuring_system">Measuring system</string>
     <string name="metric">metric</string>
     <string name="imperial">imperial</string>
+    <string name="gender">Gender</string>
+    <string name="male">Male</string>
+    <string name="female">Female</string>
 </resources>
