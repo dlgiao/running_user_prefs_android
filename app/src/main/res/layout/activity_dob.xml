@@ -11,6 +11,7 @@
         android:id="@+id/tv_dob_title"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
+        android:layout_marginTop="32dp"
         android:text="@string/dob"
         android:textSize="30sp"
         app:layout_constraintEnd_toEndOf="parent"
