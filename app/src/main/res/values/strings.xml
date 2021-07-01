@@ -4,6 +4,8 @@
     <string name="metric">metric</string>
     <string name="imperial">imperial</string>
     <string name="gender">Gender</string>
-    <string name="male">Male</string>
-    <string name="female">Female</string>
+    <string name="male">male</string>
+    <string name="female">female</string>
+
+    <string name="unknown">unknown</string>
 </resources>
