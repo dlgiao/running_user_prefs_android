@@ -1,6 +1,8 @@
 package com.kmmania.runninguserpreferences.model
 
+import androidx.room.Database
 import androidx.room.RoomDatabase
 
-class DobDatabase: RoomDatabase() {
+@Database(entities = [Dob::class], version = 1, exportSchema = false)
+abstract class DobDatabase: RoomDatabase() {
 }
