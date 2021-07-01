@@ -24,7 +24,8 @@ class MainActivity : AppCompatActivity() {
     private val genderViewModel: GenderViewModel by viewModels()
 
     private lateinit var mainBinding: ActivityMainBinding
-    private val startForResult = registerForActivityResult(
+
+    private val msStartForResult = registerForActivityResult(
         ActivityResultContracts.StartActivityForResult()
     ) { result: ActivityResult ->
         if (result.resultCode == Activity.RESULT_OK) {
@@ -46,7 +47,7 @@ class MainActivity : AppCompatActivity() {
         setContentView(mainBinding.root)
 
         mainBinding.tvMsTitle.setOnClickListener {
-            startForResult.launch(Intent(this, MeasuringSystemActivity::class.java))
+            msStartForResult.launch(Intent(this, MeasuringSystemActivity::class.java))
         }
 
         msViewModel.msValue.observe(this, { last ->
