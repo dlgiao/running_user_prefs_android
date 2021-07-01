@@ -93,5 +93,11 @@ class MainActivity : AppCompatActivity() {
                 }
             }
         })
+
+        //Dob
+
+        dobViewModel.dobValue.observe(this, { value ->
+            //
+        })
     }
 }
