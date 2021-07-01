@@ -48,7 +48,7 @@ class MainActivity : AppCompatActivity() {
     ) { result: ActivityResult ->
         if (result.resultCode == Activity.RESULT_OK) {
             val data = result.data
-            data?.getStringExtra(MeasuringSystemActivity.EXTRA_REPLY)?.let {
+            data?.getStringExtra(GenderActivity.EXTRA_REPLY)?.let {
                 when(it) {
                     "male" -> genderViewModel.insert(Gender(GenderUnit.MALE))
                     "female" -> genderViewModel.insert(Gender(GenderUnit.FEMALE))
