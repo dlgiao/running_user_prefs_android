@@ -23,8 +23,8 @@ data class UserPref(
     val weight: Double,
     @ColumnInfo(name = "unit_weight")
     val unitWeightUnit: WeightUnit,
-    @ColumnInfo(name = "gender")
-    val gender: Gender
+//    @ColumnInfo(name = "gender")
+//    val gender: Gender
 
 ) {
     @PrimaryKey(autoGenerate = true)
