@@ -2,6 +2,8 @@ package com.kmmania.runninguserpreferences.di
 
 import android.content.Context
 import androidx.room.Room
+import com.kmmania.runninguserpreferences.model.GenderDao
+import com.kmmania.runninguserpreferences.model.GenderDatabase
 import com.kmmania.runninguserpreferences.model.MeasuringSystemDao
 import com.kmmania.runninguserpreferences.model.MeasuringSystemDatabase
 import dagger.Module
@@ -18,15 +20,15 @@ object DatabaseModule {
     @Provides
     @Singleton
     fun provideMeasuringSystemDatabase(
-        @ApplicationContext AppContext: Context, scope: CoroutineScope
-        //@ApplicationContext AppContext: Context
+        //@ApplicationContext AppContext: Context, scope: CoroutineScope
+        @ApplicationContext AppContext: Context
     ): MeasuringSystemDatabase {
         return Room.databaseBuilder(
             AppContext.applicationContext,
             MeasuringSystemDatabase::class.java,
             "measuring_system_database"
         )
-            .addCallback(MeasuringSystemDatabase.MeasuringSystemDatabaseCallback(scope))
+            //.addCallback(MeasuringSystemDatabase.MeasuringSystemDatabaseCallback(scope))
             .build()
     }
 
@@ -37,5 +39,22 @@ object DatabaseModule {
         return measuringSystemDatabase.measuringSystemDao()
     }
 
+    @Provides
+    @Singleton
+    fun provideGenderDatabase(
+        @ApplicationContext AppContext: Context
+    ): GenderDatabase {
+        return Room.databaseBuilder(
+            AppContext.applicationContext,
+            GenderDatabase::class.java,
+            "gender_database"
+        )
+            .build()
+    }
+
+    @Provides
+    fun provideGenderDao(genderDatabase: GenderDatabase): GenderDao {
+        return genderDatabase.genderDao()
+    }
 
 }
