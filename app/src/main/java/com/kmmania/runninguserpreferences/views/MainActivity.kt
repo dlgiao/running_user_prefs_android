@@ -79,7 +79,7 @@ class MainActivity : AppCompatActivity() {
 
         // Gender
         mainBinding.tvGenderTitle.setOnClickListener {
-            //
+            genderStartForResult.launch(Intent(this, GenderActivity::class.java))
         }
         genderViewModel.genderValue.observe(this, { value ->
             value?.let {
