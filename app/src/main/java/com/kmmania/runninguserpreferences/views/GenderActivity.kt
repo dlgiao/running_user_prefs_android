@@ -1,5 +1,7 @@
 package com.kmmania.runninguserpreferences.views
 
+import android.app.Activity
+import android.content.Intent
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import androidx.activity.viewModels
@@ -23,5 +25,18 @@ class GenderActivity : AppCompatActivity() {
                 }
             }
         })
+    }
+
+    private fun replyIntent(msValue: String) {
+        val replyIntentValue = Intent()
+        replyIntentValue.putExtra(EXTRA_REPLY, msValue)
+        setResult(Activity.RESULT_OK, replyIntentValue)
+
+        finish()
+    }
+
+    // TODO: Create CONSTANTS file
+    companion object {
+        const val EXTRA_REPLY = "com.example.android.wordlistsql.REPLY"
     }
 }
