@@ -12,17 +12,17 @@ import com.kmmania.runninguserpreferences.R
 import com.kmmania.runninguserpreferences.databinding.ActivityMainBinding
 import com.kmmania.runninguserpreferences.model.MeasuringSystem
 import com.kmmania.runninguserpreferences.utils.units.MeasuringSystemUnit
+import com.kmmania.runninguserpreferences.viewmodels.GenderViewModel
 import com.kmmania.runninguserpreferences.viewmodels.MeasuringSystemViewModel
 //import com.kmmania.runninguserpreferences.viewmodels.MeasuringSystemViewModelFactory
 import dagger.hilt.android.AndroidEntryPoint
 
 @AndroidEntryPoint
 class MainActivity : AppCompatActivity() {
-//    private val msViewModel: MeasuringSystemViewModel by viewModels
-//    {
-//        MeasuringSystemViewModelFactory((application as RunningUserPrefApplication).msRepository)
-//    }
+    // ViewModel
     private val msViewModel: MeasuringSystemViewModel by viewModels()
+    private val genderViewModel: GenderViewModel by viewModels()
+
     private lateinit var mainBinding: ActivityMainBinding
     private val startForResult = registerForActivityResult(
         ActivityResultContracts.StartActivityForResult()
