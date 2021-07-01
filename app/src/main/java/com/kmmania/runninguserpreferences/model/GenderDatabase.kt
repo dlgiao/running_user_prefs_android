@@ -5,4 +5,5 @@ import androidx.room.RoomDatabase
 
 @Database(entities = [Gender::class], version = 1, exportSchema = false)
 abstract class GenderDatabase: RoomDatabase() {
+    abstract fun genderDao(): GenderDao
 }
