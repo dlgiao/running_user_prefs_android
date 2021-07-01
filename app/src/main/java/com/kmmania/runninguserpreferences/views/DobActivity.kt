@@ -21,7 +21,7 @@ class DobActivity : AppCompatActivity() {
             //
         })
 
-        dobBinding.btnDatepicker.setOnClickListener {
+        dobBinding.btnDatePicker.setOnClickListener {
             //
         }
     }
