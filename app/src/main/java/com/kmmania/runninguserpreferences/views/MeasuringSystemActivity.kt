@@ -25,8 +25,8 @@ class MeasuringSystemActivity : AppCompatActivity() {
         msBinding = ActivityMeasuringSystemBinding.inflate(layoutInflater)
         setContentView(msBinding.root)
 
-        msViewModel.msValue.observe(this, { last ->
-            last?.let {
+        msViewModel.msValue.observe(this, { value ->
+            value?.let {
                 when(it.measuringSystem.toString()) {
                     "METRIC" -> msBinding.rbMetric.isChecked = true
                     "IMPERIAL" -> msBinding.rbImperial.isChecked = true
