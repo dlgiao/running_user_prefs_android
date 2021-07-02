@@ -107,7 +107,9 @@ class MainActivity : AppCompatActivity() {
             dobStartForResult.launch(Intent(this, DobActivity::class.java))
         }
         dobViewModel.dobValue.observe(this, { value ->
-            //
+            value?.let {
+                mainBinding.tvDobValue.text = it.dob.toString()
+            }
         })
     }
 }
