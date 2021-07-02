@@ -5,7 +5,7 @@ import androidx.room.RoomDatabase
 import androidx.room.TypeConverters
 
 @Database(entities = [Dob::class], version = 1, exportSchema = false)
-@TypeConverters(Converters::class)
+//@TypeConverters(Converters::class)
 abstract class DobDatabase: RoomDatabase() {
     abstract fun dobDao(): DobDao
 }
