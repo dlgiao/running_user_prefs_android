@@ -2,6 +2,7 @@ package com.kmmania.runninguserpreferences.di
 
 import android.content.Context
 import androidx.room.Room
+import androidx.room.RoomDatabase
 import com.kmmania.runninguserpreferences.model.*
 import dagger.Module
 import dagger.Provides
@@ -72,4 +73,16 @@ object DatabaseModule {
         return dobDatabase.dobDao()
     }
 
+    @Provides
+    @Singleton
+    fun provideMasDatabase(
+        @ApplicationContext AppContext: Context
+    ): MasDatabase {
+        return Room.databaseBuilder(
+            AppContext.applicationContext,
+            MasDatabase::class.java,
+            "mas_database"
+        )
+            .build()
+    }
 }
