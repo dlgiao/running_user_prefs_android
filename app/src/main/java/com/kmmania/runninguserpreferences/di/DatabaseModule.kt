@@ -85,4 +85,9 @@ object DatabaseModule {
         )
             .build()
     }
+
+    @Provides
+    fun provideMasDao(masDatabase: MasDatabase): MasDao {
+        return masDatabase.masDao()
+    }
 }
