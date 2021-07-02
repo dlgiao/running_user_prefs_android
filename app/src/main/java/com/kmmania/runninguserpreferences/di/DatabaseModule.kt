@@ -56,7 +56,7 @@ object DatabaseModule {
 
     @Provides
     @Singleton
-    fun provideDobDao(
+    fun provideDobDatabase(
         @ApplicationContext AppContext: Context
     ): DobDatabase {
         return Room.databaseBuilder(
