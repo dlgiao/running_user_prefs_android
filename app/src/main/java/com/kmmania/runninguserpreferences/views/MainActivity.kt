@@ -128,6 +128,12 @@ class MainActivity : AppCompatActivity() {
         mainBinding.tvMasTitle.setOnClickListener {
             masStartForResult.launch(Intent(this, MasActivity::class.java))
         }
+        masViewModel.masValue.observe(this, { value ->
+            value?.let {
+                val mas = "${it.masValue} ${it.masUnit}"
+                mainBinding.tvMasValue.text = mas
+            }
+        })
 
     }
 }
