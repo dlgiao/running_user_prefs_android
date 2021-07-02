@@ -32,6 +32,11 @@ class DobActivity : AppCompatActivity() {
         dobBinding.btnSelectDate.setOnClickListener {
             datePicker.show(supportFragmentManager, "SELECT_DATE")
         }
+
+        datePicker.addOnPositiveButtonClickListener {
+            val dobDate = datePicker.headerText
+            replyIntent(dobDate)
+        }
     }
 
     private fun replyIntent(value: String) {
