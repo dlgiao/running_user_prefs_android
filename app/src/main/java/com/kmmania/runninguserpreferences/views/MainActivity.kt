@@ -95,7 +95,9 @@ class MainActivity : AppCompatActivity() {
         })
 
         //Dob
-
+        mainBinding.tvDobTitle.setOnClickListener {
+            //
+        }
         dobViewModel.dobValue.observe(this, { value ->
             //
         })
