@@ -123,5 +123,11 @@ class MainActivity : AppCompatActivity() {
                 mainBinding.tvDobValue.text = it.dob
             }
         })
+
+        // Mas
+        mainBinding.tvMasTitle.setOnClickListener {
+            masStartForResult.launch(Intent(this, MasActivity::class.java))
+        }
+
     }
 }
