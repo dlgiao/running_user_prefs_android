@@ -10,6 +10,7 @@ import androidx.activity.viewModels
 import com.kmmania.runninguserpreferences.R
 //import com.kmmania.runninguserpreferences.application.RunningUserPrefApplication
 import com.kmmania.runninguserpreferences.databinding.ActivityMainBinding
+import com.kmmania.runninguserpreferences.model.Dob
 import com.kmmania.runninguserpreferences.model.Gender
 import com.kmmania.runninguserpreferences.model.MeasuringSystem
 import com.kmmania.runninguserpreferences.utils.units.GenderUnit
@@ -65,7 +66,7 @@ class MainActivity : AppCompatActivity() {
     ) { result: ActivityResult ->
         val data = result.data
         data?.getStringExtra(DobActivity.EXTRA_REPLY)?.let {
-            //
+            dobViewModel.insert(Dob(it))
         }
     }
 
@@ -108,7 +109,7 @@ class MainActivity : AppCompatActivity() {
         }
         dobViewModel.dobValue.observe(this, { value ->
             value?.let {
-                mainBinding.tvDobValue.text = it.dob.toString()
+                mainBinding.tvDobValue.text = it.dob
             }
         })
     }
