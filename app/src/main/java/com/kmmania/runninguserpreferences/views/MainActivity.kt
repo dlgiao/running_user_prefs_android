@@ -72,6 +72,15 @@ class MainActivity : AppCompatActivity() {
         }
     }
 
+    private val masStartForResult = registerForActivityResult(
+        ActivityResultContracts.StartActivityForResult()
+    ) { result: ActivityResult ->
+        val data = result.data
+        data?.getStringExtra(MasActivity.EXTRA_REPLY)?.let {
+            //
+        }
+    }
+
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         mainBinding = ActivityMainBinding.inflate(layoutInflater)
