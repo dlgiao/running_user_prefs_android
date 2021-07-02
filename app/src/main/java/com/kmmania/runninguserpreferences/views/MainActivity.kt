@@ -60,6 +60,14 @@ class MainActivity : AppCompatActivity() {
             }
         }
     }
+    private val dobStartForResult = registerForActivityResult(
+        ActivityResultContracts.StartActivityForResult()
+    ) { result: ActivityResult ->
+        val data = result.data
+        data?.getStringExtra(DobActivity.EXTRA_REPLY)?.let {
+            //
+        }
+    }
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
