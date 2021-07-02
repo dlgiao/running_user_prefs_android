@@ -9,10 +9,10 @@ import com.kmmania.runninguserpreferences.utils.units.*
 data class UserPref(
 //    @ColumnInfo(name = "measuring_system")
 //    val measuringSystem: MeasuringSystemUnit,
-    @ColumnInfo(name = "mas")
-    val mas: Double,
-    @ColumnInfo(name = "unit_mas")
-    val unitMas: SpeedUnit,
+//    @ColumnInfo(name = "mas")
+//    val mas: Double,
+//    @ColumnInfo(name = "unit_mas")
+//    val unitMas: SpeedUnit,
 //    @ColumnInfo(name = "dob")
 //    val dob: String,
     @ColumnInfo(name = "height")
