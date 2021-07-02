@@ -17,6 +17,7 @@ import com.kmmania.runninguserpreferences.utils.units.GenderUnit
 import com.kmmania.runninguserpreferences.utils.units.MeasuringSystemUnit
 import com.kmmania.runninguserpreferences.viewmodels.DobViewModel
 import com.kmmania.runninguserpreferences.viewmodels.GenderViewModel
+import com.kmmania.runninguserpreferences.viewmodels.MasViewModel
 import com.kmmania.runninguserpreferences.viewmodels.MeasuringSystemViewModel
 //import com.kmmania.runninguserpreferences.viewmodels.MeasuringSystemViewModelFactory
 import dagger.hilt.android.AndroidEntryPoint
@@ -29,6 +30,7 @@ class MainActivity : AppCompatActivity() {
     private val msViewModel: MeasuringSystemViewModel by viewModels()
     private val genderViewModel: GenderViewModel by viewModels()
     private val dobViewModel: DobViewModel by viewModels()
+    private val masViewModel: MasViewModel by viewModels()
 
     // StartForResult
     private val msStartForResult = registerForActivityResult(
