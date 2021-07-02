@@ -8,6 +8,9 @@
     <string name="female">female</string>
     <string name="dob">DOB</string>
     <string name="select_date">Select date</string>
+    <string name="mas">MAS</string>
+    <string name="kmh">km/h</string>
+    <string name="mph">mph</string>
 
     <string name="unknown">unknown</string>
 </resources>
