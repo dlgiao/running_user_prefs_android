@@ -5,6 +5,8 @@ import android.content.Intent
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import androidx.activity.viewModels
+import com.google.android.material.datepicker.MaterialDatePicker
+import com.kmmania.runninguserpreferences.R
 import com.kmmania.runninguserpreferences.databinding.ActivityDobBinding
 import com.kmmania.runninguserpreferences.viewmodels.DobViewModel
 import dagger.hilt.android.AndroidEntryPoint
@@ -22,6 +24,14 @@ class DobActivity : AppCompatActivity() {
         dobViewModel.dobValue.observe(this, { value ->
             //
         })
+
+        val datePicker = MaterialDatePicker.Builder.datePicker()
+            .setTitleText(getString(R.string.select_date))
+            .build()
+
+        dobBinding.btnSelectDate.setOnClickListener {
+            datePicker.show(supportFragmentManager, "SELECT_DATE")
+        }
     }
 
     private fun replyIntent(value: String) {
