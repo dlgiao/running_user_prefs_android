@@ -22,8 +22,8 @@
         android:id="@+id/tv_ms_value"
         android:layout_width="0dp"
         android:layout_height="wrap_content"
-        android:hint="@string/unknown"
         android:paddingHorizontal="10dp"
+        android:hint="@string/unknown"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/tv_ms_title" />
@@ -43,13 +43,14 @@
         android:id="@+id/tv_gender_value"
         android:layout_width="0dp"
         android:layout_height="wrap_content"
-        android:hint="@string/unknown"
         android:paddingHorizontal="10dp"
+        android:hint="@string/unknown"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/tv_gender_title" />
 
     <TextView
+        android:id="@+id/tv_dob_title"
         android:layout_width="0dp"
         android:layout_height="wrap_content"
         android:paddingHorizontal="10dp"
@@ -59,6 +60,14 @@
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@id/tv_gender_value"/>
 
-
+    <TextView
+        android:id="@+id/tv_dob_value"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:paddingHorizontal="10dp"
+        android:hint="@string/unknown"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/tv_dob_title"/>
 
 </androidx.constraintlayout.widget.ConstraintLayout>
