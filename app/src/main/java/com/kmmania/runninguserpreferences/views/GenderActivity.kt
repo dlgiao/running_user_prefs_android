@@ -36,9 +36,9 @@ class GenderActivity : AppCompatActivity() {
         }
     }
 
-    private fun replyIntent(genderValue: String) {
+    private fun replyIntent(value: String) {
         val replyIntentValue = Intent()
-        replyIntentValue.putExtra(EXTRA_REPLY, genderValue)
+        replyIntentValue.putExtra(EXTRA_REPLY, value)
         setResult(Activity.RESULT_OK, replyIntentValue)
 
         finish()
