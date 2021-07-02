@@ -42,9 +42,9 @@ class MeasuringSystemActivity : AppCompatActivity() {
         }
     }
 
-    private fun replyIntent(msValue: String) {
+    private fun replyIntent(value: String) {
         val replyIntentValue = Intent()
-        replyIntentValue.putExtra(EXTRA_REPLY, msValue)
+        replyIntentValue.putExtra(EXTRA_REPLY, value)
         setResult(Activity.RESULT_OK, replyIntentValue)
 
         finish()
