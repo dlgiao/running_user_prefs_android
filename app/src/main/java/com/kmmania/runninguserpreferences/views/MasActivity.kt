@@ -19,7 +19,15 @@ class MasActivity : AppCompatActivity() {
         masBinding = ActivityMasBinding.inflate(layoutInflater)
         setContentView(masBinding.root)
 
+        masViewModel.masValue.observe(this, { mas ->
+            mas?.let {
 
+                when(it.masUnit.toString()) {
+                    "KMH" -> masBinding.rbKmh.isChecked = true
+                    "MPH" -> masBinding.rbMph.isChecked = true
+                }
+            }
+        })
     }
 
     private fun replyIntent(value: String) {
