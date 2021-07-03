@@ -130,7 +130,12 @@ class MainActivity : AppCompatActivity() {
         }
         masViewModel.masValue.observe(this, { value ->
             value?.let {
-                val mas = "${it.masValue} ${it.masUnit}"
+                var unitMas = ""
+                when(it.masUnit.toString()) {
+                    "KMH" -> unitMas = getString(R.string.kmh)
+                    "MPH" -> unitMas = getString(R.string.mph)
+                }
+                val mas = "${it.masValue} $unitMas"
                 mainBinding.tvMasValue.text = mas
             }
         })
