@@ -128,15 +128,15 @@ class MainActivity : AppCompatActivity() {
         mainBinding.tvMasTitle.setOnClickListener {
             masStartForResult.launch(Intent(this, MasActivity::class.java))
         }
-        masViewModel.masValue.observe(this, { value ->
-            value?.let {
+        masViewModel.masValue.observe(this, { mas ->
+            mas?.let {
                 var unitMas = ""
                 when(it.masUnit.toString()) {
                     "KMH" -> unitMas = getString(R.string.kmh)
                     "MPH" -> unitMas = getString(R.string.mph)
                 }
-                val mas = "${it.masValue} $unitMas"
-                mainBinding.tvMasValue.text = mas
+                val masComplete = "${it.masValue} $unitMas"
+                mainBinding.tvMasValue.text = masComplete
             }
         })
 
