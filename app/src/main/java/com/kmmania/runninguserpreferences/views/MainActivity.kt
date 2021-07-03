@@ -104,8 +104,8 @@ class MainActivity : AppCompatActivity() {
         mainBinding.tvGenderTitle.setOnClickListener {
             genderStartForResult.launch(Intent(this, GenderActivity::class.java))
         }
-        genderViewModel.genderValue.observe(this, { value ->
-            value?.let {
+        genderViewModel.genderValue.observe(this, { gender ->
+            gender?.let {
                 when(it.gender.toString()) {
                     "MALE" -> mainBinding.tvGenderValue.text = getString(R.string.male)
                     "FEMALE" -> mainBinding.tvGenderValue.text = getString(R.string.female)
