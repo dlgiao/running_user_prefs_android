@@ -19,8 +19,8 @@ class GenderActivity : AppCompatActivity() {
         genderBinding = ActivityGenderBinding.inflate(layoutInflater)
         setContentView(genderBinding.root)
 
-        genderViewModel.genderValue.observe(this, { value ->
-            value?.let {
+        genderViewModel.genderValue.observe(this, { gender ->
+            gender?.let {
                 when(it.gender.toString()) {
                     "MALE" -> genderBinding.rbMale.isChecked = true
                     "FEMALE" -> genderBinding.rbFemale.isChecked = true
