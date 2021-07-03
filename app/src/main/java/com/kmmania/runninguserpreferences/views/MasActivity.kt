@@ -4,15 +4,20 @@ import android.app.Activity
 import android.content.Intent
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
+import androidx.activity.viewModels
 import com.kmmania.runninguserpreferences.databinding.ActivityMasBinding
+import com.kmmania.runninguserpreferences.viewmodels.MasViewModel
 
 class MasActivity : AppCompatActivity() {
     private lateinit var masBinding: ActivityMasBinding
+    private val masViewModel: MasViewModel by viewModels()
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         masBinding = ActivityMasBinding.inflate(layoutInflater)
         setContentView(masBinding.root)
+
+
     }
 
     private fun replyIntent(value: String) {
