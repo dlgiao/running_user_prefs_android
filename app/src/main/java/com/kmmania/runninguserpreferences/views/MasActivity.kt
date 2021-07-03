@@ -7,10 +7,12 @@ import android.os.Bundle
 import androidx.activity.viewModels
 import com.kmmania.runninguserpreferences.databinding.ActivityMasBinding
 import com.kmmania.runninguserpreferences.viewmodels.MasViewModel
+import com.kmmania.runninguserpreferences.viewmodels.MeasuringSystemViewModel
 
 class MasActivity : AppCompatActivity() {
     private lateinit var masBinding: ActivityMasBinding
     private val masViewModel: MasViewModel by viewModels()
+    private val msViewModel: MeasuringSystemViewModel by viewModels()
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
