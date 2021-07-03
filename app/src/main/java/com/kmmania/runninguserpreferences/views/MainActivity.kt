@@ -118,8 +118,8 @@ class MainActivity : AppCompatActivity() {
         mainBinding.tvDobTitle.setOnClickListener {
             dobStartForResult.launch(Intent(this, DobActivity::class.java))
         }
-        dobViewModel.dobValue.observe(this, { value ->
-            value?.let {
+        dobViewModel.dobValue.observe(this, { dob ->
+            dob?.let {
                 mainBinding.tvDobValue.text = it.dob
             }
         })
