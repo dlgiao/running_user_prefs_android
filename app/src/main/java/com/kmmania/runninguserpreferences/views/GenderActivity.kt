@@ -11,8 +11,8 @@ import dagger.hilt.android.AndroidEntryPoint
 
 @AndroidEntryPoint
 class GenderActivity : AppCompatActivity() {
-    private val genderViewModel: GenderViewModel by viewModels()
     private lateinit var genderBinding: ActivityGenderBinding
+    private val genderViewModel: GenderViewModel by viewModels()
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
