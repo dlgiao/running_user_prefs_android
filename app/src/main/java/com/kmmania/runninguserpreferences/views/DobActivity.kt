@@ -21,7 +21,7 @@ class DobActivity : AppCompatActivity() {
         dobBinding = ActivityDobBinding.inflate(layoutInflater)
         setContentView(dobBinding.root)
 
-        dobViewModel.dobValue.observe(this, { value ->
+        dobViewModel.dobValue.observe(this, { dob ->
             //
         })
 
