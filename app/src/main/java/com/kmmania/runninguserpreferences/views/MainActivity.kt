@@ -90,8 +90,8 @@ class MainActivity : AppCompatActivity() {
         mainBinding.tvMsTitle.setOnClickListener {
             msStartForResult.launch(Intent(this, MeasuringSystemActivity::class.java))
         }
-        msViewModel.msValue.observe(this, { value ->
-            value?.let {
+        msViewModel.msValue.observe(this, { ms ->
+            ms?.let {
                 when(it.measuringSystem.toString()) {
                     "METRIC" -> mainBinding.tvMsValue.text = getString(R.string.metric)
                     "IMPERIAL" -> mainBinding.tvMsValue.text = getString(R.string.imperial)
