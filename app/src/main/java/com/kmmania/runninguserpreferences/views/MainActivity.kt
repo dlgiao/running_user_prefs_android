@@ -81,7 +81,7 @@ class MainActivity : AppCompatActivity() {
         data?.getStringArrayExtra(MasActivity.EXTRA_REPLY)?.let {
             val masValue = it[0].toDouble()
             var masUnit: SpeedUnit = SpeedUnit.KMH
-            when(it[0]) {
+            when(it[1]) {
                 "km/h" -> masUnit = SpeedUnit.KMH
                 "mph" -> masUnit = SpeedUnit.MPH
             }
