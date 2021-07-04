@@ -12,9 +12,11 @@ import com.kmmania.runninguserpreferences.R
 import com.kmmania.runninguserpreferences.databinding.ActivityMainBinding
 import com.kmmania.runninguserpreferences.model.Dob
 import com.kmmania.runninguserpreferences.model.Gender
+import com.kmmania.runninguserpreferences.model.Mas
 import com.kmmania.runninguserpreferences.model.MeasuringSystem
 import com.kmmania.runninguserpreferences.utils.units.GenderUnit
 import com.kmmania.runninguserpreferences.utils.units.MeasuringSystemUnit
+import com.kmmania.runninguserpreferences.utils.units.SpeedUnit
 import com.kmmania.runninguserpreferences.viewmodels.DobViewModel
 import com.kmmania.runninguserpreferences.viewmodels.GenderViewModel
 import com.kmmania.runninguserpreferences.viewmodels.MasViewModel
@@ -76,8 +78,14 @@ class MainActivity : AppCompatActivity() {
         ActivityResultContracts.StartActivityForResult()
     ) { result: ActivityResult ->
         val data = result.data
-        data?.getStringExtra(MasActivity.EXTRA_REPLY)?.let {
-            //
+        data?.getStringArrayExtra(MasActivity.EXTRA_REPLY)?.let {
+            val masValue = it[0].toDouble()
+            var masUnit: SpeedUnit = SpeedUnit.KMH
+            when(it[0]) {
+                "km/h" -> masUnit = SpeedUnit.KMH
+                "mph" -> masUnit = SpeedUnit.MPH
+            }
+            masViewModel.insert(Mas(masValue, masUnit))
         }
     }
 
