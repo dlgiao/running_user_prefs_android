@@ -22,6 +22,19 @@ class MasActivity : AppCompatActivity() {
         masBinding = ActivityMasBinding.inflate(layoutInflater)
         setContentView(masBinding.root)
 
+        msViewModel.msValue.observe(this, { ms ->
+            ms?.let {
+                when(it.measuringSystem.toString()) {
+                    "METRIC" -> {
+                        masBinding.tvMasTitle.text = getString(R.string.metric)
+                    }
+                    "IMPERIAL" -> {
+                        masBinding.tvMasTitle.text = getString(R.string.imperial)
+                    }
+                }
+            }
+        })
+
         masViewModel.masValue.observe(this, { mas ->
             mas?.let {
                 //masBinding.etMasValue.editText?.text
