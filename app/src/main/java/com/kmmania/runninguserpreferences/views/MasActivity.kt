@@ -24,7 +24,7 @@ class MasActivity : AppCompatActivity() {
 
         masViewModel.masValue.observe(this, { mas ->
             mas?.let {
-                masBinding.etMasValue.editText?.text
+                //masBinding.etMasValue.editText?.text
                 when(it.masUnit.toString()) {
                     "KMH" -> masBinding.rbKmh.isChecked = true
                     "MPH" -> masBinding.rbMph.isChecked = true
@@ -33,19 +33,19 @@ class MasActivity : AppCompatActivity() {
         })
 
         masBinding.btnSave.setOnClickListener {
-            val mas1 = masBinding.etMasValue.editText?.text.toString()
-            var mas2 = ""
+            val masValue = masBinding.etMasValue.editText?.text.toString()
+            var masUnit = ""
             if (masBinding.rbKmh.isChecked) {
-                mas2 = getString(R.string.kmh)
+                masUnit = getString(R.string.kmh)
             } else if (masBinding.rbMph.isChecked) {
-                mas2 = getString(R.string.mph)
+                masUnit = getString(R.string.mph)
             }
-            val masArray = arrayOf(mas1, mas2)
-            replyIntent(masArray)
+            val masArray = arrayOf(masValue, masUnit)
+            replyIntentArray(masArray)
         }
     }
 
-    private fun replyIntent(value: Array<String>) {
+    private fun replyIntentArray(value: Array<String>) {
         val replyIntentValue = Intent()
         replyIntentValue.putExtra(EXTRA_REPLY1, value)
         setResult(Activity.RESULT_OK, replyIntentValue)
