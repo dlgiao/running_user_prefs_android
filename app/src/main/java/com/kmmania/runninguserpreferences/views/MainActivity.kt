@@ -73,7 +73,6 @@ class MainActivity : AppCompatActivity() {
             dobViewModel.insert(Dob(it))
         }
     }
-
     private val masStartForResult = registerForActivityResult(
         ActivityResultContracts.StartActivityForResult()
     ) { result: ActivityResult ->
