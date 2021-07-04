@@ -4,6 +4,7 @@ import android.app.Activity
 import android.content.Intent
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
+import android.text.Editable
 import androidx.activity.viewModels
 import com.kmmania.runninguserpreferences.R
 import com.kmmania.runninguserpreferences.databinding.ActivityMasBinding
@@ -41,7 +42,7 @@ class MasActivity : AppCompatActivity() {
 
         masViewModel.masValue.observe(this, { mas ->
             mas?.let {
-                //masBinding.etMasValue.editText?.text
+                masBinding.etMasValue.editText?.setText(it.masValue.toString())
                 when(it.masUnit.toString()) {
                     "KMH" -> masBinding.rbKmh.isChecked = true
                     "MPH" -> masBinding.rbMph.isChecked = true
