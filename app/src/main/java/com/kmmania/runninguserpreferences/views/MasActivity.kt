@@ -45,7 +45,7 @@ class MasActivity : AppCompatActivity() {
 
     private fun replyIntent(value: Array<String>) {
         val replyIntentValue = Intent()
-        replyIntentValue.putExtra(EXTRA_REPLY, value)
+        replyIntentValue.putExtra(EXTRA_REPLY1, value)
         setResult(Activity.RESULT_OK, replyIntentValue)
 
         finish()
@@ -53,6 +53,6 @@ class MasActivity : AppCompatActivity() {
 
     // TODO: Create CONSTANTS file
     companion object {
-        const val EXTRA_REPLY = "com.example.android.wordlistsql.REPLY"
+        const val EXTRA_REPLY1 = "com.example.android.wordlistsql.REPLY1"
     }
 }

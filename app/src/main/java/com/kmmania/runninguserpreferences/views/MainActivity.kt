@@ -77,7 +77,7 @@ class MainActivity : AppCompatActivity() {
         ActivityResultContracts.StartActivityForResult()
     ) { result: ActivityResult ->
         val data = result.data
-        data?.getStringArrayExtra(MasActivity.EXTRA_REPLY)?.let {
+        data?.getStringArrayExtra(MasActivity.EXTRA_REPLY1)?.let {
             val masValue = it[0].toDouble()
             var masUnit: SpeedUnit = SpeedUnit.KMH
             when(it[1]) {
