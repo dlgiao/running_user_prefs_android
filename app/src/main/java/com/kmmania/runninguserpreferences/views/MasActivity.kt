@@ -9,7 +9,9 @@ import com.kmmania.runninguserpreferences.R
 import com.kmmania.runninguserpreferences.databinding.ActivityMasBinding
 import com.kmmania.runninguserpreferences.viewmodels.MasViewModel
 import com.kmmania.runninguserpreferences.viewmodels.MeasuringSystemViewModel
+import dagger.hilt.android.AndroidEntryPoint
 
+@AndroidEntryPoint
 class MasActivity : AppCompatActivity() {
     private lateinit var masBinding: ActivityMasBinding
     private val masViewModel: MasViewModel by viewModels()
