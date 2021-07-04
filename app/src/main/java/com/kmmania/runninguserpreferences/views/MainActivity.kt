@@ -41,9 +41,16 @@ class MainActivity : AppCompatActivity() {
         if (result.resultCode == Activity.RESULT_OK) {
             val data = result.data
             data?.getStringExtra(MeasuringSystemActivity.EXTRA_REPLY)?.let {
+                val masValue = masViewModel.masValue.value!!.masValue
                 when(it) {
-                    "metric" -> msViewModel.insert(MeasuringSystem(MeasuringSystemUnit.METRIC))
-                    "imperial" -> msViewModel.insert(MeasuringSystem(MeasuringSystemUnit.IMPERIAL))
+                    "metric" -> {
+                        msViewModel.insert(MeasuringSystem(MeasuringSystemUnit.METRIC))
+                        masViewModel.insert(Mas(masValue, SpeedUnit.KMH))
+                    }
+                    "imperial" -> {
+                        msViewModel.insert(MeasuringSystem(MeasuringSystemUnit.IMPERIAL))
+                        masViewModel.insert(Mas(masValue, SpeedUnit.MPH))
+                    }
                     // TODO replace code
                     else -> ""
                 }
