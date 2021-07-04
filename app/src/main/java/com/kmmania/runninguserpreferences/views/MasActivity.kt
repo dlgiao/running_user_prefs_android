@@ -26,12 +26,14 @@ class MasActivity : AppCompatActivity() {
             ms?.let {
                 when(it.measuringSystem.toString()) {
                     "METRIC" -> {
-                        masBinding.tvMasTitle.text = getString(R.string.metric)
                         masBinding.rbKmh.isEnabled = false
+                        masBinding.rbMph.isEnabled = false
+                        masBinding.rbKmh.isChecked = true
                     }
                     "IMPERIAL" -> {
-                        masBinding.tvMasTitle.text = getString(R.string.imperial)
+                        masBinding.rbKmh.isEnabled = false
                         masBinding.rbMph.isEnabled = false
+                        masBinding.rbMph.isChecked = true
                     }
                 }
             }
