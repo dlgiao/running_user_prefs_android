@@ -4,8 +4,8 @@ import android.app.Activity
 import android.content.Intent
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
-import android.widget.EditText
 import androidx.activity.viewModels
+import com.kmmania.runninguserpreferences.R
 import com.kmmania.runninguserpreferences.databinding.ActivityMasBinding
 import com.kmmania.runninguserpreferences.viewmodels.MasViewModel
 import com.kmmania.runninguserpreferences.viewmodels.MeasuringSystemViewModel
@@ -29,9 +29,21 @@ class MasActivity : AppCompatActivity() {
                 }
             }
         })
+
+        masBinding.btnSave.setOnClickListener {
+            val mas1 = masBinding.etMasValue.editText?.text.toString()
+            var mas2 = ""
+            if (masBinding.rbKmh.isChecked) {
+                mas2 = getString(R.string.kmh)
+            } else if (masBinding.rbMph.isChecked) {
+                mas2 = getString(R.string.mph)
+            }
+            val masArray = arrayOf(mas1, mas2)
+            replyIntent(masArray)
+        }
     }
 
-    private fun replyIntent(value: String) {
+    private fun replyIntent(value: Array<String>) {
         val replyIntentValue = Intent()
         replyIntentValue.putExtra(EXTRA_REPLY, value)
         setResult(Activity.RESULT_OK, replyIntentValue)
