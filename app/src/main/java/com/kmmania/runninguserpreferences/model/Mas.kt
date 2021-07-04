@@ -9,7 +9,7 @@ import com.kmmania.runninguserpreferences.utils.units.SpeedUnit
 data class Mas(
     @PrimaryKey
     @ColumnInfo(name = "mas_value")
-    val masValue: Double,
+    val masValue: Double?,
     @ColumnInfo(name = "mas_unit")
     val masUnit: SpeedUnit
 )
