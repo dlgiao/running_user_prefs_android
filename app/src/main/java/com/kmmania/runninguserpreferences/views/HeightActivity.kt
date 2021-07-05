@@ -26,5 +26,11 @@ class HeightActivity : AppCompatActivity() {
                 }
             }
         })
+
+        heightViewModel.heightValue.observe(this, { height ->
+            height?.let {
+                heightBinding.etHeightValue.editText?.setText(it.heightValue.toString())
+            }
+        })
     }
 }
