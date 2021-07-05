@@ -29,6 +29,7 @@ class MainActivity : AppCompatActivity() {
     private val dobViewModel: DobViewModel by viewModels()
     private val masViewModel: MasViewModel by viewModels()
     private val heightViewModel: HeightViewModel by viewModels()
+    private val weightViewModel: WeightViewModel by viewModels()
 
     // StartForResult
     private val msStartForResult = registerForActivityResult(
