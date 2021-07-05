@@ -36,7 +36,10 @@ class HeightActivity : AppCompatActivity() {
         })
 
         heightBinding.btnSaveHeight.setOnClickListener {
-
+            val heightValue = heightBinding.etHeightValue.editText?.text.toString()
+            val heightUnit = heightBinding.tvUnitHeight.text.toString()
+            val heightArray = arrayOf(heightValue, heightUnit)
+            replyIntentArray(heightArray)
         }
     }
 
