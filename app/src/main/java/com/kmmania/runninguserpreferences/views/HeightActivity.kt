@@ -7,6 +7,7 @@ import android.os.Bundle
 import androidx.activity.viewModels
 import com.kmmania.runninguserpreferences.R
 import com.kmmania.runninguserpreferences.databinding.ActivityHeightBinding
+import com.kmmania.runninguserpreferences.utils.CONSTANTS.Companion.EXTRA_REPLY_ARRAY
 import com.kmmania.runninguserpreferences.viewmodels.HeightViewModel
 import com.kmmania.runninguserpreferences.viewmodels.MeasuringSystemViewModel
 import dagger.hilt.android.AndroidEntryPoint
@@ -47,14 +48,9 @@ class HeightActivity : AppCompatActivity() {
 
     private fun replyIntentArray(value: Array<String>) {
         val replyIntentValue = Intent()
-        replyIntentValue.putExtra(EXTRA_REPLY1, value)
+        replyIntentValue.putExtra(EXTRA_REPLY_ARRAY, value)
         setResult(Activity.RESULT_OK, replyIntentValue)
 
         finish()
-    }
-
-    // TODO: Create CONSTANTS file
-    companion object {
-        const val EXTRA_REPLY1 = "com.example.android.wordlistsql.REPLY1"
     }
 }
