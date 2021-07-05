@@ -9,7 +9,9 @@ import com.kmmania.runninguserpreferences.R
 import com.kmmania.runninguserpreferences.databinding.ActivityHeightBinding
 import com.kmmania.runninguserpreferences.viewmodels.HeightViewModel
 import com.kmmania.runninguserpreferences.viewmodels.MeasuringSystemViewModel
+import dagger.hilt.android.AndroidEntryPoint
 
+@AndroidEntryPoint
 class HeightActivity : AppCompatActivity() {
     private lateinit var heightBinding: ActivityHeightBinding
     private val heightViewModel: HeightViewModel by viewModels()
