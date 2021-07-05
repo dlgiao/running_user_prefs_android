@@ -11,6 +11,8 @@ import com.kmmania.runninguserpreferences.R
 //import com.kmmania.runninguserpreferences.application.RunningUserPrefApplication
 import com.kmmania.runninguserpreferences.databinding.ActivityMainBinding
 import com.kmmania.runninguserpreferences.model.*
+import com.kmmania.runninguserpreferences.utils.CONSTANTS.Companion.EXTRA_REPLY_ARRAY
+import com.kmmania.runninguserpreferences.utils.CONSTANTS.Companion.EXTRA_REPLY_STRING
 import com.kmmania.runninguserpreferences.utils.units.*
 import com.kmmania.runninguserpreferences.viewmodels.*
 //import com.kmmania.runninguserpreferences.viewmodels.MeasuringSystemViewModelFactory
@@ -34,7 +36,7 @@ class MainActivity : AppCompatActivity() {
     ) { result: ActivityResult ->
         if (result.resultCode == Activity.RESULT_OK) {
             val data = result.data
-            data?.getStringExtra(MeasuringSystemActivity.EXTRA_REPLY)?.let {
+            data?.getStringExtra(EXTRA_REPLY_STRING)?.let {
                 // TODO: Convert data to the new unit
                 // mas
                 val masValue = masViewModel.masValue.value!!.masValue
@@ -67,7 +69,7 @@ class MainActivity : AppCompatActivity() {
     ) { result: ActivityResult ->
         if (result.resultCode == Activity.RESULT_OK) {
             val data = result.data
-            data?.getStringExtra(GenderActivity.EXTRA_REPLY)?.let {
+            data?.getStringExtra(EXTRA_REPLY_STRING)?.let {
                 when(it) {
                     "male" -> genderViewModel.insert(Gender(GenderUnit.MALE))
                     "female" -> genderViewModel.insert(Gender(GenderUnit.FEMALE))
@@ -81,7 +83,7 @@ class MainActivity : AppCompatActivity() {
         ActivityResultContracts.StartActivityForResult()
     ) { result: ActivityResult ->
         val data = result.data
-        data?.getStringExtra(DobActivity.EXTRA_REPLY)?.let {
+        data?.getStringExtra(EXTRA_REPLY_STRING)?.let {
             dobViewModel.insert(Dob(it))
         }
     }
@@ -89,7 +91,7 @@ class MainActivity : AppCompatActivity() {
         ActivityResultContracts.StartActivityForResult()
     ) { result: ActivityResult ->
         val data = result.data
-        data?.getStringArrayExtra(MasActivity.EXTRA_REPLY1)?.let {
+        data?.getStringArrayExtra(EXTRA_REPLY_ARRAY)?.let {
             val masValue = it[0].toDouble()
             var masUnit: SpeedUnit = SpeedUnit.KMH
             when(it[1]) {
@@ -103,7 +105,7 @@ class MainActivity : AppCompatActivity() {
         ActivityResultContracts.StartActivityForResult()
     ) { result: ActivityResult ->
         val data = result.data
-        data?.getStringArrayExtra(HeightActivity.EXTRA_REPLY1)?.let {
+        data?.getStringArrayExtra(EXTRA_REPLY_ARRAY)?.let {
             val heightValue = it[0].toInt()
             var heightUnit = LengthUnit.CM
             when(it[1].toString()) {
@@ -117,7 +119,7 @@ class MainActivity : AppCompatActivity() {
         ActivityResultContracts.StartActivityForResult()
     ) { result: ActivityResult ->
         val data = result.data
-        data?.getStringArrayExtra(WeightActivity.EXTRA_REPLY1)?.let {
+        data?.getStringArrayExtra(EXTRA_REPLY_ARRAY)?.let {
             val weightValue = it[0].toDouble()
             var weightUnit: WeightUnit = WeightUnit.KG
             when(it[1].toString()) {
