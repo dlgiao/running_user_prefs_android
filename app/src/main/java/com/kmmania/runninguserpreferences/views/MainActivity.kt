@@ -168,5 +168,16 @@ class MainActivity : AppCompatActivity() {
         mainBinding.tvHeightTitle.setOnClickListener {
             heightStartForResult.launch(Intent(this, HeightActivity::class.java))
         }
+        heightViewModel.heightValue.observe(this, { height ->
+            height?.let {
+                var unitHeight = ""
+                when(it.heightUnit.toString()) {
+                    "CM" -> unitHeight = getString(R.string.cm)
+                    "IN" -> unitHeight = getString(R.string.inch)
+                }
+                val heightComplete = "${it.heightValue} $unitHeight"
+                mainBinding.tvHeightValue.text = heightComplete
+            }
+        })
     }
 }
