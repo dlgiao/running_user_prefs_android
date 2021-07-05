@@ -98,4 +98,22 @@ object DatabaseModule {
     fun provideMasDao(masDatabase: MasDatabase): MasDao {
         return masDatabase.masDao()
     }
+
+    @Provides
+    @Singleton
+    fun provideHeightDatabase(
+        @ApplicationContext AppContext: Context
+    ): HeightDatabase {
+        return Room.databaseBuilder(
+            AppContext.applicationContext,
+            HeightDatabase::class.java,
+            "height_database"
+        )
+            .build()
+    }
+
+    @Provides
+    fun provideHeightDao(heightDatabase: HeightDatabase): HeightDao {
+        return heightDatabase.heightDao()
+    }
 }
