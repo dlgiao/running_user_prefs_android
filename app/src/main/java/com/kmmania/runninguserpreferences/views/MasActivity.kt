@@ -53,6 +53,7 @@ class MasActivity : AppCompatActivity() {
 //
         masBinding.btnSave.setOnClickListener {
             val masValue = masBinding.etMasValue.editText?.text.toString()
+            replyIntent(masValue)
 //            var masUnit = ""
 //            if (masBinding.rbKmh.isChecked) {
 //                masUnit = getString(R.string.kmh)
