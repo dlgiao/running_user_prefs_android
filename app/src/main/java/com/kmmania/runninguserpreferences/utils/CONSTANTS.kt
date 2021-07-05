@@ -1,5 +1,8 @@
 package com.kmmania.runninguserpreferences.utils
 
-object CONSTANTS {
-    //const val EXTRA_REPLY1 = "com.example.android.wordlistsql.REPLY1"
+class CONSTANTS {
+    companion object {
+        const val EXTRA_REPLY_STRING = "com.kmmania.android.EXTRA_REPLY_STRING"
+        const val EXTRA_REPLY_ARRAY = "com.kmmania.android.EXTRA_REPLY_ARRAY"
+    }
 }
