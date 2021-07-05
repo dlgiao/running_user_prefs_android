@@ -2,31 +2,39 @@ package com.kmmania.runninguserpreferences.di
 
 import android.content.Context
 import androidx.room.Room
-import androidx.room.RoomDatabase
 import com.kmmania.runninguserpreferences.model.*
 import dagger.Module
 import dagger.Provides
 import dagger.hilt.InstallIn
 import dagger.hilt.android.qualifiers.ApplicationContext
 import dagger.hilt.components.SingletonComponent
+import kotlinx.coroutines.CoroutineScope
+import kotlinx.coroutines.SupervisorJob
 import javax.inject.Singleton
-//import kotlinx.coroutines.CoroutineScope
 
 @Module
 @InstallIn(SingletonComponent::class)
 object DatabaseModule {
+
+    @Singleton
+    @Provides
+    fun provideCoroutineScope(): CoroutineScope {
+        return CoroutineScope(SupervisorJob())
+    }
+
     @Provides
     @Singleton
     fun provideMeasuringSystemDatabase(
-        //@ApplicationContext AppContext: Context, scope: CoroutineScope
-        @ApplicationContext AppContext: Context
+        @ApplicationContext AppContext: Context,
+        scope: CoroutineScope
+        //@ApplicationContext AppContext: Context
     ): MeasuringSystemDatabase {
         return Room.databaseBuilder(
             AppContext.applicationContext,
             MeasuringSystemDatabase::class.java,
             "measuring_system_database"
         )
-            //.addCallback(MeasuringSystemDatabase.MeasuringSystemDatabaseCallback(scope))
+            .addCallback(MeasuringSystemDatabase.MeasuringSystemDatabaseCallback(scope))
             .build()
     }
 
