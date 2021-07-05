@@ -10,11 +10,9 @@ import androidx.activity.viewModels
 import com.kmmania.runninguserpreferences.R
 //import com.kmmania.runninguserpreferences.application.RunningUserPrefApplication
 import com.kmmania.runninguserpreferences.databinding.ActivityMainBinding
-import com.kmmania.runninguserpreferences.model.Dob
-import com.kmmania.runninguserpreferences.model.Gender
-import com.kmmania.runninguserpreferences.model.Mas
-import com.kmmania.runninguserpreferences.model.MeasuringSystem
+import com.kmmania.runninguserpreferences.model.*
 import com.kmmania.runninguserpreferences.utils.units.GenderUnit
+import com.kmmania.runninguserpreferences.utils.units.LengthUnit
 import com.kmmania.runninguserpreferences.utils.units.MeasuringSystemUnit
 import com.kmmania.runninguserpreferences.utils.units.SpeedUnit
 import com.kmmania.runninguserpreferences.viewmodels.*
@@ -96,7 +94,15 @@ class MainActivity : AppCompatActivity() {
         ActivityResultContracts.StartActivityForResult()
     ) { result: ActivityResult ->
         val data = result.data
-
+        data?.getStringArrayExtra(HeightActivity.EXTRA_REPLY1)?.let {
+            val heightValue = it[0].toInt()
+            var heightUnit = LengthUnit.CM
+            when(it[1].toString()) {
+                "cm" -> heightUnit = LengthUnit.CM
+                "in" -> heightUnit = LengthUnit.IN
+            }
+            heightViewModel.insert(Height(heightValue, heightUnit))
+        }
     }
 
     override fun onCreate(savedInstanceState: Bundle?) {
