@@ -116,4 +116,22 @@ object DatabaseModule {
     fun provideHeightDao(heightDatabase: HeightDatabase): HeightDao {
         return heightDatabase.heightDao()
     }
+
+    @Provides
+    @Singleton
+    fun provideWeightDatabase(
+        @ApplicationContext AppContext: Context
+    ): WeightDatabase {
+        return Room.databaseBuilder(
+            AppContext.applicationContext,
+            WeightDatabase::class.java,
+            "weight_database"
+        )
+            .build()
+    }
+
+    @Provides
+    fun provideWeightDao(weightDatabase: WeightDatabase): WeightDao {
+        return weightDatabase.weightDao()
+    }
 }
