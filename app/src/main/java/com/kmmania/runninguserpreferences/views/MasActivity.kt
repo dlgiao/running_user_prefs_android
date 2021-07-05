@@ -25,41 +25,43 @@ class MasActivity : AppCompatActivity() {
         msViewModel.msValue.observe(this, { ms ->
             ms?.let {
                 when(it.measuringSystem.toString()) {
-                    "METRIC" -> {
-                        masBinding.rbKmh.isEnabled = false
-                        masBinding.rbMph.isEnabled = false
-                        masBinding.rbKmh.isChecked = true
-                    }
-                    "IMPERIAL" -> {
-                        masBinding.rbKmh.isEnabled = false
-                        masBinding.rbMph.isEnabled = false
-                        masBinding.rbMph.isChecked = true
-                    }
+                    "METRIC" -> masBinding.tvUnitMas.text = getString(R.string.kmh)
+//                    {
+//                        masBinding.rbKmh.isEnabled = false
+//                        masBinding.rbMph.isEnabled = false
+//                        masBinding.rbKmh.isChecked = true
+//                    }
+                    "IMPERIAL" -> masBinding.tvUnitMas.text = getString(R.string.mph)
+//                    {
+//                        masBinding.rbKmh.isEnabled = false
+//                        masBinding.rbMph.isEnabled = false
+//                        masBinding.rbMph.isChecked = true
+//                    }
                 }
             }
         })
 
-        masViewModel.masValue.observe(this, { mas ->
-            mas?.let {
-                masBinding.etMasValue.editText?.setText(it.masValue.toString())
-                when(it.masUnit.toString()) {
-                    "KMH" -> masBinding.rbKmh.isChecked = true
-                    "MPH" -> masBinding.rbMph.isChecked = true
-                }
-            }
-        })
-
-        masBinding.btnSave.setOnClickListener {
-            val masValue = masBinding.etMasValue.editText?.text.toString()
-            var masUnit = ""
-            if (masBinding.rbKmh.isChecked) {
-                masUnit = getString(R.string.kmh)
-            } else if (masBinding.rbMph.isChecked) {
-                masUnit = getString(R.string.mph)
-            }
-            val masArray = arrayOf(masValue, masUnit)
-            replyIntentArray(masArray)
-        }
+//        masViewModel.masValue.observe(this, { mas ->
+//            mas?.let {
+//                masBinding.etMasValue.editText?.setText(it.masValue.toString())
+//                when(it.masUnit.toString()) {
+//                    "KMH" -> masBinding.rbKmh.isChecked = true
+//                    "MPH" -> masBinding.rbMph.isChecked = true
+//                }
+//            }
+//        })
+//
+//        masBinding.btnSave.setOnClickListener {
+//            val masValue = masBinding.etMasValue.editText?.text.toString()
+//            var masUnit = ""
+//            if (masBinding.rbKmh.isChecked) {
+//                masUnit = getString(R.string.kmh)
+//            } else if (masBinding.rbMph.isChecked) {
+//                masUnit = getString(R.string.mph)
+//            }
+//            val masArray = arrayOf(masValue, masUnit)
+//            replyIntentArray(masArray)
+//        }
     }
 
     private fun replyIntentArray(value: Array<String>) {
