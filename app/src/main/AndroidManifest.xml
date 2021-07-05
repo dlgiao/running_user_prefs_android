@@ -10,7 +10,8 @@
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/Theme.RunningUserPreferences">
-        <activity android:name=".views.HeightActivity"></activity>
+        <activity android:name=".views.WeightActivity"></activity>
+        <activity android:name=".views.HeightActivity" />
         <activity android:name=".views.MasActivity" />
         <activity android:name=".views.DobActivity" />
         <activity android:name=".views.GenderActivity" />
