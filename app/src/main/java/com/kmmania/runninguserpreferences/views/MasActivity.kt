@@ -37,7 +37,7 @@ class MasActivity : AppCompatActivity() {
             }
         })
 
-        masBinding.btnSave.setOnClickListener {
+        masBinding.btnSaveMas.setOnClickListener {
             val masValue = masBinding.etMasValue.editText?.text.toString()
             val masUnit = masBinding.tvUnitMas.text.toString()
             val masArray = arrayOf(masValue, masUnit)
