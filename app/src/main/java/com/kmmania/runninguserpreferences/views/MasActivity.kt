@@ -51,8 +51,8 @@ class MasActivity : AppCompatActivity() {
 //            }
 //        })
 //
-//        masBinding.btnSave.setOnClickListener {
-//            val masValue = masBinding.etMasValue.editText?.text.toString()
+        masBinding.btnSave.setOnClickListener {
+            val masValue = masBinding.etMasValue.editText?.text.toString()
 //            var masUnit = ""
 //            if (masBinding.rbKmh.isChecked) {
 //                masUnit = getString(R.string.kmh)
@@ -61,12 +61,12 @@ class MasActivity : AppCompatActivity() {
 //            }
 //            val masArray = arrayOf(masValue, masUnit)
 //            replyIntentArray(masArray)
-//        }
+        }
     }
 
-    private fun replyIntentArray(value: Array<String>) {
+    private fun replyIntent(value: String) {
         val replyIntentValue = Intent()
-        replyIntentValue.putExtra(EXTRA_REPLY1, value)
+        replyIntentValue.putExtra(EXTRA_REPLY, value)
         setResult(Activity.RESULT_OK, replyIntentValue)
 
         finish()
@@ -74,6 +74,6 @@ class MasActivity : AppCompatActivity() {
 
     // TODO: Create CONSTANTS file
     companion object {
-        const val EXTRA_REPLY1 = "com.example.android.wordlistsql.REPLY1"
+        const val EXTRA_REPLY = "com.example.android.wordlistsql.REPLY"
     }
 }
