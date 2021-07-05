@@ -3,6 +3,7 @@ package com.kmmania.runninguserpreferences.views
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import androidx.activity.viewModels
+import com.kmmania.runninguserpreferences.R
 import com.kmmania.runninguserpreferences.databinding.ActivityHeightBinding
 import com.kmmania.runninguserpreferences.viewmodels.HeightViewModel
 import com.kmmania.runninguserpreferences.viewmodels.MeasuringSystemViewModel
@@ -16,5 +17,14 @@ class HeightActivity : AppCompatActivity() {
         heightBinding = ActivityHeightBinding.inflate(layoutInflater)
         super.onCreate(savedInstanceState)
         setContentView(heightBinding.root)
+
+        msViewModel.msValue.observe(this, { ms ->
+            ms?.let {
+                when(it.measuringSystem.toString()) {
+                    "METRIC" -> heightBinding.tvUnitHeight.text = getString(R.string.cm)
+                    "IMPERIAL" -> heightBinding.tvUnitHeight.text = getString(R.string.inch)
+                }
+            }
+        })
     }
 }
