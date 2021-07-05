@@ -7,6 +7,7 @@ import android.os.Bundle
 import androidx.activity.viewModels
 //import com.kmmania.runninguserpreferences.application.RunningUserPrefApplication
 import com.kmmania.runninguserpreferences.databinding.ActivityMeasuringSystemBinding
+import com.kmmania.runninguserpreferences.utils.CONSTANTS.Companion.EXTRA_REPLY_STRING
 import com.kmmania.runninguserpreferences.viewmodels.MeasuringSystemViewModel
 import dagger.hilt.android.AndroidEntryPoint
 //import com.kmmania.runninguserpreferences.viewmodels.MeasuringSystemViewModel
@@ -44,14 +45,9 @@ class MeasuringSystemActivity : AppCompatActivity() {
 
     private fun replyIntent(value: String) {
         val replyIntentValue = Intent()
-        replyIntentValue.putExtra(EXTRA_REPLY, value)
+        replyIntentValue.putExtra(EXTRA_REPLY_STRING, value)
         setResult(Activity.RESULT_OK, replyIntentValue)
 
         finish()
-    }
-
-    // TODO: Create CONSTANTS file
-    companion object {
-        const val EXTRA_REPLY = "com.example.android.wordlistsql.REPLY"
     }
 }
