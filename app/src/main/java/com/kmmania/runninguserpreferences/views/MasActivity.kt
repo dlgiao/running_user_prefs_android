@@ -26,48 +26,28 @@ class MasActivity : AppCompatActivity() {
             ms?.let {
                 when(it.measuringSystem.toString()) {
                     "METRIC" -> masBinding.tvUnitMas.text = getString(R.string.kmh)
-//                    {
-//                        masBinding.rbKmh.isEnabled = false
-//                        masBinding.rbMph.isEnabled = false
-//                        masBinding.rbKmh.isChecked = true
-//                    }
                     "IMPERIAL" -> masBinding.tvUnitMas.text = getString(R.string.mph)
-//                    {
-//                        masBinding.rbKmh.isEnabled = false
-//                        masBinding.rbMph.isEnabled = false
-//                        masBinding.rbMph.isChecked = true
-//                    }
                 }
             }
         })
 
-//        masViewModel.masValue.observe(this, { mas ->
-//            mas?.let {
-//                masBinding.etMasValue.editText?.setText(it.masValue.toString())
-//                when(it.masUnit.toString()) {
-//                    "KMH" -> masBinding.rbKmh.isChecked = true
-//                    "MPH" -> masBinding.rbMph.isChecked = true
-//                }
-//            }
-//        })
-//
+        masViewModel.masValue.observe(this, { mas ->
+            mas?.let {
+                masBinding.etMasValue.editText?.setText(it.masValue.toString())
+            }
+        })
+
         masBinding.btnSave.setOnClickListener {
             val masValue = masBinding.etMasValue.editText?.text.toString()
-            replyIntent(masValue)
-//            var masUnit = ""
-//            if (masBinding.rbKmh.isChecked) {
-//                masUnit = getString(R.string.kmh)
-//            } else if (masBinding.rbMph.isChecked) {
-//                masUnit = getString(R.string.mph)
-//            }
-//            val masArray = arrayOf(masValue, masUnit)
-//            replyIntentArray(masArray)
+            val masUnit = masBinding.tvUnitMas.text.toString()
+            val masArray = arrayOf(masValue, masUnit)
+            replyIntentArray(masArray)
         }
     }
 
-    private fun replyIntent(value: String) {
+    private fun replyIntentArray(value: Array<String>) {
         val replyIntentValue = Intent()
-        replyIntentValue.putExtra(EXTRA_REPLY, value)
+        replyIntentValue.putExtra(EXTRA_REPLY1, value)
         setResult(Activity.RESULT_OK, replyIntentValue)
 
         finish()
@@ -75,6 +55,6 @@ class MasActivity : AppCompatActivity() {
 
     // TODO: Create CONSTANTS file
     companion object {
-        const val EXTRA_REPLY = "com.example.android.wordlistsql.REPLY"
+        const val EXTRA_REPLY1 = "com.example.android.wordlistsql.REPLY1"
     }
 }
