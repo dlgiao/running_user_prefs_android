@@ -11,10 +11,7 @@ import com.kmmania.runninguserpreferences.R
 //import com.kmmania.runninguserpreferences.application.RunningUserPrefApplication
 import com.kmmania.runninguserpreferences.databinding.ActivityMainBinding
 import com.kmmania.runninguserpreferences.model.*
-import com.kmmania.runninguserpreferences.utils.units.GenderUnit
-import com.kmmania.runninguserpreferences.utils.units.LengthUnit
-import com.kmmania.runninguserpreferences.utils.units.MeasuringSystemUnit
-import com.kmmania.runninguserpreferences.utils.units.SpeedUnit
+import com.kmmania.runninguserpreferences.utils.units.*
 import com.kmmania.runninguserpreferences.viewmodels.*
 //import com.kmmania.runninguserpreferences.viewmodels.MeasuringSystemViewModelFactory
 import dagger.hilt.android.AndroidEntryPoint
@@ -42,16 +39,20 @@ class MainActivity : AppCompatActivity() {
                 val masValue = masViewModel.masValue.value!!.masValue
                 // height
                 val heightValue = heightViewModel.heightValue.value!!.heightValue
+                // weight
+                val weightValue = weightViewModel.weightValue.value!!.weightValue
                 when(it) {
                     "metric" -> {
                         msViewModel.insert(MeasuringSystem(MeasuringSystemUnit.METRIC))
                         masViewModel.insert(Mas(masValue, SpeedUnit.KMH))
                         heightViewModel.insert(Height(heightValue, LengthUnit.CM))
+                        weightViewModel.insert(Weight(weightValue, WeightUnit.KG))
                     }
                     "imperial" -> {
                         msViewModel.insert(MeasuringSystem(MeasuringSystemUnit.IMPERIAL))
                         masViewModel.insert(Mas(masValue, SpeedUnit.MPH))
                         heightViewModel.insert(Height(heightValue, LengthUnit.IN))
+                        weightViewModel.insert(Weight(weightValue, WeightUnit.LB))
                     }
                     // TODO replace code
                     else -> ""
