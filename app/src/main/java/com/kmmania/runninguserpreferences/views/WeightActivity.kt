@@ -53,9 +53,4 @@ class WeightActivity : AppCompatActivity() {
 
         finish()
     }
-
-    // TODO: Create CONSTANTS file
-//    companion object {
-//        const val EXTRA_REPLY1 = "com.example.android.wordlistsql.REPLY1"
-//    }
 }
