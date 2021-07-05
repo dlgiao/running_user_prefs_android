@@ -92,6 +92,12 @@ class MainActivity : AppCompatActivity() {
             masViewModel.insert(Mas(masValue, masUnit))
         }
     }
+    private val heightStartForResult = registerForActivityResult(
+        ActivityResultContracts.StartActivityForResult()
+    ) { result: ActivityResult ->
+        val data = result.data
+
+    }
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
