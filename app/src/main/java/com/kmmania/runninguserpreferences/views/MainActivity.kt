@@ -206,5 +206,16 @@ class MainActivity : AppCompatActivity() {
         mainBinding.tvWeightTitle.setOnClickListener {
             weightStartForResult.launch(Intent(this, WeightActivity::class.java))
         }
+        weightViewModel.weightValue.observe(this, { weight ->
+            weight?.let {
+                var unitWeight = ""
+                when(it.weightUnit.toString()) {
+                    "KG" -> unitWeight = getString(R.string.kg)
+                    "LB" -> unitWeight = getString(R.string.lb)
+                }
+                val weightComplete = "${it.weightValue} $unitWeight"
+                mainBinding.tvWeightValue.text = weightComplete
+            }
+        })
     }
 }
