@@ -6,6 +6,7 @@ import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import androidx.activity.viewModels
 import com.kmmania.runninguserpreferences.databinding.ActivityGenderBinding
+import com.kmmania.runninguserpreferences.utils.CONSTANTS.Companion.EXTRA_REPLY_STRING
 import com.kmmania.runninguserpreferences.viewmodels.GenderViewModel
 import dagger.hilt.android.AndroidEntryPoint
 
@@ -38,14 +39,9 @@ class GenderActivity : AppCompatActivity() {
 
     private fun replyIntent(value: String) {
         val replyIntentValue = Intent()
-        replyIntentValue.putExtra(EXTRA_REPLY, value)
+        replyIntentValue.putExtra(EXTRA_REPLY_STRING, value)
         setResult(Activity.RESULT_OK, replyIntentValue)
 
         finish()
-    }
-
-    // TODO: Create CONSTANTS file
-    companion object {
-        const val EXTRA_REPLY = "com.example.android.wordlistsql.REPLY"
     }
 }
