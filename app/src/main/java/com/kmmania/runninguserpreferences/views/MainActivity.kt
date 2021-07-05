@@ -112,6 +112,20 @@ class MainActivity : AppCompatActivity() {
             heightViewModel.insert(Height(heightValue, heightUnit))
         }
     }
+    private val weightStartForResult = registerForActivityResult(
+        ActivityResultContracts.StartActivityForResult()
+    ) { result: ActivityResult ->
+        val data = result.data
+        data?.getStringArrayExtra(WeightActivity.EXTRA_REPLY1)?.let {
+            val weightValue = it[0].toDouble()
+            var weightUnit: WeightUnit = WeightUnit.KG
+            when(it[1].toString()) {
+                "kg" -> weightUnit = WeightUnit.KG
+                "lb" -> weightUnit = WeightUnit.LB
+            }
+            weightViewModel.insert(Weight(weightValue, weightUnit))
+        }
+    }
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
