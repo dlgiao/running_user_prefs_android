@@ -11,6 +11,9 @@
     <string name="mas">MAS</string>
     <string name="kmh">km/h</string>
     <string name="mph">mph</string>
+    <string name="height">Height</string>
+    <string name="cm">cm</string>
+    <string name="inch">in</string>
 
     <string name="unknown">unknown</string>
     <string name="save">Save</string>
