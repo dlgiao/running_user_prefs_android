@@ -1,5 +1,7 @@
 package com.kmmania.runninguserpreferences.views
 
+import android.app.Activity
+import android.content.Intent
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import androidx.activity.viewModels
@@ -32,5 +34,22 @@ class HeightActivity : AppCompatActivity() {
                 heightBinding.etHeightValue.editText?.setText(it.heightValue.toString())
             }
         })
+
+        heightBinding.btnSaveHeight.setOnClickListener {
+
+        }
+    }
+
+    private fun replyIntentArray(value: Array<String>) {
+        val replyIntentValue = Intent()
+        replyIntentValue.putExtra(EXTRA_REPLY1, value)
+        setResult(Activity.RESULT_OK, replyIntentValue)
+
+        finish()
+    }
+
+    // TODO: Create CONSTANTS file
+    companion object {
+        const val EXTRA_REPLY1 = "com.example.android.wordlistsql.REPLY1"
     }
 }
