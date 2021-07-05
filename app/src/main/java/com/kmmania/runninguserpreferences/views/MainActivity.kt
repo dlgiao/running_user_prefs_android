@@ -164,5 +164,9 @@ class MainActivity : AppCompatActivity() {
             }
         })
 
+        // Height
+        mainBinding.tvHeightTitle.setOnClickListener {
+            heightStartForResult.launch(Intent(this, HeightActivity::class.java))
+        }
     }
 }
