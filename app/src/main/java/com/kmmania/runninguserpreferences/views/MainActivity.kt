@@ -35,6 +35,7 @@ class MainActivity : AppCompatActivity() {
         if (result.resultCode == Activity.RESULT_OK) {
             val data = result.data
             data?.getStringExtra(MeasuringSystemActivity.EXTRA_REPLY)?.let {
+                // TODO: Convert data to the new unit
                 // mas
                 val masValue = masViewModel.masValue.value!!.masValue
                 // height
