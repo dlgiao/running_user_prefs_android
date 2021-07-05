@@ -8,6 +8,7 @@ import androidx.activity.viewModels
 import com.google.android.material.datepicker.MaterialDatePicker
 import com.kmmania.runninguserpreferences.R
 import com.kmmania.runninguserpreferences.databinding.ActivityDobBinding
+import com.kmmania.runninguserpreferences.utils.CONSTANTS.Companion.EXTRA_REPLY_STRING
 import com.kmmania.runninguserpreferences.viewmodels.DobViewModel
 import dagger.hilt.android.AndroidEntryPoint
 
@@ -41,14 +42,9 @@ class DobActivity : AppCompatActivity() {
 
     private fun replyIntent(value: String) {
         val replyIntentValue = Intent()
-        replyIntentValue.putExtra(EXTRA_REPLY, value)
+        replyIntentValue.putExtra(EXTRA_REPLY_STRING, value)
         setResult(Activity.RESULT_OK, replyIntentValue)
 
         finish()
-    }
-
-    // TODO: Create CONSTANTS file
-    companion object {
-        const val EXTRA_REPLY = "com.example.android.wordlistsql.REPLY"
     }
 }
