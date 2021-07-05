@@ -201,5 +201,10 @@ class MainActivity : AppCompatActivity() {
                 mainBinding.tvHeightValue.text = heightComplete
             }
         })
+
+        // Weight
+        mainBinding.tvWeightTitle.setOnClickListener {
+            weightStartForResult.launch(Intent(this, WeightActivity::class.java))
+        }
     }
 }
