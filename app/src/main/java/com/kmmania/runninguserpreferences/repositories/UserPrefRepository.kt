@@ -7,11 +7,12 @@ import kotlinx.coroutines.flow.Flow
 
 class UserPrefRepository(private val userPrefDao: UserPrefDao) {
 
-    val allUserPref: Flow<List<UserPref>> = userPrefDao.getAllUserPref()
+    val userPrefValue: Flow<UserPref> = userPrefDao.getUserPref()
 
     @Suppress("RedundantSuspendModifier")
     @WorkerThread
     suspend fun insert(userPref: UserPref) {
+        userPrefDao.deleteAll()
         userPrefDao.insert(userPref)
     }
 }
