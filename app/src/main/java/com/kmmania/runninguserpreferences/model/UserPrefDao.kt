@@ -12,5 +12,5 @@ interface UserPrefDao {
     suspend fun deleteAll()
 
     @Query("SELECT * FROM user_pref_table ORDER BY id ASC")
-    fun getAllUserPref(): Flow<List<UserPref>>
+    fun getUserPref(): Flow<UserPref>
 }
