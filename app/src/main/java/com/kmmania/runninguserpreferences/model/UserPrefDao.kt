@@ -8,9 +8,6 @@ interface UserPrefDao {
     @Insert(onConflict = OnConflictStrategy.REPLACE)
     suspend fun insert(userPref: UserPref)
 
-    @Delete
-    suspend fun delete(userPref: UserPref)
-
     @Query("DELETE FROM user_pref_table")
     suspend fun deleteAll()
 
