@@ -15,26 +15,19 @@ import javax.inject.Singleton
 @Module
 @InstallIn(SingletonComponent::class)
 object DatabaseModule {
-
-    @Singleton
-    @Provides
-    fun provideCoroutineScope(): CoroutineScope {
-        return CoroutineScope(SupervisorJob())
-    }
-
     @Provides
     @Singleton
     fun provideMeasuringSystemDatabase(
-        @ApplicationContext AppContext: Context,
-        scope: CoroutineScope
-        //@ApplicationContext AppContext: Context
+        //@ApplicationContext AppContext: Context,
+        //scope: CoroutineScope
+        @ApplicationContext AppContext: Context
     ): MeasuringSystemDatabase {
         return Room.databaseBuilder(
             AppContext.applicationContext,
             MeasuringSystemDatabase::class.java,
             "measuring_system_database"
         )
-            .addCallback(MeasuringSystemDatabase.MeasuringSystemDatabaseCallback(scope))
+            //.addCallback(MeasuringSystemDatabase.MeasuringSystemDatabaseCallback(scope))
             .build()
     }
 
