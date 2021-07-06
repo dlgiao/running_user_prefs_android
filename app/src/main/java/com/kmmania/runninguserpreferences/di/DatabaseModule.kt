@@ -27,6 +27,11 @@ object DatabaseModule {
     }
 
     @Provides
+    fun provideUserPrefDao(userPrefDatabase: UserPrefDatabase): UserPrefDao {
+        return userPrefDatabase.userPrefDao()
+    }
+
+    @Provides
     @Singleton
     fun provideMeasuringSystemDatabase(
         //@ApplicationContext AppContext: Context,
