@@ -8,23 +8,23 @@ import com.kmmania.runninguserpreferences.utils.units.*
 @Entity(tableName = "user_pref_table")
 data class UserPref(
     @ColumnInfo(name = "measuring_system")
-    val measuringSystem: MeasuringSystemUnit,
+    val measuringSystem: MeasuringSystemUnit?,
     @ColumnInfo(name = "mas")
-    val mas: Double,
+    val mas: Double?,
     @ColumnInfo(name = "unit_mas")
-    val unitMas: SpeedUnit,
+    val unitMas: SpeedUnit?,
     @ColumnInfo(name = "dob")
-    val dob: String,
+    val dob: String?,
     @ColumnInfo(name = "height")
-    val height: Int,
+    val height: Int?,
     @ColumnInfo(name = "unit_height")
-    val unitHeight: LengthUnit,
+    val unitHeight: LengthUnit?,
     @ColumnInfo(name = "weight")
-    val weight: Double,
+    val weight: Double?,
     @ColumnInfo(name = "unit_weight")
-    val unitWeightUnit: WeightUnit,
+    val unitWeightUnit: WeightUnit?,
     @ColumnInfo(name = "gender")
-    val gender: Gender
+    val gender: GenderUnit?
 ) {
     @PrimaryKey(autoGenerate = true)
     var id: Long = 0
