@@ -4,9 +4,10 @@ import androidx.annotation.WorkerThread
 import com.kmmania.runninguserpreferences.model.UserPref
 import com.kmmania.runninguserpreferences.model.UserPrefDao
 import kotlinx.coroutines.flow.Flow
+import javax.inject.Singleton
 
+@Singleton
 class UserPrefRepository(private val userPrefDao: UserPrefDao) {
-
     val userPrefValue: Flow<UserPref> = userPrefDao.getUserPref()
 
     @Suppress("RedundantSuspendModifier")
