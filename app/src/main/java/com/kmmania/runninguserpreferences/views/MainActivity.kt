@@ -39,23 +39,23 @@ class MainActivity : AppCompatActivity() {
             data?.getStringExtra(EXTRA_REPLY_STRING)?.let {
                 // TODO: Convert data to the new unit
                 // mas
-//                val masValue = masViewModel.masValue.value!!.masValue
+                val masValue = masViewModel.masValue.value!!.masValue
                 // height
-//                val heightValue = heightViewModel.heightValue.value!!.heightValue
+                val heightValue = heightViewModel.heightValue.value!!.heightValue
                 // weight
-//                val weightValue = weightViewModel.weightValue.value!!.weightValue
+                val weightValue = weightViewModel.weightValue.value!!.weightValue
                 when(it) {
                     "metric" -> {
                         msViewModel.insert(MeasuringSystem(MeasuringSystemUnit.METRIC))
-//                        masViewModel.insert(Mas(masValue, SpeedUnit.KMH))
-//                        heightViewModel.insert(Height(heightValue, LengthUnit.CM))
-//                        weightViewModel.insert(Weight(weightValue, WeightUnit.KG))
+                        masViewModel.insert(Mas(masValue, SpeedUnit.KMH))
+                        heightViewModel.insert(Height(heightValue, LengthUnit.CM))
+                        weightViewModel.insert(Weight(weightValue, WeightUnit.KG))
                     }
                     "imperial" -> {
                         msViewModel.insert(MeasuringSystem(MeasuringSystemUnit.IMPERIAL))
-//                        masViewModel.insert(Mas(masValue, SpeedUnit.MPH))
-//                        heightViewModel.insert(Height(heightValue, LengthUnit.IN))
-//                        weightViewModel.insert(Weight(weightValue, WeightUnit.LB))
+                        masViewModel.insert(Mas(masValue, SpeedUnit.MPH))
+                        heightViewModel.insert(Height(heightValue, LengthUnit.IN))
+                        weightViewModel.insert(Weight(weightValue, WeightUnit.LB))
                     }
                     // TODO replace code
                     else -> ""
