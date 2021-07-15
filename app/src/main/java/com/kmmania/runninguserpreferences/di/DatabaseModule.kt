@@ -2,12 +2,17 @@ package com.kmmania.runninguserpreferences.di
 
 import android.content.Context
 import androidx.room.Room
+import androidx.room.RoomDatabase
+import androidx.sqlite.db.SupportSQLiteDatabase
 import com.kmmania.runninguserpreferences.model.*
+import com.kmmania.runninguserpreferences.utils.units.MeasuringSystemUnit
 import dagger.Module
 import dagger.Provides
 import dagger.hilt.InstallIn
 import dagger.hilt.android.qualifiers.ApplicationContext
 import dagger.hilt.components.SingletonComponent
+import kotlinx.coroutines.CoroutineScope
+import kotlinx.coroutines.launch
 import javax.inject.Singleton
 
 @Module
@@ -34,17 +39,34 @@ object DatabaseModule {
     @Provides
     @Singleton
     fun provideMeasuringSystemDatabase(
-        //@ApplicationContext AppContext: Context,
-        //scope: CoroutineScope
-        @ApplicationContext AppContext: Context
+        @ApplicationContext AppContext: Context,
+        @ApplicationScope scope: CoroutineScope
     ): MeasuringSystemDatabase {
-        return Room.databaseBuilder(
-            AppContext.applicationContext,
-            MeasuringSystemDatabase::class.java,
-            "measuring_system_database"
-        )
-            //.addCallback(MeasuringSystemDatabase.MeasuringSystemDatabaseCallback(scope))
-            .build()
+        var INSTANCE: MeasuringSystemDatabase? = null
+        return INSTANCE?: synchronized(this) {
+            val instance = Room.databaseBuilder(
+                //AppContext.applicationContext,
+                AppContext,
+                MeasuringSystemDatabase::class.java,
+                "measuring_system_database"
+            )
+                .addCallback(object : RoomDatabase.Callback() {
+                    override fun onCreate(db: SupportSQLiteDatabase) {
+                        super.onCreate(db)
+                        INSTANCE?.let { database ->
+                            scope.launch {
+                                val msDao = database.measuringSystemDao()
+                                msDao.deleteAll()
+                                val ms = MeasuringSystem(MeasuringSystemUnit.METRIC)
+                                msDao.insert(ms)
+                            }
+                        }
+                    }
+                })
+                .build()
+            INSTANCE = instance
+            instance
+        }
     }
 
     @Provides
