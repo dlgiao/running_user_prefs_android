@@ -6,6 +6,7 @@ import androidx.room.RoomDatabase
 import androidx.sqlite.db.SupportSQLiteDatabase
 import com.kmmania.runninguserpreferences.model.*
 import com.kmmania.runninguserpreferences.utils.units.GenderUnit
+import com.kmmania.runninguserpreferences.utils.units.LengthUnit
 import com.kmmania.runninguserpreferences.utils.units.MeasuringSystemUnit
 import com.kmmania.runninguserpreferences.utils.units.SpeedUnit
 import dagger.Module
@@ -188,14 +189,33 @@ object DatabaseModule {
     @Provides
     @Singleton
     fun provideHeightDatabase(
-        @ApplicationContext AppContext: Context
+        @ApplicationContext AppContext: Context,
+        @ApplicationScope scope: CoroutineScope
     ): HeightDatabase {
-        return Room.databaseBuilder(
-            AppContext.applicationContext,
-            HeightDatabase::class.java,
-            "height_database"
-        )
-            .build()
+        var heightInstance: HeightDatabase? = null
+        return heightInstance?: synchronized(this) {
+            val instance = Room.databaseBuilder(
+                AppContext.applicationContext,
+                HeightDatabase::class.java,
+                "height_database"
+            )
+                .addCallback(object : RoomDatabase.Callback() {
+                    override fun onCreate(db: SupportSQLiteDatabase) {
+                        super.onCreate(db)
+                        heightInstance?.let { database ->
+                            scope.launch {
+                                val heightDao = database.heightDao()
+                                heightDao.deleteAll()
+                                val height = Height(0, LengthUnit.CM)
+                                heightDao.insert(height)
+                            }
+                        }
+                    }
+                })
+                .build()
+            heightInstance = instance
+            instance
+        }
     }
 
     @Provides
