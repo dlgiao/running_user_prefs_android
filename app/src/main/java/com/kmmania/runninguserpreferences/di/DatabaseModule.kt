@@ -116,14 +116,30 @@ object DatabaseModule {
     @Provides
     @Singleton
     fun provideDobDatabase(
-        @ApplicationContext AppContext: Context
+        @ApplicationContext AppContext: Context,
+        @ApplicationScope scope: CoroutineScope
     ): DobDatabase {
-        return Room.databaseBuilder(
-            AppContext.applicationContext,
-            DobDatabase::class.java,
-            "dob_database"
-        )
-            .build()
+        var dobInstance: DobDatabase? = null
+        return dobInstance?: synchronized(this) {
+            val instance = Room.databaseBuilder(
+                AppContext.applicationContext,
+                DobDatabase::class.java,
+                "dob_database"
+            )
+                .addCallback(object : RoomDatabase.Callback() {
+                    override fun onCreate(db: SupportSQLiteDatabase) {
+                        super.onCreate(db)
+                        dobInstance?.let { database ->
+                            scope.launch {
+                                // TODO: add Dob initial date
+                            }
+                        }
+                    }
+                })
+                .build()
+            dobInstance = instance
+            instance
+        }
     }
 
     @Provides
