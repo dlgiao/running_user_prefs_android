@@ -5,6 +5,7 @@ import androidx.room.Room
 import androidx.room.RoomDatabase
 import androidx.sqlite.db.SupportSQLiteDatabase
 import com.kmmania.runninguserpreferences.model.*
+import com.kmmania.runninguserpreferences.utils.units.GenderUnit
 import com.kmmania.runninguserpreferences.utils.units.MeasuringSystemUnit
 import dagger.Module
 import dagger.Provides
@@ -42,10 +43,9 @@ object DatabaseModule {
         @ApplicationContext AppContext: Context,
         @ApplicationScope scope: CoroutineScope
     ): MeasuringSystemDatabase {
-        var INSTANCE: MeasuringSystemDatabase? = null
-        return INSTANCE?: synchronized(this) {
+        var msInstance: MeasuringSystemDatabase? = null
+        return msInstance?: synchronized(this) {
             val instance = Room.databaseBuilder(
-                //AppContext.applicationContext,
                 AppContext,
                 MeasuringSystemDatabase::class.java,
                 "measuring_system_database"
@@ -53,7 +53,7 @@ object DatabaseModule {
                 .addCallback(object : RoomDatabase.Callback() {
                     override fun onCreate(db: SupportSQLiteDatabase) {
                         super.onCreate(db)
-                        INSTANCE?.let { database ->
+                        msInstance?.let { database ->
                             scope.launch {
                                 val msDao = database.measuringSystemDao()
                                 msDao.deleteAll()
@@ -64,7 +64,7 @@ object DatabaseModule {
                     }
                 })
                 .build()
-            INSTANCE = instance
+            msInstance = instance
             instance
         }
     }
@@ -79,14 +79,33 @@ object DatabaseModule {
     @Provides
     @Singleton
     fun provideGenderDatabase(
-        @ApplicationContext AppContext: Context
+        @ApplicationContext AppContext: Context,
+        @ApplicationScope scope: CoroutineScope
     ): GenderDatabase {
-        return Room.databaseBuilder(
-            AppContext.applicationContext,
-            GenderDatabase::class.java,
-            "gender_database"
-        )
-            .build()
+        var genderInstance: GenderDatabase? = null
+        return genderInstance?: synchronized(this) {
+            val instance = Room.databaseBuilder(
+                AppContext,
+                GenderDatabase::class.java,
+                "gender_database"
+            )
+                .addCallback(object : RoomDatabase.Callback() {
+                    override fun onCreate(db: SupportSQLiteDatabase) {
+                        super.onCreate(db)
+                        genderInstance?.let { database ->
+                            scope.launch {
+                                val genderDao = database.genderDao()
+                                genderDao.deleteAll()
+                                val gender = Gender(GenderUnit.MALE)
+                                genderDao.insert(gender)
+                            }
+                        }
+                    }
+                })
+                .build()
+            genderInstance = instance
+            instance
+        }
     }
 
     @Provides
