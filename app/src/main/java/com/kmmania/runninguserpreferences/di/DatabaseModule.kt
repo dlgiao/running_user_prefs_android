@@ -7,6 +7,7 @@ import androidx.sqlite.db.SupportSQLiteDatabase
 import com.kmmania.runninguserpreferences.model.*
 import com.kmmania.runninguserpreferences.utils.units.GenderUnit
 import com.kmmania.runninguserpreferences.utils.units.MeasuringSystemUnit
+import com.kmmania.runninguserpreferences.utils.units.SpeedUnit
 import dagger.Module
 import dagger.Provides
 import dagger.hilt.InstallIn
@@ -150,14 +151,33 @@ object DatabaseModule {
     @Provides
     @Singleton
     fun provideMasDatabase(
-        @ApplicationContext AppContext: Context
+        @ApplicationContext AppContext: Context,
+        @ApplicationScope scope: CoroutineScope
     ): MasDatabase {
-        return Room.databaseBuilder(
-            AppContext.applicationContext,
-            MasDatabase::class.java,
-            "mas_database"
-        )
-            .build()
+        var masInstance: MasDatabase? = null
+        return masInstance?: synchronized(this) {
+            val instance = Room.databaseBuilder(
+                AppContext.applicationContext,
+                MasDatabase::class.java,
+                "mas_database"
+            )
+                .addCallback(object : RoomDatabase.Callback() {
+                    override fun onCreate(db: SupportSQLiteDatabase) {
+                        super.onCreate(db)
+                        masInstance?.let { database ->
+                            scope.launch {
+                                val masDao = database.masDao()
+                                masDao.deleteAll()
+                                val mas = Mas(0.0, SpeedUnit.KMH)
+                                masDao.insert(mas)
+                            }
+                        }
+                    }
+                })
+                .build()
+            masInstance = instance
+            instance
+        }
     }
 
     @Provides
