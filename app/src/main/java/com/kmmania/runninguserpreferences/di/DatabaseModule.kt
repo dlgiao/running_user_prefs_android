@@ -5,10 +5,7 @@ import androidx.room.Room
 import androidx.room.RoomDatabase
 import androidx.sqlite.db.SupportSQLiteDatabase
 import com.kmmania.runninguserpreferences.model.*
-import com.kmmania.runninguserpreferences.utils.units.GenderUnit
-import com.kmmania.runninguserpreferences.utils.units.LengthUnit
-import com.kmmania.runninguserpreferences.utils.units.MeasuringSystemUnit
-import com.kmmania.runninguserpreferences.utils.units.SpeedUnit
+import com.kmmania.runninguserpreferences.utils.units.*
 import dagger.Module
 import dagger.Provides
 import dagger.hilt.InstallIn
@@ -195,7 +192,7 @@ object DatabaseModule {
         var heightInstance: HeightDatabase? = null
         return heightInstance?: synchronized(this) {
             val instance = Room.databaseBuilder(
-                AppContext.applicationContext,
+                AppContext,
                 HeightDatabase::class.java,
                 "height_database"
             )
@@ -226,14 +223,33 @@ object DatabaseModule {
     @Provides
     @Singleton
     fun provideWeightDatabase(
-        @ApplicationContext AppContext: Context
+        @ApplicationContext AppContext: Context,
+        @ApplicationScope scope: CoroutineScope
     ): WeightDatabase {
-        return Room.databaseBuilder(
-            AppContext.applicationContext,
-            WeightDatabase::class.java,
-            "weight_database"
-        )
-            .build()
+        var weightInstance: WeightDatabase? = null
+        return weightInstance?: synchronized(this) {
+            val instance = Room.databaseBuilder(
+                AppContext,
+                WeightDatabase::class.java,
+                "weight_database"
+            )
+                .addCallback(object : RoomDatabase.Callback() {
+                    override fun onCreate(db: SupportSQLiteDatabase) {
+                        super.onCreate(db)
+                        weightInstance?.let { database ->
+                            scope.launch {
+                                val weightDao = database.weightDao()
+                                weightDao.deleteAll()
+                                val weight = Weight(0.0, WeightUnit.KG)
+                                weightDao.insert(weight)
+                            }
+                        }
+                    }
+                })
+                .build()
+            weightInstance = instance
+            instance
+        }
     }
 
     @Provides
