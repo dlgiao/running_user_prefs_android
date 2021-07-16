@@ -29,6 +29,7 @@ class DobActivity : AppCompatActivity() {
 
         val datePicker = MaterialDatePicker.Builder.datePicker()
             .setTitleText(getString(R.string.select_date))
+            .setInputMode(MaterialDatePicker.INPUT_MODE_TEXT)
             .build()
 
         dobBinding.btnSelectDate.setOnClickListener {
