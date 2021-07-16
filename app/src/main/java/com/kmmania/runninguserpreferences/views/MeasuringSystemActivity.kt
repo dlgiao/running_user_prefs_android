@@ -15,11 +15,11 @@ import dagger.hilt.android.AndroidEntryPoint
 
 @AndroidEntryPoint
 class MeasuringSystemActivity : AppCompatActivity() {
+    private lateinit var msBinding: ActivityMeasuringSystemBinding
     private val msViewModel: MeasuringSystemViewModel by viewModels()
 //    private val msViewModel: MeasuringSystemViewModel by viewModels {
 //        MeasuringSystemViewModelFactory((application as RunningUserPrefApplication).msRepository)
 //    }
-    private lateinit var msBinding: ActivityMeasuringSystemBinding
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
