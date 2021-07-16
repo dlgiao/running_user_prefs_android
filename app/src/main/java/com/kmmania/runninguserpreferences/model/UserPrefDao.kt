@@ -11,6 +11,6 @@ interface UserPrefDao {
     @Query("DELETE FROM user_pref_table")
     suspend fun deleteAll()
 
-    @Query("SELECT * FROM user_pref_table ORDER BY id ASC")
+    @Query("SELECT * FROM user_pref_table")
     fun getUserPref(): Flow<UserPref>
 }
