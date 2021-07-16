@@ -10,5 +10,4 @@ data class Dob(
     @PrimaryKey
     @ColumnInfo(name = "dob")
     val dob: Date
-    //val dob: String
 )
