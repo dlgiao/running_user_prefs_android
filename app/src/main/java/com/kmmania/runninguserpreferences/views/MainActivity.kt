@@ -12,6 +12,7 @@ import com.kmmania.runninguserpreferences.R
 import com.kmmania.runninguserpreferences.databinding.ActivityMainBinding
 import com.kmmania.runninguserpreferences.model.*
 import com.kmmania.runninguserpreferences.utils.CONSTANTS.Companion.EXTRA_REPLY_ARRAY
+import com.kmmania.runninguserpreferences.utils.CONSTANTS.Companion.EXTRA_REPLY_DATE
 import com.kmmania.runninguserpreferences.utils.CONSTANTS.Companion.EXTRA_REPLY_STRING
 import com.kmmania.runninguserpreferences.utils.units.*
 import com.kmmania.runninguserpreferences.viewmodels.*
@@ -83,8 +84,8 @@ class MainActivity : AppCompatActivity() {
         ActivityResultContracts.StartActivityForResult()
     ) { result: ActivityResult ->
         val data = result.data
-        data?.getStringExtra(EXTRA_REPLY_STRING)?.let {
-            dobViewModel.insert(Dob(it))
+        data?.getSerializableExtra(EXTRA_REPLY_DATE)?.let {
+            //dobViewModel.insert(Dob(it))
         }
     }
     private val masStartForResult = registerForActivityResult(
@@ -169,7 +170,7 @@ class MainActivity : AppCompatActivity() {
         }
         dobViewModel.dobValue.observe(this, { dob ->
             dob?.let {
-                mainBinding.tvDobValue.text = it.dob
+                mainBinding.tvDobValue.text = it.dob.toString()
             }
         })
 
