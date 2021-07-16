@@ -8,8 +8,7 @@ import androidx.activity.viewModels
 import com.google.android.material.datepicker.MaterialDatePicker
 import com.kmmania.runninguserpreferences.R
 import com.kmmania.runninguserpreferences.databinding.ActivityDobBinding
-import com.kmmania.runninguserpreferences.utils.CONSTANTS.Companion.EXTRA_REPLY_DATE
-import com.kmmania.runninguserpreferences.utils.CONSTANTS.Companion.EXTRA_REPLY_STRING
+import com.kmmania.runninguserpreferences.utils.CONSTANTS.Companion.EXTRA_REPLY_LONG
 import com.kmmania.runninguserpreferences.viewmodels.DobViewModel
 import dagger.hilt.android.AndroidEntryPoint
 
@@ -37,14 +36,15 @@ class DobActivity : AppCompatActivity() {
         }
 
         datePicker.addOnPositiveButtonClickListener {
-            val dobDate = datePicker.headerText
-            replyIntent(dobDate)
+//            val dobDate = datePicker.headerText
+            val dobValue = datePicker.selection
+            replyIntent(dobValue)
         }
     }
 
-    private fun replyIntent(value: String) {
+    private fun replyIntent(value: Long?) {
         val replyIntentValue = Intent()
-        replyIntentValue.putExtra(EXTRA_REPLY_DATE, value)
+        replyIntentValue.putExtra(EXTRA_REPLY_LONG, value)
         setResult(Activity.RESULT_OK, replyIntentValue)
 
         finish()
