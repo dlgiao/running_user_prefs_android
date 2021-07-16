@@ -23,7 +23,7 @@ class DobActivity : AppCompatActivity() {
         setContentView(dobBinding.root)
 
         dobViewModel.dobValue.observe(this, { dob ->
-            //
+            dobBinding.tvDobValue.text = dob.dob.toString()
         })
 
         val datePicker = MaterialDatePicker.Builder.datePicker()
