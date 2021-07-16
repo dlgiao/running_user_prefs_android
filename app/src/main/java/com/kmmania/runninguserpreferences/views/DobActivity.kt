@@ -22,14 +22,14 @@ class DobActivity : AppCompatActivity() {
         dobBinding = ActivityDobBinding.inflate(layoutInflater)
         setContentView(dobBinding.root)
 
-        dobViewModel.dobValue.observe(this, { dob ->
-            dobBinding.tvDobValue.text = dob.dob.toString()
-        })
-
         val datePicker = MaterialDatePicker.Builder.datePicker()
             .setTitleText(getString(R.string.select_date))
             .setInputMode(MaterialDatePicker.INPUT_MODE_TEXT)
             .build()
+
+        dobViewModel.dobValue.observe(this, { dob ->
+            dobBinding.tvDobValue.text = dob.dob.toString()
+        })
 
         dobBinding.btnSelectDate.setOnClickListener {
             datePicker.show(supportFragmentManager, "SELECT_DATE")
