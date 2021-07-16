@@ -84,7 +84,7 @@ class MainActivity : AppCompatActivity() {
         ActivityResultContracts.StartActivityForResult()
     ) { result: ActivityResult ->
         val data = result.data
-        data?.getSerializableExtra(EXTRA_REPLY_DATE)?.let {
+        data?.getStringExtra(EXTRA_REPLY_DATE)?.let {
             //dobViewModel.insert(Dob(it))
         }
     }
