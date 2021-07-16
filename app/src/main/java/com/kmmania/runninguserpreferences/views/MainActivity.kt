@@ -12,12 +12,13 @@ import com.kmmania.runninguserpreferences.R
 import com.kmmania.runninguserpreferences.databinding.ActivityMainBinding
 import com.kmmania.runninguserpreferences.model.*
 import com.kmmania.runninguserpreferences.utils.CONSTANTS.Companion.EXTRA_REPLY_ARRAY
-import com.kmmania.runninguserpreferences.utils.CONSTANTS.Companion.EXTRA_REPLY_DATE
+import com.kmmania.runninguserpreferences.utils.CONSTANTS.Companion.EXTRA_REPLY_LONG
 import com.kmmania.runninguserpreferences.utils.CONSTANTS.Companion.EXTRA_REPLY_STRING
 import com.kmmania.runninguserpreferences.utils.units.*
 import com.kmmania.runninguserpreferences.viewmodels.*
 //import com.kmmania.runninguserpreferences.viewmodels.MeasuringSystemViewModelFactory
 import dagger.hilt.android.AndroidEntryPoint
+import java.util.*
 
 @AndroidEntryPoint
 class MainActivity : AppCompatActivity() {
@@ -84,8 +85,9 @@ class MainActivity : AppCompatActivity() {
         ActivityResultContracts.StartActivityForResult()
     ) { result: ActivityResult ->
         val data = result.data
-        data?.getStringExtra(EXTRA_REPLY_DATE)?.let {
-            //dobViewModel.insert(Dob(it))
+        data?.getLongExtra(EXTRA_REPLY_LONG, 0)?.let {
+            val dob = Dob(Date(it))
+            dobViewModel.insert(dob)
         }
     }
     private val masStartForResult = registerForActivityResult(
