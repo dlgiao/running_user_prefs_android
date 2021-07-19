@@ -3,7 +3,7 @@ package com.kmmania.runninguserpreferences.model
 import androidx.room.ColumnInfo
 import androidx.room.Entity
 import androidx.room.PrimaryKey
-import com.kmmania.runninguserpreferences.utils.units.MeasuringSystemUnit
+import com.kmmania.runninguserpreferences.model.units.MeasuringSystemUnit
 
 @Entity(tableName = "measuring_system_table")
 data class MeasuringSystem(

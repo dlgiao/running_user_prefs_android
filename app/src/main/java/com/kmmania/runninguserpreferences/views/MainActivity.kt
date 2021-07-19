@@ -14,7 +14,7 @@ import com.kmmania.runninguserpreferences.model.*
 import com.kmmania.runninguserpreferences.utils.CONSTANTS.Companion.EXTRA_REPLY_ARRAY
 import com.kmmania.runninguserpreferences.utils.CONSTANTS.Companion.EXTRA_REPLY_LONG
 import com.kmmania.runninguserpreferences.utils.CONSTANTS.Companion.EXTRA_REPLY_STRING
-import com.kmmania.runninguserpreferences.utils.units.*
+import com.kmmania.runninguserpreferences.model.units.*
 import com.kmmania.runninguserpreferences.viewmodels.*
 //import com.kmmania.runninguserpreferences.viewmodels.MeasuringSystemViewModelFactory
 import dagger.hilt.android.AndroidEntryPoint

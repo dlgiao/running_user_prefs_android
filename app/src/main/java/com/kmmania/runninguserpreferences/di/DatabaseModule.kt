@@ -5,7 +5,7 @@ import androidx.room.Room
 import androidx.room.RoomDatabase
 import androidx.sqlite.db.SupportSQLiteDatabase
 import com.kmmania.runninguserpreferences.model.*
-import com.kmmania.runninguserpreferences.utils.units.*
+import com.kmmania.runninguserpreferences.model.units.*
 import dagger.Module
 import dagger.Provides
 import dagger.hilt.InstallIn
