@@ -7,6 +7,7 @@ import android.os.Bundle
 import androidx.activity.result.ActivityResult
 import androidx.activity.result.contract.ActivityResultContracts
 import androidx.activity.viewModels
+import androidx.lifecycle.Observer
 import com.kmmania.runninguserpreferences.R
 //import com.kmmania.runninguserpreferences.application.RunningUserPrefApplication
 import com.kmmania.runninguserpreferences.databinding.ActivityMainBinding
@@ -142,7 +143,8 @@ class MainActivity : AppCompatActivity() {
         mainBinding.tvMsTitle.setOnClickListener {
             msStartForResult.launch(Intent(this, MeasuringSystemActivity::class.java))
         }
-        msViewModel.msValue.observe(this, { ms ->
+        // The observer which updates the UI
+        val msObserver = Observer<MeasuringSystem> { ms ->
             ms?.let {
                 when(it.measuringSystem.toString()) {
                     "METRIC" -> mainBinding.tvMsValue.text = getString(R.string.metric)
@@ -150,7 +152,9 @@ class MainActivity : AppCompatActivity() {
                     else -> mainBinding.tvMsValue.text = getString(R.string.unknown)
                 }
             }
-        })
+        }
+        // Observe the LiveData
+        msViewModel.msValue.observe(this, msObserver)
 
         // Gender
         mainBinding.tvGenderTitle.setOnClickListener {
