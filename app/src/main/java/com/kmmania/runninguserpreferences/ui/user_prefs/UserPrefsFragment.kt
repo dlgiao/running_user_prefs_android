@@ -30,7 +30,9 @@ class UserPrefsFragment : Fragment() {
         val rootView = userPrefsBinding.root
 
         // Measuring system
-
+        userPrefsBinding.tvMsTitle.setOnClickListener {
+            //
+        }
         // The observer which updates the UI
         val msObserver = Observer<MeasuringSystem> { ms ->
             ms?.let {
