@@ -11,7 +11,7 @@ import androidx.navigation.fragment.findNavController
 import com.kmmania.runninguserpreferences.R
 import com.kmmania.runninguserpreferences.databinding.FragmentUserPrefsBinding
 import com.kmmania.runninguserpreferences.model.MeasuringSystem
-import com.kmmania.runninguserpreferences.viewmodels.MeasuringSystemViewModel
+import com.kmmania.runninguserpreferences.ui.measuringsystem.MeasuringSystemViewModel
 import dagger.hilt.android.AndroidEntryPoint
 
 @AndroidEntryPoint

@@ -9,7 +9,6 @@ import androidx.fragment.app.viewModels
 import androidx.lifecycle.Observer
 import com.kmmania.runninguserpreferences.databinding.FragmentMSBinding
 import com.kmmania.runninguserpreferences.model.MeasuringSystem
-import com.kmmania.runninguserpreferences.viewmodels.MeasuringSystemViewModel
 import dagger.hilt.android.AndroidEntryPoint
 
 @AndroidEntryPoint

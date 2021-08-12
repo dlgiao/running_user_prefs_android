@@ -1,4 +1,4 @@
-package com.kmmania.runninguserpreferences.viewmodels
+package com.kmmania.runninguserpreferences.ui.measuringsystem
 
 import androidx.lifecycle.*
 import com.kmmania.runninguserpreferences.model.MeasuringSystem

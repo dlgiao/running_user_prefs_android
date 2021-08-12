@@ -8,7 +8,7 @@ import androidx.activity.viewModels
 import com.kmmania.runninguserpreferences.R
 import com.kmmania.runninguserpreferences.databinding.ActivityWeightBinding
 import com.kmmania.runninguserpreferences.utils.CONSTANTS.Companion.EXTRA_REPLY_ARRAY
-import com.kmmania.runninguserpreferences.viewmodels.MeasuringSystemViewModel
+import com.kmmania.runninguserpreferences.ui.measuringsystem.MeasuringSystemViewModel
 import com.kmmania.runninguserpreferences.viewmodels.WeightViewModel
 import dagger.hilt.android.AndroidEntryPoint
 

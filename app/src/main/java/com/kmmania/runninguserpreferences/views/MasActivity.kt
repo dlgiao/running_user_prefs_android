@@ -9,7 +9,7 @@ import com.kmmania.runninguserpreferences.R
 import com.kmmania.runninguserpreferences.databinding.ActivityMasBinding
 import com.kmmania.runninguserpreferences.utils.CONSTANTS.Companion.EXTRA_REPLY_ARRAY
 import com.kmmania.runninguserpreferences.viewmodels.MasViewModel
-import com.kmmania.runninguserpreferences.viewmodels.MeasuringSystemViewModel
+import com.kmmania.runninguserpreferences.ui.measuringsystem.MeasuringSystemViewModel
 import dagger.hilt.android.AndroidEntryPoint
 
 @AndroidEntryPoint

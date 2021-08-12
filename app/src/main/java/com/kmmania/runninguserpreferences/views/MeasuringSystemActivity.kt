@@ -6,14 +6,13 @@ import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import androidx.activity.viewModels
 import androidx.lifecycle.Observer
-import com.kmmania.runninguserpreferences.R
 //import com.kmmania.runninguserpreferences.application.RunningUserPrefApplication
 import com.kmmania.runninguserpreferences.databinding.ActivityMeasuringSystemBinding
 import com.kmmania.runninguserpreferences.model.MeasuringSystem
 import com.kmmania.runninguserpreferences.utils.CONSTANTS.Companion.EXTRA_REPLY_STRING
-import com.kmmania.runninguserpreferences.viewmodels.MeasuringSystemViewModel
+import com.kmmania.runninguserpreferences.ui.measuringsystem.MeasuringSystemViewModel
 import dagger.hilt.android.AndroidEntryPoint
-//import com.kmmania.runninguserpreferences.viewmodels.MeasuringSystemViewModel
+//import com.kmmania.runninguserpreferences.ui.measuringsystem.MeasuringSystemViewModel
 //import com.kmmania.runninguserpreferences.viewmodels.MeasuringSystemViewModelFactory
 
 @AndroidEntryPoint
