@@ -14,8 +14,8 @@
         android:paddingHorizontal="10dp"
         android:text="@string/measuring_system"
         android:textSize="20sp"
-        app:layout_constraintLeft_toLeftOf="parent"
-        app:layout_constraintRight_toRightOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
 
     <RadioGroup
@@ -47,8 +47,8 @@
         android:paddingHorizontal="10dp"
         android:text="@string/gender"
         android:textSize="20sp"
-        app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/rg_MS" />
 
     <RadioGroup
@@ -74,17 +74,6 @@
 
     </RadioGroup>
 
-<!--    <TextView
-        android:id="@+id/tv_gender_value"
-        android:layout_width="0dp"
-        android:layout_height="wrap_content"
-        android:hint="@string/unknown"
-        android:paddingHorizontal="10dp"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/tv_gender_title"
-        tools:ignore="TextContrastCheck" />-->
-
     <TextView
         android:id="@+id/tv_dob_title"
         android:layout_width="0dp"
@@ -92,11 +81,29 @@
         android:paddingHorizontal="10dp"
         android:text="@string/dob"
         android:textSize="20sp"
-        app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintTop_toBottomOf="@id/rg_gender"/>
 
+    <Button
+        android:id="@+id/btn_select_date"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:text="@string/select_date"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/tv_dob_title" />
+
     <TextView
+        android:id="@+id/tv_dob_value"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:hint="@string/unknown"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/btn_select_date"/>
+
+<!--    <TextView
         android:id="@+id/tv_dob_value"
         android:layout_width="0dp"
         android:layout_height="wrap_content"
@@ -105,7 +112,7 @@
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/tv_dob_title"
-        tools:ignore="TextContrastCheck" />
+        tools:ignore="TextContrastCheck" />-->
 
     <TextView
         android:id="@+id/tv_mas_title"
