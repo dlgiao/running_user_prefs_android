@@ -7,10 +7,9 @@ import android.view.View
 import android.view.ViewGroup
 import androidx.fragment.app.viewModels
 import androidx.lifecycle.Observer
-import androidx.navigation.fragment.findNavController
-import com.kmmania.runninguserpreferences.R
 import com.kmmania.runninguserpreferences.databinding.FragmentUserPrefsBinding
 import com.kmmania.runninguserpreferences.model.MeasuringSystem
+import com.kmmania.runninguserpreferences.model.units.MeasuringSystemUnit
 import com.kmmania.runninguserpreferences.ui.measuringsystem.MeasuringSystemViewModel
 import dagger.hilt.android.AndroidEntryPoint
 
@@ -31,21 +30,24 @@ class UserPrefsFragment : Fragment() {
         val rootView = userPrefsBinding.root
 
         // Measuring system
-        userPrefsBinding.tvMsTitle.setOnClickListener {
-            findNavController().navigate(R.id.action_nav_user_prefs_to_MSFragment)
-        }
         // The observer which updates the UI
         val msObserver = Observer<MeasuringSystem> { ms ->
             ms?.let {
                 when(it.measuringSystem.toString()) {
-                    "METRIC" -> userPrefsBinding.tvMsValue.text = getString(R.string.metric)
-                    "IMPERIAL" -> userPrefsBinding.tvMsValue.text = getString(R.string.imperial)
-                    else -> userPrefsBinding.tvMsValue.text = getString(R.string.unknown)
+                    "METRIC" -> userPrefsBinding.rbMetric.isChecked = true
+                    "IMPERIAL" -> userPrefsBinding.rbImperial.isChecked = true
                 }
             }
         }
         // Observe the LiveData
         msViewModel.msValue.observe(viewLifecycleOwner, msObserver)
+
+        userPrefsBinding.rbMetric.setOnClickListener {
+            msViewModel.insert(MeasuringSystem(MeasuringSystemUnit.METRIC))
+        }
+        userPrefsBinding.rbImperial.setOnClickListener {
+            msViewModel.insert(MeasuringSystem(MeasuringSystemUnit.IMPERIAL))
+        }
 
         return rootView
     }
