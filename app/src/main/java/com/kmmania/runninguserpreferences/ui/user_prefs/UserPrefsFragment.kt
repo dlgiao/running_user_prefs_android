@@ -7,6 +7,7 @@ import android.view.View
 import android.view.ViewGroup
 import androidx.fragment.app.viewModels
 import androidx.lifecycle.Observer
+import androidx.navigation.fragment.findNavController
 import com.kmmania.runninguserpreferences.R
 import com.kmmania.runninguserpreferences.databinding.FragmentUserPrefsBinding
 import com.kmmania.runninguserpreferences.model.MeasuringSystem
@@ -31,7 +32,7 @@ class UserPrefsFragment : Fragment() {
 
         // Measuring system
         userPrefsBinding.tvMsTitle.setOnClickListener {
-            //
+            findNavController().navigate(R.id.action_nav_user_prefs_to_MSFragment)
         }
         // The observer which updates the UI
         val msObserver = Observer<MeasuringSystem> { ms ->
