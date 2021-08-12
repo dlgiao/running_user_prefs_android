@@ -18,7 +18,29 @@
         app:layout_constraintRight_toRightOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
 
-    <TextView
+    <RadioGroup
+        android:id="@+id/rg_MS"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/tv_ms_title">
+
+        <RadioButton
+            android:id="@+id/rb_metric"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="@string/metric" />
+
+        <RadioButton
+            android:id="@+id/rb_imperial"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="@string/imperial" />
+    </RadioGroup>
+
+<!--    <TextView
         android:id="@+id/tv_ms_value"
         android:layout_width="0dp"
         android:layout_height="wrap_content"
@@ -27,7 +49,7 @@
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/tv_ms_title"
-        tools:ignore="TextContrastCheck" />
+        tools:ignore="TextContrastCheck" />-->
 
     <TextView
         android:id="@+id/tv_gender_title"
@@ -38,7 +60,7 @@
         android:textSize="20sp"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/tv_ms_value" />
+        app:layout_constraintTop_toBottomOf="@+id/rg_MS" />
 
     <TextView
         android:id="@+id/tv_gender_value"
