@@ -14,10 +14,19 @@
         android:id="@+id/nav_user_prefs"
         android:name="com.kmmania.runninguserpreferences.ui.user_prefs.UserPrefsFragment"
         android:label="@string/user_prefs"
-        tools:layout="@layout/fragment_user_prefs" />
+        tools:layout="@layout/fragment_user_prefs" >
+        <action
+            android:id="@+id/action_nav_user_prefs_to_MSFragment"
+            app:destination="@id/MSFragment" />
+    </fragment>
     <fragment
         android:id="@+id/nav_info"
         android:name="com.kmmania.runninguserpreferences.ui.info.InfoFragment"
         android:label="@string/info"
         tools:layout="@layout/fragment_info" />
+    <fragment
+        android:id="@+id/MSFragment"
+        android:name="com.kmmania.runninguserpreferences.ui.measuringsystem.MSFragment"
+        android:label="@string/measuring_system"
+        tools:layout="@layout/fragment_m_s" />
 </navigation>
