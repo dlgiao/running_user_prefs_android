@@ -22,11 +22,12 @@
         android:id="@+id/tv_ms_value"
         android:layout_width="0dp"
         android:layout_height="wrap_content"
-        android:paddingHorizontal="10dp"
         android:hint="@string/unknown"
+        android:paddingHorizontal="10dp"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/tv_ms_title" />
+        app:layout_constraintTop_toBottomOf="@+id/tv_ms_title"
+        tools:ignore="TextContrastCheck" />
 
     <TextView
         android:id="@+id/tv_gender_title"
@@ -43,11 +44,12 @@
         android:id="@+id/tv_gender_value"
         android:layout_width="0dp"
         android:layout_height="wrap_content"
-        android:paddingHorizontal="10dp"
         android:hint="@string/unknown"
+        android:paddingHorizontal="10dp"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/tv_gender_title" />
+        app:layout_constraintTop_toBottomOf="@+id/tv_gender_title"
+        tools:ignore="TextContrastCheck" />
 
     <TextView
         android:id="@+id/tv_dob_title"
@@ -64,11 +66,12 @@
         android:id="@+id/tv_dob_value"
         android:layout_width="0dp"
         android:layout_height="wrap_content"
-        android:paddingHorizontal="10dp"
         android:hint="@string/unknown"
+        android:paddingHorizontal="10dp"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/tv_dob_title"/>
+        app:layout_constraintTop_toBottomOf="@+id/tv_dob_title"
+        tools:ignore="TextContrastCheck" />
 
     <TextView
         android:id="@+id/tv_mas_title"
@@ -85,11 +88,12 @@
         android:id="@+id/tv_mas_value"
         android:layout_width="0dp"
         android:layout_height="wrap_content"
-        android:paddingHorizontal="10dp"
         android:hint="@string/unknown"
+        android:paddingHorizontal="10dp"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/tv_mas_title"/>
+        app:layout_constraintTop_toBottomOf="@+id/tv_mas_title"
+        tools:ignore="TextContrastCheck" />
 
     <TextView
         android:id="@+id/tv_height_title"
@@ -106,22 +110,24 @@
         android:id="@+id/tv_height_value"
         android:layout_width="0dp"
         android:layout_height="wrap_content"
-        android:paddingHorizontal="10dp"
         android:hint="@string/unknown"
+        android:paddingHorizontal="10dp"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/tv_height_title" />
+        app:layout_constraintTop_toBottomOf="@+id/tv_height_title"
+        tools:ignore="TextContrastCheck" />
 
     <TextView
         android:id="@+id/tv_weight_title"
         android:layout_width="0dp"
         android:layout_height="wrap_content"
-        android:paddingHorizontal="10dp"
         android:hint="@string/weight"
+        android:paddingHorizontal="10dp"
         android:textSize="20sp"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@id/tv_height_value"/>
+        app:layout_constraintTop_toBottomOf="@id/tv_height_value"
+        tools:ignore="TextContrastCheck" />
 
     <TextView
         android:id="@+id/tv_weight_value"
@@ -131,6 +137,6 @@
         android:paddingHorizontal="10dp"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/tv_weight_title"/>
-
+        app:layout_constraintTop_toBottomOf="@+id/tv_weight_title"
+        tools:ignore="TextContrastCheck" />
 </androidx.constraintlayout.widget.ConstraintLayout>
