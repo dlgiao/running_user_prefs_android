@@ -3,20 +3,20 @@
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:id="@+id/navigation"
-    app:startDestination="@id/homeFragment">
+    app:startDestination="@id/nav_home">
 
     <fragment
-        android:id="@+id/homeFragment"
+        android:id="@+id/nav_home"
         android:name="com.kmmania.runninguserpreferences.ui.home.HomeFragment"
         android:label="fragment_home"
         tools:layout="@layout/fragment_home" />
     <fragment
-        android:id="@+id/userPrefsFragment"
+        android:id="@+id/nav_user_prefs"
         android:name="com.kmmania.runninguserpreferences.ui.user_prefs.UserPrefsFragment"
         android:label="fragment_user_prefs"
         tools:layout="@layout/fragment_user_prefs" />
     <fragment
-        android:id="@+id/infoFragment"
+        android:id="@+id/nav_info"
         android:name="com.kmmania.runninguserpreferences.ui.info.InfoFragment"
         android:label="fragment_info"
         tools:layout="@layout/fragment_info" />
