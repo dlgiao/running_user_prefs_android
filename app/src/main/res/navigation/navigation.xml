@@ -1,6 +1,23 @@
 <?xml version="1.0" encoding="utf-8"?>
 <navigation xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
-    android:id="@+id/navigation">
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/navigation"
+    app:startDestination="@id/homeFragment">
 
+    <fragment
+        android:id="@+id/homeFragment"
+        android:name="com.kmmania.runninguserpreferences.ui.home.HomeFragment"
+        android:label="fragment_home"
+        tools:layout="@layout/fragment_home" />
+    <fragment
+        android:id="@+id/userPrefsFragment"
+        android:name="com.kmmania.runninguserpreferences.ui.user_prefs.UserPrefsFragment"
+        android:label="fragment_user_prefs"
+        tools:layout="@layout/fragment_user_prefs" />
+    <fragment
+        android:id="@+id/infoFragment"
+        android:name="com.kmmania.runninguserpreferences.ui.info.InfoFragment"
+        android:label="fragment_info"
+        tools:layout="@layout/fragment_info" />
 </navigation>
