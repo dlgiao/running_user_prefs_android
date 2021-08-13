@@ -74,26 +74,26 @@ class UserPrefsFragment : Fragment() {
 
         // Measuring system
         // The observer which updates the UI
-        val msObserver = Observer<MeasuringSystem> { ms ->
-            ms?.let {
-                when(it.measuringSystem.toString()) {
-                    "METRIC" -> {
-                        userPrefsBinding.rbMetric.isChecked = true
-                        userPrefsBinding.tvUnitMas.text = getString(R.string.kmh)
-                        userPrefsBinding.tvUnitHeight.text = getString(R.string.cm)
-                        userPrefsBinding.tvUnitWeight.text = getString(R.string.kg)
-                    }
-                    "IMPERIAL" -> {
-                        userPrefsBinding.rbImperial.isChecked = true
-                        userPrefsBinding.tvUnitMas.text = getString(R.string.mph)
-                        userPrefsBinding.tvUnitHeight.text = getString(R.string.inch)
-                        userPrefsBinding.tvUnitWeight.text = getString(R.string.lb)
-                    }
-                }
-            }
-        }
-        // Observe the LiveData
-        msViewModel.msValue.observe(viewLifecycleOwner, msObserver)
+//        val msObserver = Observer<MeasuringSystem> { ms ->
+//            ms?.let {
+//                when(it.measuringSystem.toString()) {
+//                    "METRIC" -> {
+//                        userPrefsBinding.rbMetric.isChecked = true
+//                        userPrefsBinding.tvUnitMas.text = getString(R.string.kmh)
+//                        userPrefsBinding.tvUnitHeight.text = getString(R.string.cm)
+//                        userPrefsBinding.tvUnitWeight.text = getString(R.string.kg)
+//                    }
+//                    "IMPERIAL" -> {
+//                        userPrefsBinding.rbImperial.isChecked = true
+//                        userPrefsBinding.tvUnitMas.text = getString(R.string.mph)
+//                        userPrefsBinding.tvUnitHeight.text = getString(R.string.inch)
+//                        userPrefsBinding.tvUnitWeight.text = getString(R.string.lb)
+//                    }
+//                }
+//            }
+//        }
+//        // Observe the LiveData
+//        msViewModel.msValue.observe(viewLifecycleOwner, msObserver)
         // insert MS data
         userPrefsBinding.rbMetric.setOnClickListener {
             msViewModel.insert(MeasuringSystem(MeasuringSystemUnit.METRIC))
@@ -104,16 +104,16 @@ class UserPrefsFragment : Fragment() {
 
         // Gender
         // The observer which updates the UI
-        val genderObserver = Observer<Gender> { gender ->
-            gender?.let {
-                when(it.gender.toString()) {
-                    "MALE" -> userPrefsBinding.rbMale.isChecked = true
-                    "FEMALE" -> userPrefsBinding.rbFemale.isChecked = true
-                }
-            }
-        }
-        // Observe the LiveData
-        genderViewModel.genderValue.observe(viewLifecycleOwner, genderObserver)
+//        val genderObserver = Observer<Gender> { gender ->
+//            gender?.let {
+//                when(it.gender.toString()) {
+//                    "MALE" -> userPrefsBinding.rbMale.isChecked = true
+//                    "FEMALE" -> userPrefsBinding.rbFemale.isChecked = true
+//                }
+//            }
+//        }
+//        // Observe the LiveData
+//        genderViewModel.genderValue.observe(viewLifecycleOwner, genderObserver)
         // Insert gender data
         userPrefsBinding.rbMale.setOnClickListener {
             genderViewModel.insert(Gender(GenderUnit.MALE))
@@ -124,13 +124,13 @@ class UserPrefsFragment : Fragment() {
 
         // DOB
         // The observer which updates the UI
-        val dobObserver = Observer<Dob> { dob ->
-            dob?.let {
-                userPrefsBinding.tvDobValue.text = it.dob.toString()
-            }
-        }
-        // Observe the LiveData
-        dobViewModel.dobValue.observe(viewLifecycleOwner, dobObserver)
+//        val dobObserver = Observer<Dob> { dob ->
+//            dob?.let {
+//                userPrefsBinding.tvDobValue.text = it.dob.toString()
+//            }
+//        }
+//        // Observe the LiveData
+//        dobViewModel.dobValue.observe(viewLifecycleOwner, dobObserver)
 
         val dobPicker = MaterialDatePicker.Builder.datePicker()
             .setTitleText(getString(R.string.dob))
@@ -145,12 +145,12 @@ class UserPrefsFragment : Fragment() {
         }
 
         // MAS
-        val masObserver = Observer<Mas> { mas ->
-            mas?.let {
-                userPrefsBinding.tiMasValue.editText?.setText(it.masValue.toString())
-            }
-        }
-        masViewModel.masValue.observe(viewLifecycleOwner, masObserver)
+//        val masObserver = Observer<Mas> { mas ->
+//            mas?.let {
+//                userPrefsBinding.tiMasValue.editText?.setText(it.masValue.toString())
+//            }
+//        }
+//        masViewModel.masValue.observe(viewLifecycleOwner, masObserver)
 
         userPrefsBinding.etMasValue.onFocusChangeListener = OnFocusChangeListener { _, hasFocus ->
             if (!hasFocus) {
@@ -165,12 +165,12 @@ class UserPrefsFragment : Fragment() {
         }
 
         // Height
-        val heightObserver = Observer<Height> { height ->
-            height?.let {
-                userPrefsBinding.tiHeightValue.editText?.setText(it.heightValue.toString())
-            }
-        }
-        heightViewModel.heightValue.observe(viewLifecycleOwner, heightObserver)
+//        val heightObserver = Observer<Height> { height ->
+//            height?.let {
+//                userPrefsBinding.tiHeightValue.editText?.setText(it.heightValue.toString())
+//            }
+//        }
+//        heightViewModel.heightValue.observe(viewLifecycleOwner, heightObserver)
 
         userPrefsBinding.etHeightValue.onFocusChangeListener = OnFocusChangeListener { _, hasFocus ->
             if (!hasFocus) {
@@ -185,12 +185,12 @@ class UserPrefsFragment : Fragment() {
         }
 
         // Weight
-        val weightObserver = Observer<Weight> { weight ->
-            weight?.let {
-                userPrefsBinding.tiWeightValue.editText?.setText(it.weightValue.toString())
-            }
-        }
-        weightViewModel.weightValue.observe(viewLifecycleOwner, weightObserver)
+//        val weightObserver = Observer<Weight> { weight ->
+//            weight?.let {
+//                userPrefsBinding.tiWeightValue.editText?.setText(it.weightValue.toString())
+//            }
+//        }
+//        weightViewModel.weightValue.observe(viewLifecycleOwner, weightObserver)
 
         userPrefsBinding.etWeightValue.onFocusChangeListener = OnFocusChangeListener { _, hasFocus ->
             if (!hasFocus) {
