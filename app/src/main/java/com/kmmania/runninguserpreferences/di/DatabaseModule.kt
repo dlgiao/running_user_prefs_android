@@ -38,9 +38,10 @@ object DatabaseModule {
                             scope.launch {
                                 val userPrefsDao = database.userPrefsDao()
                                 userPrefsDao.deleteAll()
+                                // User prefs initial values
                                 val ms = MeasuringSystemUnit.METRIC
                                 val gender = GenderUnit.MALE
-                                // val dob
+                                val dob = null
                                 val masValue = 0.0
                                 val masUnit = SpeedUnit.KMH
                                 val heightValue = 0
@@ -48,7 +49,7 @@ object DatabaseModule {
                                 val weightValue = 0.0
                                 val weightUnit = WeightUnit.KG
                                 val userPrefs = UserPrefs(
-                                    ms, gender, null,
+                                    ms, gender, dob,
                                     masValue, masUnit,
                                     heightValue, heightUnit,
                                     weightValue, weightUnit
