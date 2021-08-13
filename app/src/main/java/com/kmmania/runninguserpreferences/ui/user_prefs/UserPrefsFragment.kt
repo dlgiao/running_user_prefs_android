@@ -98,17 +98,17 @@ class UserPrefsFragment : Fragment() {
         // Observe the LiveData
         dobViewModel.dobValue.observe(viewLifecycleOwner, dobObserver)
 
-        val datePicker = MaterialDatePicker.Builder.datePicker()
-            .setTitleText(getString(R.string.select_date))
+        val dobPicker = MaterialDatePicker.Builder.datePicker()
+            .setTitleText(getString(R.string.dob))
             .setInputMode(MaterialDatePicker.INPUT_MODE_TEXT)
             .build()
         userPrefsBinding.btnSelectDate.setOnClickListener {
-            datePicker.show(childFragmentManager, "DOB")
+            dobPicker.show(childFragmentManager, "DOB")
         }
-        datePicker.addOnPositiveButtonClickListener {
-            val dateValue = Date(datePicker.selection!!)
+        dobPicker.addOnPositiveButtonClickListener {
+            val dobValue = Date(dobPicker.selection!!)
             //val dob = Dob(Date(dobValue!!))
-            dobViewModel.insert(Dob(dateValue))
+            dobViewModel.insert(Dob(dobValue))
         }
 
         // MAS
