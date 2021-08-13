@@ -22,18 +22,18 @@ object DatabaseModule {
     @Singleton
     fun provideUserPrefDatabase(
         @ApplicationContext AppContext: Context
-    ): UserPrefDatabase {
+    ): UserPrefsDatabase {
         return Room.databaseBuilder(
             AppContext.applicationContext,
-            UserPrefDatabase::class.java,
-            "user_pref_database"
+            UserPrefsDatabase::class.java,
+            "user_prefs_database"
         )
             .build()
     }
 
     @Provides
-    fun provideUserPrefDao(userPrefDatabase: UserPrefDatabase): UserPrefDao {
-        return userPrefDatabase.userPrefDao()
+    fun provideUserPrefDao(userPrefsDatabase: UserPrefsDatabase): UserPrefsDao {
+        return userPrefsDatabase.userPrefsDao()
     }
 
     @Provides
