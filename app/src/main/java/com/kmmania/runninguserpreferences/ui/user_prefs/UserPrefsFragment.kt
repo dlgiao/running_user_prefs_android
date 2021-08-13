@@ -13,8 +13,6 @@ import com.kmmania.runninguserpreferences.R
 import com.kmmania.runninguserpreferences.databinding.FragmentUserPrefsBinding
 import com.kmmania.runninguserpreferences.model.*
 import com.kmmania.runninguserpreferences.model.units.*
-//import com.kmmania.runninguserpreferences.ui.measuringsystem.MeasuringSystemViewModel
-//import com.kmmania.runninguserpreferences.viewmodels.*
 import dagger.hilt.android.AndroidEntryPoint
 import java.util.*
 
@@ -100,7 +98,7 @@ class UserPrefsFragment : Fragment() {
             userPrefsViewModel.insert(UserPrefs(
                 MeasuringSystemUnit.METRIC,
                 getGender(),
-                getDob(),
+                null,
                 getMasValue(), getMasUnit(),
                 getHeightValue(), getHeightUnit(),
                 getWeightValue(), getWeightUnit()
@@ -111,7 +109,7 @@ class UserPrefsFragment : Fragment() {
             userPrefsViewModel.insert(UserPrefs(
                 MeasuringSystemUnit.IMPERIAL,
                 getGender(),
-                getDob(),
+                null,
                 getMasValue(), getMasUnit(),
                 getHeightValue(), getHeightUnit(),
                 getWeightValue(), getWeightUnit()
@@ -136,7 +134,7 @@ class UserPrefsFragment : Fragment() {
             userPrefsViewModel.insert(UserPrefs(
                 getMS(),
                 GenderUnit.MALE,
-                getDob(),
+                null,
                 getMasValue(), getMasUnit(),
                 getHeightValue(), getHeightUnit(),
                 getWeightValue(), getWeightUnit()
@@ -147,7 +145,7 @@ class UserPrefsFragment : Fragment() {
             userPrefsViewModel.insert(UserPrefs(
                 getMS(),
                 GenderUnit.FEMALE,
-                getDob(),
+                null,
                 getMasValue(), getMasUnit(),
                 getHeightValue(), getHeightUnit(),
                 getWeightValue(), getWeightUnit()
@@ -204,7 +202,7 @@ class UserPrefsFragment : Fragment() {
                 userPrefsViewModel.insert(UserPrefs(
                     getMS(),
                     getGender(),
-                    getDob(),
+                    null,
                     getMasValue(), getMasUnit(),
                     getHeightValue(), getHeightUnit(),
                     getWeightValue(), getWeightUnit()
@@ -232,7 +230,7 @@ class UserPrefsFragment : Fragment() {
                 userPrefsViewModel.insert(UserPrefs(
                     getMS(),
                     getGender(),
-                    getDob(),
+                    null,
                     getMasValue(), getMasUnit(),
                     getHeightValue(), getHeightUnit(),
                     getWeightValue(), getWeightUnit()
@@ -260,7 +258,7 @@ class UserPrefsFragment : Fragment() {
                 userPrefsViewModel.insert(UserPrefs(
                     getMS(),
                     getGender(),
-                    getDob(),
+                    null,
                     getMasValue(), getMasUnit(),
                     getHeightValue(), getHeightUnit(),
                     getWeightValue(), getWeightUnit()
