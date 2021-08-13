@@ -18,6 +18,7 @@ import com.kmmania.runninguserpreferences.model.units.MeasuringSystemUnit
 import com.kmmania.runninguserpreferences.ui.measuringsystem.MeasuringSystemViewModel
 import com.kmmania.runninguserpreferences.viewmodels.DobViewModel
 import com.kmmania.runninguserpreferences.viewmodels.GenderViewModel
+import com.kmmania.runninguserpreferences.viewmodels.MasViewModel
 import dagger.hilt.android.AndroidEntryPoint
 import java.util.*
 
@@ -30,6 +31,7 @@ class UserPrefsFragment : Fragment() {
     private val msViewModel: MeasuringSystemViewModel by viewModels()
     private val genderViewModel: GenderViewModel by viewModels()
     private val dobViewModel: DobViewModel by viewModels()
+    private val masViewModel: MasViewModel by viewModels()
 
     override fun onCreateView(
         inflater: LayoutInflater,
@@ -45,8 +47,14 @@ class UserPrefsFragment : Fragment() {
         val msObserver = Observer<MeasuringSystem> { ms ->
             ms?.let {
                 when(it.measuringSystem.toString()) {
-                    "METRIC" -> userPrefsBinding.rbMetric.isChecked = true
-                    "IMPERIAL" -> userPrefsBinding.rbImperial.isChecked = true
+                    "METRIC" -> {
+                        userPrefsBinding.rbMetric.isChecked = true
+                        userPrefsBinding.tvUnitMas.text = getString(R.string.kmh)
+                    }
+                    "IMPERIAL" -> {
+                        userPrefsBinding.rbImperial.isChecked = true
+                        userPrefsBinding.tvUnitMas.text = getString(R.string.mph)
+                    }
                 }
             }
         }
