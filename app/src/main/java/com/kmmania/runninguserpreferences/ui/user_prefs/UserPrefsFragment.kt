@@ -121,18 +121,17 @@ class UserPrefsFragment : Fragment() {
         }
         masViewModel.masValue.observe(viewLifecycleOwner, masObserver)
 
-        userPrefsBinding.etMasValue.onFocusChangeListener =
-            OnFocusChangeListener { _, hasFocus ->
-                if (!hasFocus) {
-                    val mas = userPrefsBinding.tiMasValue.editText?.text.toString().toDouble()
-                    var unitMas = SpeedUnit.KMH
-                    when(userPrefsBinding.tvUnitMas.text) {
-                        "km/h" -> unitMas = SpeedUnit.KMH
-                        "mph" -> unitMas =SpeedUnit.MPH
-                    }
-                    masViewModel.insert(Mas(mas, unitMas))
+        userPrefsBinding.etMasValue.onFocusChangeListener = OnFocusChangeListener { _, hasFocus ->
+            if (!hasFocus) {
+                val mas = userPrefsBinding.tiMasValue.editText?.text.toString().toDouble()
+                var unitMas = SpeedUnit.KMH
+                when(userPrefsBinding.tvUnitMas.text) {
+                    "km/h" -> unitMas = SpeedUnit.KMH
+                    "mph" -> unitMas =SpeedUnit.MPH
                 }
+                masViewModel.insert(Mas(mas, unitMas))
             }
+        }
 
         // Height
         val heightObserver = Observer<Height> { height ->
