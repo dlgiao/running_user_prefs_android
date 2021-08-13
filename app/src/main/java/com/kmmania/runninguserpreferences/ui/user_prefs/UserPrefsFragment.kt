@@ -107,7 +107,6 @@ class UserPrefsFragment : Fragment() {
         }
         dobPicker.addOnPositiveButtonClickListener {
             val dobValue = Date(dobPicker.selection!!)
-            //val dob = Dob(Date(dobValue!!))
             dobViewModel.insert(Dob(dobValue))
         }
 
