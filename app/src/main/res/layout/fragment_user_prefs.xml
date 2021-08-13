@@ -173,16 +173,6 @@
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/et_height_value"/>
 
-<!--    <TextView
-        android:id="@+id/tv_height_value"
-        android:layout_width="0dp"
-        android:layout_height="wrap_content"
-        android:hint="@string/unknown"
-        android:paddingHorizontal="10dp"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/tv_height_title"
-        tools:ignore="TextContrastCheck" />-->
 
     <TextView
         android:id="@+id/tv_weight_title"
@@ -196,14 +186,28 @@
         app:layout_constraintTop_toBottomOf="@id/tv_unit_height"
         tools:ignore="TextContrastCheck" />
 
+    <com.google.android.material.textfield.TextInputLayout
+        android:id="@+id/et_weight_value"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:hint="@string/weight"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/tv_weight_title">
+
+        <com.google.android.material.textfield.TextInputEditText
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:inputType="numberDecimal"/>
+    </com.google.android.material.textfield.TextInputLayout>
+
     <TextView
-        android:id="@+id/tv_weight_value"
+        android:id="@+id/tv_unit_weight"
         android:layout_width="0dp"
         android:layout_height="wrap_content"
         android:hint="@string/unknown"
-        android:paddingHorizontal="10dp"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/tv_weight_title"
-        tools:ignore="TextContrastCheck" />
+        app:layout_constraintTop_toBottomOf="@+id/et_weight_value"/>
+
 </androidx.constraintlayout.widget.ConstraintLayout>
