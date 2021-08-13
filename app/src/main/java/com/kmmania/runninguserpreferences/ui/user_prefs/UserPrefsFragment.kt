@@ -4,6 +4,7 @@ import android.os.Bundle
 import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
+import android.view.View.OnFocusChangeListener
 import android.view.ViewGroup
 import androidx.fragment.app.viewModels
 import androidx.lifecycle.Observer
@@ -13,6 +14,7 @@ import com.kmmania.runninguserpreferences.databinding.FragmentUserPrefsBinding
 import com.kmmania.runninguserpreferences.model.*
 import com.kmmania.runninguserpreferences.model.units.GenderUnit
 import com.kmmania.runninguserpreferences.model.units.MeasuringSystemUnit
+import com.kmmania.runninguserpreferences.model.units.SpeedUnit
 import com.kmmania.runninguserpreferences.ui.measuringsystem.MeasuringSystemViewModel
 import com.kmmania.runninguserpreferences.viewmodels.*
 import dagger.hilt.android.AndroidEntryPoint
@@ -114,10 +116,23 @@ class UserPrefsFragment : Fragment() {
         // MAS
         val masObserver = Observer<Mas> { mas ->
             mas?.let {
-                userPrefsBinding.etMasValue.editText?.setText(it.masValue.toString())
+                userPrefsBinding.tiMasValue.editText?.setText(it.masValue.toString())
             }
         }
         masViewModel.masValue.observe(viewLifecycleOwner, masObserver)
+
+        userPrefsBinding.etMasValue.onFocusChangeListener =
+            OnFocusChangeListener { _, hasFocus ->
+                if (!hasFocus) {
+                    val mas = userPrefsBinding.tiMasValue.editText?.text.toString().toDouble()
+                    var unitMas = SpeedUnit.KMH
+                    when(userPrefsBinding.tvUnitMas.text) {
+                        "km/h" -> unitMas = SpeedUnit.KMH
+                        "mph" -> unitMas =SpeedUnit.MPH
+                    }
+                    masViewModel.insert(Mas(mas, unitMas))
+                }
+            }
 
         // Height
         val heightObserver = Observer<Height> { height ->
