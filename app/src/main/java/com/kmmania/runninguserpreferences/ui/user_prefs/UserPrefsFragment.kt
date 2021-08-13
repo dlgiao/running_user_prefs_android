@@ -19,6 +19,7 @@ import com.kmmania.runninguserpreferences.model.units.MeasuringSystemUnit
 import com.kmmania.runninguserpreferences.ui.measuringsystem.MeasuringSystemViewModel
 import com.kmmania.runninguserpreferences.viewmodels.DobViewModel
 import com.kmmania.runninguserpreferences.viewmodels.GenderViewModel
+import com.kmmania.runninguserpreferences.viewmodels.HeightViewModel
 import com.kmmania.runninguserpreferences.viewmodels.MasViewModel
 import dagger.hilt.android.AndroidEntryPoint
 import java.util.*
@@ -33,6 +34,7 @@ class UserPrefsFragment : Fragment() {
     private val genderViewModel: GenderViewModel by viewModels()
     private val dobViewModel: DobViewModel by viewModels()
     private val masViewModel: MasViewModel by viewModels()
+    private val heightViewModel: HeightViewModel by viewModels()
 
     override fun onCreateView(
         inflater: LayoutInflater,
