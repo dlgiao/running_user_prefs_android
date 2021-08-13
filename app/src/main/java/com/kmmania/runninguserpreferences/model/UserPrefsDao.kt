@@ -6,11 +6,11 @@ import kotlinx.coroutines.flow.Flow
 @Dao
 interface UserPrefsDao {
     @Insert(onConflict = OnConflictStrategy.REPLACE)
-    suspend fun insert(userPref: UserPrefs)
+    suspend fun insert(userPrefs: UserPrefs)
 
     @Query("DELETE FROM user_prefs_table")
     suspend fun deleteAll()
 
     @Query("SELECT * FROM user_prefs_table")
-    fun getUserPref(): Flow<UserPrefs>
+    fun getUserPrefs(): Flow<UserPrefs>
 }
