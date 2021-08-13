@@ -21,14 +21,44 @@ object DatabaseModule {
     @Provides
     @Singleton
     fun provideUserPrefDatabase(
-        @ApplicationContext AppContext: Context
+        @ApplicationContext AppContext: Context,
+        @ApplicationContext scope: CoroutineScope
     ): UserPrefsDatabase {
-        return Room.databaseBuilder(
-            AppContext.applicationContext,
-            UserPrefsDatabase::class.java,
-            "user_prefs_database"
-        )
-            .build()
+        var userPrefsInstance: UserPrefsDatabase? = null
+        return userPrefsInstance?: synchronized(this) {
+            val instance = Room.databaseBuilder(
+                AppContext,
+                UserPrefsDatabase::class.java,
+                "user_prefs_database"
+            )
+                .addCallback(object : RoomDatabase.Callback() {
+                    override fun onCreate(db: SupportSQLiteDatabase) {
+                        super.onCreate(db)
+                        userPrefsInstance?.let { database ->
+                            scope.launch {
+                                val userPrefsDao = database.userPrefsDao()
+                                userPrefsDao.deleteAll()
+                                val ms = MeasuringSystemUnit.METRIC
+                                val gender = GenderUnit.MALE
+                                // val dob
+                                val masValue = 0.0
+                                val masUnit = SpeedUnit.KMH
+                                val heightValue = 0
+                                val heightUnit = LengthUnit.CM
+                                val weightValue = 0.0
+                                val weightUnit = WeightUnit.KG
+                                userPrefsDao.insert(UserPrefs(
+                                    ms, gender, null, masValue, masUnit, heightValue,
+                                    heightUnit, weightValue, weightUnit)
+                                )
+                            }
+                        }
+                    }
+                })
+                .build()
+            userPrefsInstance = instance
+            instance
+        }
     }
 
     @Provides
