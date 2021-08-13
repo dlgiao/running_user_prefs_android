@@ -7,14 +7,19 @@ import android.view.View
 import android.view.ViewGroup
 import androidx.fragment.app.viewModels
 import androidx.lifecycle.Observer
+import com.google.android.material.datepicker.MaterialDatePicker
+import com.kmmania.runninguserpreferences.R
 import com.kmmania.runninguserpreferences.databinding.FragmentUserPrefsBinding
+import com.kmmania.runninguserpreferences.model.Dob
 import com.kmmania.runninguserpreferences.model.Gender
 import com.kmmania.runninguserpreferences.model.MeasuringSystem
 import com.kmmania.runninguserpreferences.model.units.GenderUnit
 import com.kmmania.runninguserpreferences.model.units.MeasuringSystemUnit
 import com.kmmania.runninguserpreferences.ui.measuringsystem.MeasuringSystemViewModel
+import com.kmmania.runninguserpreferences.viewmodels.DobViewModel
 import com.kmmania.runninguserpreferences.viewmodels.GenderViewModel
 import dagger.hilt.android.AndroidEntryPoint
+import java.util.*
 
 @AndroidEntryPoint
 class UserPrefsFragment : Fragment() {
@@ -24,9 +29,11 @@ class UserPrefsFragment : Fragment() {
     // ViewModel
     private val msViewModel: MeasuringSystemViewModel by viewModels()
     private val genderViewModel: GenderViewModel by viewModels()
+    private val dobViewModel: DobViewModel by viewModels()
 
     override fun onCreateView(
-        inflater: LayoutInflater, container: ViewGroup?,
+        inflater: LayoutInflater,
+        container: ViewGroup?,
         savedInstanceState: Bundle?
     ): View? {
 
@@ -72,6 +79,31 @@ class UserPrefsFragment : Fragment() {
         userPrefsBinding.rbFemale.setOnClickListener {
             genderViewModel.insert(Gender(GenderUnit.FEMALE))
         }
+
+        // DOB
+        // The observer which updates the UI
+        val dobObserver = Observer<Dob> { dob ->
+            userPrefsBinding.tvDobValue.text = dob.dob.toString()
+        }
+        // Observe the LiveData
+        dobViewModel.dobValue.observe(viewLifecycleOwner, dobObserver)
+
+        val datePicker = MaterialDatePicker.Builder.datePicker()
+            .setTitleText(getString(R.string.select_date))
+            .setInputMode(MaterialDatePicker.INPUT_MODE_TEXT)
+            .build()
+        userPrefsBinding.btnSelectDate.setOnClickListener {
+            //datePicker.show(supportFragmentManager, "SELECT_DATE")
+        }
+        datePicker.addOnPositiveButtonClickListener {
+//            val dobValue = datePicker.selection
+//            val dob = Dob(Date(dobValue))
+//            dobViewModel.insert(dob)
+        }
+
+
+
+
 
         return rootView
     }
