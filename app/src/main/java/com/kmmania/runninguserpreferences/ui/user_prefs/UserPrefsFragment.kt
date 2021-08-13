@@ -106,9 +106,9 @@ class UserPrefsFragment : Fragment() {
             datePicker.show(childFragmentManager, "DOB")
         }
         datePicker.addOnPositiveButtonClickListener {
-            val dobValue = Date(datePicker.selection!!)
+            val dateValue = Date(datePicker.selection!!)
             //val dob = Dob(Date(dobValue!!))
-            dobViewModel.insert(Dob(dobValue))
+            dobViewModel.insert(Dob(dateValue))
         }
 
         // MAS
