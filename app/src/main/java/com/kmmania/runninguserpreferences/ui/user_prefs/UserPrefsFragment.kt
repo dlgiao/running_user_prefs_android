@@ -49,11 +49,13 @@ class UserPrefsFragment : Fragment() {
                         userPrefsBinding.rbMetric.isChecked = true
                         userPrefsBinding.tvUnitMas.text = getString(R.string.kmh)
                         userPrefsBinding.tvUnitHeight.text = getString(R.string.cm)
+                        userPrefsBinding.tvUnitWeight.text = getString(R.string.kg)
                     }
                     "IMPERIAL" -> {
                         userPrefsBinding.rbImperial.isChecked = true
                         userPrefsBinding.tvUnitMas.text = getString(R.string.mph)
                         userPrefsBinding.tvUnitHeight.text = getString(R.string.inch)
+                        userPrefsBinding.tvUnitWeight.text = getString(R.string.lb)
                     }
                 }
             }
