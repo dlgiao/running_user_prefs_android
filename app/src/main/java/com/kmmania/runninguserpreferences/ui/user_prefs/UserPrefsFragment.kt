@@ -127,6 +127,14 @@ class UserPrefsFragment : Fragment() {
         }
         heightViewModel.heightValue.observe(viewLifecycleOwner, heightObserver)
 
+        // Weight
+        val weightObserver = Observer<Weight> { weight ->
+            weight?.let {
+                userPrefsBinding.etWeightValue.editText?.setText(it.weightValue.toString())
+            }
+        }
+        weightViewModel.weightValue.observe(viewLifecycleOwner, weightObserver)
+
 
 
         return rootView
