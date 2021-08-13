@@ -4,13 +4,13 @@ import androidx.room.*
 import kotlinx.coroutines.flow.Flow
 
 @Dao
-interface UserPrefDao {
+interface UserPrefsDao {
     @Insert(onConflict = OnConflictStrategy.REPLACE)
-    suspend fun insert(userPref: UserPref)
+    suspend fun insert(userPref: UserPrefs)
 
-    @Query("DELETE FROM user_pref_table")
+    @Query("DELETE FROM user_prefs_table")
     suspend fun deleteAll()
 
-    @Query("SELECT * FROM user_pref_table")
-    fun getUserPref(): Flow<UserPref>
+    @Query("SELECT * FROM user_prefs_table")
+    fun getUserPref(): Flow<UserPrefs>
 }
