@@ -47,10 +47,13 @@ object DatabaseModule {
                                 val heightUnit = LengthUnit.CM
                                 val weightValue = 0.0
                                 val weightUnit = WeightUnit.KG
-                                userPrefsDao.insert(UserPrefs(
-                                    ms, gender, null, masValue, masUnit, heightValue,
-                                    heightUnit, weightValue, weightUnit)
+                                val userPrefs = UserPrefs(
+                                    ms, gender, null,
+                                    masValue, masUnit,
+                                    heightValue, heightUnit,
+                                    weightValue, weightUnit
                                 )
+                                userPrefsDao.insert(userPrefs)
                             }
                         }
                     }
