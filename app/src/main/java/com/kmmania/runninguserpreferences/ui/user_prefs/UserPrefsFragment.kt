@@ -12,6 +12,7 @@ import com.kmmania.runninguserpreferences.R
 import com.kmmania.runninguserpreferences.databinding.FragmentUserPrefsBinding
 import com.kmmania.runninguserpreferences.model.Dob
 import com.kmmania.runninguserpreferences.model.Gender
+import com.kmmania.runninguserpreferences.model.Mas
 import com.kmmania.runninguserpreferences.model.MeasuringSystem
 import com.kmmania.runninguserpreferences.model.units.GenderUnit
 import com.kmmania.runninguserpreferences.model.units.MeasuringSystemUnit
@@ -108,6 +109,14 @@ class UserPrefsFragment : Fragment() {
 //            val dob = Dob(Date(dobValue))
 //            dobViewModel.insert(dob)
         }
+
+        // MAS
+        val masObserver = Observer<Mas> { mas ->
+            mas?.let {
+                userPrefsBinding.etMasValue.editText?.setText(it.masValue.toString())
+            }
+        }
+        masViewModel.masValue.observe(viewLifecycleOwner, masObserver)
 
 
 
