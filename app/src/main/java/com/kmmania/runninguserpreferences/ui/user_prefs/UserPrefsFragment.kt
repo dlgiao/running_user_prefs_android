@@ -93,7 +93,9 @@ class UserPrefsFragment : Fragment() {
         // DOB
         // The observer which updates the UI
         val dobObserver = Observer<Dob> { dob ->
-            userPrefsBinding.tvDobValue.text = dob.dob.toString()
+            dob?.let {
+                userPrefsBinding.tvDobValue.text = it.dob.toString()
+            }
         }
         // Observe the LiveData
         dobViewModel.dobValue.observe(viewLifecycleOwner, dobObserver)
