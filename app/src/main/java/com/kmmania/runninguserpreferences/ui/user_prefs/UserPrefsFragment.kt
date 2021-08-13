@@ -12,9 +12,7 @@ import com.google.android.material.datepicker.MaterialDatePicker
 import com.kmmania.runninguserpreferences.R
 import com.kmmania.runninguserpreferences.databinding.FragmentUserPrefsBinding
 import com.kmmania.runninguserpreferences.model.*
-import com.kmmania.runninguserpreferences.model.units.GenderUnit
-import com.kmmania.runninguserpreferences.model.units.MeasuringSystemUnit
-import com.kmmania.runninguserpreferences.model.units.SpeedUnit
+import com.kmmania.runninguserpreferences.model.units.*
 import com.kmmania.runninguserpreferences.ui.measuringsystem.MeasuringSystemViewModel
 import com.kmmania.runninguserpreferences.viewmodels.*
 import dagger.hilt.android.AndroidEntryPoint
@@ -125,7 +123,7 @@ class UserPrefsFragment : Fragment() {
             if (!hasFocus) {
                 val mas = userPrefsBinding.tiMasValue.editText?.text.toString().toDouble()
                 var unitMas = SpeedUnit.KMH
-                when(userPrefsBinding.tvUnitMas.text) {
+                when(userPrefsBinding.tvUnitMas.text.toString()) {
                     "km/h" -> unitMas = SpeedUnit.KMH
                     "mph" -> unitMas =SpeedUnit.MPH
                 }
@@ -136,20 +134,42 @@ class UserPrefsFragment : Fragment() {
         // Height
         val heightObserver = Observer<Height> { height ->
             height?.let {
-                userPrefsBinding.etHeightValue.editText?.setText(it.heightValue.toString())
+                userPrefsBinding.tiHeightValue.editText?.setText(it.heightValue.toString())
             }
         }
         heightViewModel.heightValue.observe(viewLifecycleOwner, heightObserver)
 
+        userPrefsBinding.etHeightValue.onFocusChangeListener = OnFocusChangeListener { _, hasFocus ->
+            if (!hasFocus) {
+                val height = userPrefsBinding.tiHeightValue.editText?.text.toString().toInt()
+                var unitHeight = LengthUnit.CM
+                when(userPrefsBinding.tvUnitHeight.text.toString()) {
+                    "cm" -> unitHeight = LengthUnit.CM
+                    "in" -> unitHeight = LengthUnit.IN
+                }
+                heightViewModel.insert((Height(height, unitHeight)))
+            }
+        }
+
         // Weight
         val weightObserver = Observer<Weight> { weight ->
             weight?.let {
-                userPrefsBinding.etWeightValue.editText?.setText(it.weightValue.toString())
+                userPrefsBinding.tiWeightValue.editText?.setText(it.weightValue.toString())
             }
         }
         weightViewModel.weightValue.observe(viewLifecycleOwner, weightObserver)
 
-
+        userPrefsBinding.etWeightValue.onFocusChangeListener = OnFocusChangeListener { _, hasFocus ->
+            if (!hasFocus) {
+                val weight = userPrefsBinding.tiWeightValue.editText?.text.toString().toDouble()
+                var unitWeight = WeightUnit.KG
+                when(userPrefsBinding.tvUnitWeight.text.toString()) {
+                    "kg" -> unitWeight = WeightUnit.KG
+                    "lb" -> unitWeight = WeightUnit.LB
+                }
+                weightViewModel.insert(Weight(weight, unitWeight))
+            }
+        }
 
         return rootView
     }
