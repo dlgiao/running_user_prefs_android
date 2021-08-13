@@ -22,7 +22,7 @@ object DatabaseModule {
     @Singleton
     fun provideUserPrefsDatabase(
         @ApplicationContext AppContext: Context,
-        @ApplicationContext scope: CoroutineScope
+        @ApplicationScope scope: CoroutineScope
     ): UserPrefsDatabase {
         var userPrefsInstance: UserPrefsDatabase? = null
         return userPrefsInstance?: synchronized(this) {
