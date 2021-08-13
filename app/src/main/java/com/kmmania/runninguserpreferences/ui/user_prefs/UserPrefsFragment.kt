@@ -42,6 +42,36 @@ class UserPrefsFragment : Fragment() {
         _userPrefsBinding = FragmentUserPrefsBinding.inflate(inflater, container, false)
         val rootView = userPrefsBinding.root
 
+        val userPrefsObserver = Observer<UserPrefs> { userPrefs ->
+            userPrefs?.let {
+                when (it.measuringSystem.toString()) {
+                    "METRIC" -> {
+                        userPrefsBinding.rbMetric.isChecked = true
+                        userPrefsBinding.tvUnitMas.text = getString(R.string.kmh)
+                        userPrefsBinding.tvUnitHeight.text = getString(R.string.cm)
+                        userPrefsBinding.tvUnitWeight.text = getString(R.string.kg)
+                    }
+                    "IMPERIAL" -> {
+                        userPrefsBinding.rbImperial.isChecked = true
+                        userPrefsBinding.tvUnitMas.text = getString(R.string.mph)
+                        userPrefsBinding.tvUnitHeight.text = getString(R.string.inch)
+                        userPrefsBinding.tvUnitWeight.text = getString(R.string.lb)
+                    }
+                }
+
+                when(it.gender.toString()) {
+                    "MALE" -> userPrefsBinding.rbMale.isChecked = true
+                    "FEMALE" -> userPrefsBinding.rbFemale.isChecked = true
+                }
+
+                userPrefsBinding.tvDobValue.text = it.dob.toString()
+                userPrefsBinding.tiMasValue.editText?.setText(it.masValue.toString())
+                userPrefsBinding.tiHeightValue.editText?.setText(it.heightValue.toString())
+                userPrefsBinding.tiWeightValue.editText?.setText(it.weightValue.toString())
+            }
+        }
+        userPrefsViewModel.userPrefsValue.observe(viewLifecycleOwner, userPrefsObserver)
+
         // Measuring system
         // The observer which updates the UI
         val msObserver = Observer<MeasuringSystem> { ms ->
