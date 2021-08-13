@@ -59,7 +59,7 @@ object DatabaseModule {
     }
 
     @Provides
-    fun provideUserPrefDao(userPrefsDatabase: UserPrefsDatabase): UserPrefsDao {
+    fun provideUserPrefsDao(userPrefsDatabase: UserPrefsDatabase): UserPrefsDao {
         return userPrefsDatabase.userPrefsDao()
     }
 
