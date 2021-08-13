@@ -24,6 +24,8 @@ class UserPrefsFragment : Fragment() {
     private val userPrefsBinding get() = _userPrefsBinding!!
 
     // ViewModel
+    private val userPrefsViewModel: UserPrefsViewModel by viewModels()
+
     private val msViewModel: MeasuringSystemViewModel by viewModels()
     private val genderViewModel: GenderViewModel by viewModels()
     private val dobViewModel: DobViewModel by viewModels()
