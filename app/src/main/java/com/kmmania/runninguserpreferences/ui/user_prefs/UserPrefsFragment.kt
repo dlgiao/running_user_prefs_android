@@ -103,12 +103,12 @@ class UserPrefsFragment : Fragment() {
             .setInputMode(MaterialDatePicker.INPUT_MODE_TEXT)
             .build()
         userPrefsBinding.btnSelectDate.setOnClickListener {
-            //datePicker.show(supportFragmentManager, "SELECT_DATE")
+            datePicker.show(childFragmentManager, "DOB")
         }
         datePicker.addOnPositiveButtonClickListener {
-//            val dobValue = datePicker.selection
-//            val dob = Dob(Date(dobValue))
-//            dobViewModel.insert(dob)
+            val dobValue = Date(datePicker.selection!!)
+            //val dob = Dob(Date(dobValue!!))
+            dobViewModel.insert(Dob(dobValue))
         }
 
         // MAS
