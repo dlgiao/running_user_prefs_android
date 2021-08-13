@@ -87,7 +87,7 @@
 
     <Button
         android:id="@+id/btn_select_date"
-        android:layout_width="0dp"
+        android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:text="@string/select_date"
         app:layout_constraintStart_toStartOf="parent"
@@ -99,8 +99,8 @@
         android:layout_width="0dp"
         android:layout_height="wrap_content"
         android:hint="@string/unknown"
-        app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/btn_select_date"/>
 
     <TextView
@@ -110,8 +110,8 @@
         android:paddingHorizontal="10dp"
         android:text="@string/mas"
         android:textSize="20sp"
-        app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@id/tv_dob_value"/>
 
     <com.google.android.material.textfield.TextInputLayout
@@ -119,8 +119,8 @@
         android:layout_width="0dp"
         android:layout_height="wrap_content"
         android:hint="@string/mas"
-        app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@id/tv_mas_title">
 
         <com.google.android.material.textfield.TextInputEditText
@@ -134,8 +134,8 @@
         android:layout_width="0dp"
         android:layout_height="wrap_content"
         android:hint="@string/unknown"
-        app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/et_mas_value" />
 
     <TextView
@@ -149,7 +149,31 @@
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/tv_unit_mas"/>
 
+    <com.google.android.material.textfield.TextInputLayout
+        android:id="@+id/et_height_value"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:hint="@string/height"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/tv_height_title">
+
+        <com.google.android.material.textfield.TextInputEditText
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:inputType="number"/>
+    </com.google.android.material.textfield.TextInputLayout>
+
     <TextView
+        android:id="@+id/tv_unit_height"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:hint="@string/unknown"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/et_height_value"/>
+
+<!--    <TextView
         android:id="@+id/tv_height_value"
         android:layout_width="0dp"
         android:layout_height="wrap_content"
@@ -158,7 +182,7 @@
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/tv_height_title"
-        tools:ignore="TextContrastCheck" />
+        tools:ignore="TextContrastCheck" />-->
 
     <TextView
         android:id="@+id/tv_weight_title"
@@ -169,7 +193,7 @@
         android:textSize="20sp"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@id/tv_height_value"
+        app:layout_constraintTop_toBottomOf="@id/tv_unit_height"
         tools:ignore="TextContrastCheck" />
 
     <TextView
