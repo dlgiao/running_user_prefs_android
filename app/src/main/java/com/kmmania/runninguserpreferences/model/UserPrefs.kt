@@ -6,8 +6,8 @@ import androidx.room.PrimaryKey
 import com.kmmania.runninguserpreferences.model.units.*
 import java.util.*
 
-@Entity(tableName = "user_pref_table")
-data class UserPref(
+@Entity(tableName = "user_prefs_table")
+data class UserPrefs(
     @ColumnInfo(name = "measuring_system")
     val measuringSystem: MeasuringSystemUnit?,
     @ColumnInfo(name = "gender")
