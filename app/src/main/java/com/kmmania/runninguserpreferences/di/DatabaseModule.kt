@@ -20,7 +20,7 @@ import javax.inject.Singleton
 object DatabaseModule {
     @Provides
     @Singleton
-    fun provideUserPrefDatabase(
+    fun provideUserPrefsDatabase(
         @ApplicationContext AppContext: Context,
         @ApplicationContext scope: CoroutineScope
     ): UserPrefsDatabase {
@@ -39,20 +39,13 @@ object DatabaseModule {
                                 val userPrefsDao = database.userPrefsDao()
                                 userPrefsDao.deleteAll()
                                 // User prefs initial values
-                                val ms = MeasuringSystemUnit.METRIC
-                                val gender = GenderUnit.MALE
-                                val dob = null
-                                val masValue = 0.0
-                                val masUnit = SpeedUnit.KMH
-                                val heightValue = 0
-                                val heightUnit = LengthUnit.CM
-                                val weightValue = 0.0
-                                val weightUnit = WeightUnit.KG
                                 val userPrefs = UserPrefs(
-                                    ms, gender, dob,
-                                    masValue, masUnit,
-                                    heightValue, heightUnit,
-                                    weightValue, weightUnit
+                                    MeasuringSystemUnit.METRIC,
+                                    GenderUnit.MALE,
+                                    null,
+                                    0.0, SpeedUnit.KMH,
+                                    0, LengthUnit.CM,
+                                    0.0, WeightUnit.KG
                                 )
                                 userPrefsDao.insert(userPrefs)
                             }
