@@ -10,10 +10,7 @@ import androidx.lifecycle.Observer
 import com.google.android.material.datepicker.MaterialDatePicker
 import com.kmmania.runninguserpreferences.R
 import com.kmmania.runninguserpreferences.databinding.FragmentUserPrefsBinding
-import com.kmmania.runninguserpreferences.model.Dob
-import com.kmmania.runninguserpreferences.model.Gender
-import com.kmmania.runninguserpreferences.model.Mas
-import com.kmmania.runninguserpreferences.model.MeasuringSystem
+import com.kmmania.runninguserpreferences.model.*
 import com.kmmania.runninguserpreferences.model.units.GenderUnit
 import com.kmmania.runninguserpreferences.model.units.MeasuringSystemUnit
 import com.kmmania.runninguserpreferences.ui.measuringsystem.MeasuringSystemViewModel
@@ -122,7 +119,13 @@ class UserPrefsFragment : Fragment() {
         }
         masViewModel.masValue.observe(viewLifecycleOwner, masObserver)
 
-
+        // Height
+        val heightObserver = Observer<Height> { height ->
+            height?.let {
+                userPrefsBinding.etHeightValue.editText?.setText(it.heightValue.toString())
+            }
+        }
+        heightViewModel.heightValue.observe(viewLifecycleOwner, heightObserver)
 
 
 
