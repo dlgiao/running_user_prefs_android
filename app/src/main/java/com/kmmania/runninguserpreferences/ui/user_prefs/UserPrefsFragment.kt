@@ -18,8 +18,6 @@ import dagger.hilt.android.AndroidEntryPoint
 class UserPrefsFragment : Fragment() {
     private var _userPrefsBinding: FragmentUserPrefsBinding? = null
     private val userPrefsBinding get() = _userPrefsBinding!!
-
-    // ViewModel
     private val userPrefsViewModel: UserPrefsViewModel by viewModels()
 
     override fun onCreateView(
@@ -102,14 +100,6 @@ class UserPrefsFragment : Fragment() {
                 getWeightValue(), getWeightUnit()
             ))
         }
-
-        // DOB
-        // The observer which updates the UI
-//        val dobObserver = Observer<Dob> { dob ->
-//            dob?.let {
-//                userPrefsBinding.tvDobValue.text = it.dob.toString()
-//            }
-//        }
 
         userPrefsBinding.etAgeValue.onFocusChangeListener = OnFocusChangeListener { _, hasFocus ->
             if (!hasFocus) {
