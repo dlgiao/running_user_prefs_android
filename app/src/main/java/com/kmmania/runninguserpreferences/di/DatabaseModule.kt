@@ -42,7 +42,7 @@ object DatabaseModule {
                                 val userPrefs = UserPrefs(
                                     MeasuringSystemUnit.METRIC,
                                     GenderUnit.MALE,
-                                    null,
+                                    0,
                                     0.0, SpeedUnit.KMH,
                                     0, LengthUnit.CM,
                                     0.0, WeightUnit.KG
