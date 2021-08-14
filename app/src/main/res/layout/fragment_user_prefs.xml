@@ -78,33 +78,51 @@
     </RadioGroup>
 
     <TextView
-        android:id="@+id/tv_dob_title"
+        android:id="@+id/tv_age_title"
         android:layout_width="0dp"
         android:layout_height="wrap_content"
         android:paddingHorizontal="10dp"
-        android:text="@string/dob"
+        android:text="@string/age"
         android:textSize="20sp"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintTop_toBottomOf="@id/rg_gender"/>
 
-    <Button
+    <com.google.android.material.textfield.TextInputLayout
+        android:id="@+id/ti_age_value"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:hint="@string/age"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/tv_age_title">
+
+        <com.kmmania.runninguserpreferences.utils.BaseTextInputEditText
+            android:id="@+id/et_age_value"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:inputType="none|number"
+            tools:ignore="TextContrastCheck" />
+    </com.google.android.material.textfield.TextInputLayout>
+
+<!--    <Button
         android:id="@+id/btn_select_date"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:text="@string/select_date"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/tv_dob_title" />
+        app:layout_constraintTop_toBottomOf="@+id/tv_dob_title" />-->
 
     <TextView
-        android:id="@+id/tv_dob_value"
+        android:id="@+id/tv_yo"
         android:layout_width="0dp"
         android:layout_height="wrap_content"
-        android:hint="@string/unknown"
+        android:text="@string/yo"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/btn_select_date"/>
+        app:layout_constraintTop_toBottomOf="@+id/ti_age_value"
+        tools:ignore="TextContrastCheck" />
 
     <TextView
         android:id="@+id/tv_mas_title"
@@ -115,7 +133,7 @@
         android:textSize="20sp"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@id/tv_dob_value"/>
+        app:layout_constraintTop_toBottomOf="@id/tv_yo"/>
 
     <com.google.android.material.textfield.TextInputLayout
         android:id="@+id/ti_mas_value"
@@ -130,7 +148,8 @@
             android:id="@+id/et_mas_value"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:inputType="none|numberDecimal" />
+            android:inputType="none|numberDecimal"
+            tools:ignore="TextContrastCheck" />
     </com.google.android.material.textfield.TextInputLayout>
 
     <TextView
@@ -140,7 +159,8 @@
         android:hint="@string/unknown"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/ti_mas_value" />
+        app:layout_constraintTop_toBottomOf="@+id/ti_mas_value"
+        tools:ignore="TextContrastCheck" />
 
     <TextView
         android:id="@+id/tv_height_title"
@@ -166,7 +186,8 @@
             android:id="@+id/et_height_value"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:inputType="number"/>
+            android:inputType="none|number"
+            tools:ignore="TextContrastCheck" />
     </com.google.android.material.textfield.TextInputLayout>
 
     <TextView
@@ -176,7 +197,8 @@
         android:hint="@string/unknown"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/ti_height_value"/>
+        app:layout_constraintTop_toBottomOf="@+id/ti_height_value"
+        tools:ignore="TextContrastCheck" />
 
 
     <TextView
@@ -204,7 +226,8 @@
             android:id="@+id/et_weight_value"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:inputType="numberDecimal"/>
+            android:inputType="none|numberDecimal"
+            tools:ignore="TextContrastCheck" />
     </com.google.android.material.textfield.TextInputLayout>
 
     <TextView
@@ -214,6 +237,7 @@
         android:hint="@string/unknown"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/ti_weight_value"/>
+        app:layout_constraintTop_toBottomOf="@+id/ti_weight_value"
+        tools:ignore="TextContrastCheck" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>
