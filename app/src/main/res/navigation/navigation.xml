@@ -15,22 +15,10 @@
         android:name="com.kmmania.runninguserpreferences.ui.user_prefs.UserPrefsFragment"
         android:label="@string/user_prefs"
         tools:layout="@layout/fragment_user_prefs" >
-        <action
-            android:id="@+id/action_nav_user_prefs_to_MSFragment"
-            app:destination="@id/MSFragment"
-            app:enterAnim="@anim/slide_in_right"
-            app:exitAnim="@anim/slide_out_left"
-            app:popEnterAnim="@anim/slide_in_left"
-            app:popExitAnim="@anim/slide_out_right" />
     </fragment>
     <fragment
         android:id="@+id/nav_info"
         android:name="com.kmmania.runninguserpreferences.ui.info.InfoFragment"
         android:label="@string/info"
         tools:layout="@layout/fragment_info" />
-    <fragment
-        android:id="@+id/MSFragment"
-        android:name="com.kmmania.runninguserpreferences.ui.measuringsystem.MSFragment"
-        android:label="@string/measuring_system"
-        tools:layout="@layout/fragment_m_s" />
 </navigation>
