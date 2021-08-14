@@ -8,13 +8,11 @@ import android.view.View.OnFocusChangeListener
 import android.view.ViewGroup
 import androidx.fragment.app.viewModels
 import androidx.lifecycle.Observer
-import com.google.android.material.datepicker.MaterialDatePicker
 import com.kmmania.runninguserpreferences.R
 import com.kmmania.runninguserpreferences.databinding.FragmentUserPrefsBinding
 import com.kmmania.runninguserpreferences.model.*
 import com.kmmania.runninguserpreferences.model.units.*
 import dagger.hilt.android.AndroidEntryPoint
-import java.util.*
 
 @AndroidEntryPoint
 class UserPrefsFragment : Fragment() {
@@ -62,7 +60,7 @@ class UserPrefsFragment : Fragment() {
                     "FEMALE" -> userPrefsBinding.rbFemale.isChecked = true
                 }
 
-                userPrefsBinding.tvDobValue.text = it.dob.toString()
+                userPrefsBinding.tiAgeValue.editText?.setText(it.age.toString())
                 userPrefsBinding.tiMasValue.editText?.setText(it.masValue.toString())
                 userPrefsBinding.tiHeightValue.editText?.setText(it.heightValue.toString())
                 userPrefsBinding.tiWeightValue.editText?.setText(it.weightValue.toString())
@@ -98,7 +96,7 @@ class UserPrefsFragment : Fragment() {
             userPrefsViewModel.insert(UserPrefs(
                 MeasuringSystemUnit.METRIC,
                 getGender(),
-                null,
+                getAge(),
                 getMasValue(), getMasUnit(),
                 getHeightValue(), getHeightUnit(),
                 getWeightValue(), getWeightUnit()
@@ -109,7 +107,7 @@ class UserPrefsFragment : Fragment() {
             userPrefsViewModel.insert(UserPrefs(
                 MeasuringSystemUnit.IMPERIAL,
                 getGender(),
-                null,
+                getAge(),
                 getMasValue(), getMasUnit(),
                 getHeightValue(), getHeightUnit(),
                 getWeightValue(), getWeightUnit()
@@ -134,7 +132,7 @@ class UserPrefsFragment : Fragment() {
             userPrefsViewModel.insert(UserPrefs(
                 getMS(),
                 GenderUnit.MALE,
-                null,
+                getAge(),
                 getMasValue(), getMasUnit(),
                 getHeightValue(), getHeightUnit(),
                 getWeightValue(), getWeightUnit()
@@ -145,7 +143,7 @@ class UserPrefsFragment : Fragment() {
             userPrefsViewModel.insert(UserPrefs(
                 getMS(),
                 GenderUnit.FEMALE,
-                null,
+                getAge(),
                 getMasValue(), getMasUnit(),
                 getHeightValue(), getHeightUnit(),
                 getWeightValue(), getWeightUnit()
@@ -162,24 +160,37 @@ class UserPrefsFragment : Fragment() {
 //        // Observe the LiveData
 //        dobViewModel.dobValue.observe(viewLifecycleOwner, dobObserver)
 
-        val dobPicker = MaterialDatePicker.Builder.datePicker()
-            .setTitleText(getString(R.string.dob))
-            .setInputMode(MaterialDatePicker.INPUT_MODE_TEXT)
-            .build()
-        userPrefsBinding.btnSelectDate.setOnClickListener {
-            dobPicker.show(childFragmentManager, "DOB")
-        }
-        dobPicker.addOnPositiveButtonClickListener {
-            //val dobValue = Date(dobPicker.selection!!)
-            //dobViewModel.insert(Dob(dobValue))
-            userPrefsViewModel.insert(UserPrefs(
-                getMS(),
-                getGender(),
-                Date(dobPicker.selection!!),
-                getMasValue(), getMasUnit(),
-                getHeightValue(), getHeightUnit(),
-                getWeightValue(), getWeightUnit()
-            ))
+//        val dobPicker = MaterialDatePicker.Builder.datePicker()
+//            .setTitleText(getString(R.string.dob))
+//            .setInputMode(MaterialDatePicker.INPUT_MODE_TEXT)
+//            .build()
+//        userPrefsBinding.btnSelectDate.setOnClickListener {
+//            dobPicker.show(childFragmentManager, "DOB")
+//        }
+//        dobPicker.addOnPositiveButtonClickListener {
+//            //val dobValue = Date(dobPicker.selection!!)
+//            //dobViewModel.insert(Dob(dobValue))
+//            userPrefsViewModel.insert(UserPrefs(
+//                getMS(),
+//                getGender(),
+//                Date(dobPicker.selection!!),
+//                getMasValue(), getMasUnit(),
+//                getHeightValue(), getHeightUnit(),
+//                getWeightValue(), getWeightUnit()
+//            ))
+//        }
+
+        userPrefsBinding.etAgeValue.onFocusChangeListener = OnFocusChangeListener { _, hasFocus ->
+            if (!hasFocus) {
+                userPrefsViewModel.insert(UserPrefs(
+                    getMS(),
+                    getGender(),
+                    getAge(),
+                    getMasValue(), getMasUnit(),
+                    getHeightValue(), getHeightUnit(),
+                    getWeightValue(), getWeightUnit()
+                ))
+            }
         }
 
         // MAS
@@ -202,7 +213,7 @@ class UserPrefsFragment : Fragment() {
                 userPrefsViewModel.insert(UserPrefs(
                     getMS(),
                     getGender(),
-                    null,
+                    getAge(),
                     getMasValue(), getMasUnit(),
                     getHeightValue(), getHeightUnit(),
                     getWeightValue(), getWeightUnit()
@@ -230,7 +241,7 @@ class UserPrefsFragment : Fragment() {
                 userPrefsViewModel.insert(UserPrefs(
                     getMS(),
                     getGender(),
-                    null,
+                    getAge(),
                     getMasValue(), getMasUnit(),
                     getHeightValue(), getHeightUnit(),
                     getWeightValue(), getWeightUnit()
@@ -258,7 +269,7 @@ class UserPrefsFragment : Fragment() {
                 userPrefsViewModel.insert(UserPrefs(
                     getMS(),
                     getGender(),
-                    null,
+                    getAge(),
                     getMasValue(), getMasUnit(),
                     getHeightValue(), getHeightUnit(),
                     getWeightValue(), getWeightUnit()
@@ -296,8 +307,8 @@ class UserPrefsFragment : Fragment() {
         return gender
     }
 
-    private fun getDob(): Date {
-        return Date(userPrefsBinding.tvDobValue.text.toString().toLong())
+    private fun getAge(): Int {
+        return userPrefsBinding.tiAgeValue.editText?.text.toString().toInt()
     }
 
     private fun getMasValue(): Double {
