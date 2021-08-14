@@ -102,55 +102,19 @@ class UserPrefsFragment : Fragment() {
         }
 
         userPrefsBinding.etAgeValue.onFocusChangeListener = OnFocusChangeListener { _, hasFocus ->
-            if (!hasFocus) {
-                userPrefsViewModel.insert(UserPrefs(
-                    getMS(),
-                    getGender(),
-                    getAge(),
-                    getMasValue(), getMasUnit(),
-                    getHeightValue(), getHeightUnit(),
-                    getWeightValue(), getWeightUnit()
-                ))
-            }
+            hasFocus((hasFocus))
         }
 
         userPrefsBinding.etMasValue.onFocusChangeListener = OnFocusChangeListener { _, hasFocus ->
-            if (!hasFocus) {
-                userPrefsViewModel.insert(UserPrefs(
-                    getMS(),
-                    getGender(),
-                    getAge(),
-                    getMasValue(), getMasUnit(),
-                    getHeightValue(), getHeightUnit(),
-                    getWeightValue(), getWeightUnit()
-                ))
-            }
+            hasFocus((hasFocus))
         }
 
         userPrefsBinding.etHeightValue.onFocusChangeListener = OnFocusChangeListener { _, hasFocus ->
-            if (!hasFocus) {
-                userPrefsViewModel.insert(UserPrefs(
-                    getMS(),
-                    getGender(),
-                    getAge(),
-                    getMasValue(), getMasUnit(),
-                    getHeightValue(), getHeightUnit(),
-                    getWeightValue(), getWeightUnit()
-                ))
-            }
+            hasFocus((hasFocus))
         }
 
         userPrefsBinding.etWeightValue.onFocusChangeListener = OnFocusChangeListener { _, hasFocus ->
-            if (!hasFocus) {
-                userPrefsViewModel.insert(UserPrefs(
-                    getMS(),
-                    getGender(),
-                    getAge(),
-                    getMasValue(), getMasUnit(),
-                    getHeightValue(), getHeightUnit(),
-                    getWeightValue(), getWeightUnit()
-                ))
-            }
+            hasFocus((hasFocus))
         }
 
         return rootView
@@ -227,5 +191,18 @@ class UserPrefsFragment : Fragment() {
         }
 
         return weightUnit
+    }
+
+    private fun hasFocus(hasFocus: Boolean) {
+        if (!hasFocus) {
+            userPrefsViewModel.insert(UserPrefs(
+                getMS(),
+                getGender(),
+                getAge(),
+                getMasValue(), getMasUnit(),
+                getHeightValue(), getHeightUnit(),
+                getWeightValue(), getWeightUnit()
+            ))
+        }
     }
 }
