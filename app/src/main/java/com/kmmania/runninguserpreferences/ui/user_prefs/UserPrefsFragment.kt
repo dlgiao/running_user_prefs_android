@@ -102,19 +102,19 @@ class UserPrefsFragment : Fragment() {
         }
 
         userPrefsBinding.etAgeValue.onFocusChangeListener = OnFocusChangeListener { _, hasFocus ->
-            hasFocus((hasFocus))
+            hasFocus(hasFocus)
         }
 
         userPrefsBinding.etMasValue.onFocusChangeListener = OnFocusChangeListener { _, hasFocus ->
-            hasFocus((hasFocus))
+            hasFocus(hasFocus)
         }
 
         userPrefsBinding.etHeightValue.onFocusChangeListener = OnFocusChangeListener { _, hasFocus ->
-            hasFocus((hasFocus))
+            hasFocus(hasFocus)
         }
 
         userPrefsBinding.etWeightValue.onFocusChangeListener = OnFocusChangeListener { _, hasFocus ->
-            hasFocus((hasFocus))
+            hasFocus(hasFocus)
         }
 
         return rootView
