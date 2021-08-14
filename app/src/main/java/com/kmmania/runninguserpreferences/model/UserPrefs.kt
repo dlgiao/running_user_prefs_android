@@ -4,7 +4,6 @@ import androidx.room.ColumnInfo
 import androidx.room.Entity
 import androidx.room.PrimaryKey
 import com.kmmania.runninguserpreferences.model.units.*
-import java.util.*
 
 @Entity(tableName = "user_prefs_table")
 data class UserPrefs(
@@ -12,8 +11,8 @@ data class UserPrefs(
     val measuringSystem: MeasuringSystemUnit?,
     @ColumnInfo(name = "gender")
     val gender: GenderUnit?,
-    @ColumnInfo(name = "dob")
-    val dob: Date?,
+    @ColumnInfo(name = "age")
+    val age: Int?,
     @ColumnInfo(name = "mas_value")
     val masValue: Double?,
     @ColumnInfo(name = "mas_unit")
