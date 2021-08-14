@@ -22,13 +22,6 @@ class UserPrefsFragment : Fragment() {
     // ViewModel
     private val userPrefsViewModel: UserPrefsViewModel by viewModels()
 
-//    private val msViewModel: MeasuringSystemViewModel by viewModels()
-//    private val genderViewModel: GenderViewModel by viewModels()
-//    private val dobViewModel: DobViewModel by viewModels()
-//    private val masViewModel: MasViewModel by viewModels()
-//    private val heightViewModel: HeightViewModel by viewModels()
-//    private val weightViewModel: WeightViewModel by viewModels()
-
     override fun onCreateView(
         inflater: LayoutInflater,
         container: ViewGroup?,
@@ -68,31 +61,7 @@ class UserPrefsFragment : Fragment() {
         }
         userPrefsViewModel.userPrefsValue.observe(viewLifecycleOwner, userPrefsObserver)
 
-        // Measuring system
-        // The observer which updates the UI
-//        val msObserver = Observer<MeasuringSystem> { ms ->
-//            ms?.let {
-//                when(it.measuringSystem.toString()) {
-//                    "METRIC" -> {
-//                        userPrefsBinding.rbMetric.isChecked = true
-//                        userPrefsBinding.tvUnitMas.text = getString(R.string.kmh)
-//                        userPrefsBinding.tvUnitHeight.text = getString(R.string.cm)
-//                        userPrefsBinding.tvUnitWeight.text = getString(R.string.kg)
-//                    }
-//                    "IMPERIAL" -> {
-//                        userPrefsBinding.rbImperial.isChecked = true
-//                        userPrefsBinding.tvUnitMas.text = getString(R.string.mph)
-//                        userPrefsBinding.tvUnitHeight.text = getString(R.string.inch)
-//                        userPrefsBinding.tvUnitWeight.text = getString(R.string.lb)
-//                    }
-//                }
-//            }
-//        }
-//        // Observe the LiveData
-//        msViewModel.msValue.observe(viewLifecycleOwner, msObserver)
-        // insert MS data
         userPrefsBinding.rbMetric.setOnClickListener {
-            //msViewModel.insert(MeasuringSystem(MeasuringSystemUnit.METRIC))
             userPrefsViewModel.insert(UserPrefs(
                 MeasuringSystemUnit.METRIC,
                 getGender(),
@@ -103,7 +72,6 @@ class UserPrefsFragment : Fragment() {
             ))
         }
         userPrefsBinding.rbImperial.setOnClickListener {
-            //msViewModel.insert(MeasuringSystem(MeasuringSystemUnit.IMPERIAL))
             userPrefsViewModel.insert(UserPrefs(
                 MeasuringSystemUnit.IMPERIAL,
                 getGender(),
@@ -114,21 +82,7 @@ class UserPrefsFragment : Fragment() {
             ))
         }
 
-        // Gender
-        // The observer which updates the UI
-//        val genderObserver = Observer<Gender> { gender ->
-//            gender?.let {
-//                when(it.gender.toString()) {
-//                    "MALE" -> userPrefsBinding.rbMale.isChecked = true
-//                    "FEMALE" -> userPrefsBinding.rbFemale.isChecked = true
-//                }
-//            }
-//        }
-//        // Observe the LiveData
-//        genderViewModel.genderValue.observe(viewLifecycleOwner, genderObserver)
-        // Insert gender data
         userPrefsBinding.rbMale.setOnClickListener {
-            //genderViewModel.insert(Gender(GenderUnit.MALE))
             userPrefsViewModel.insert(UserPrefs(
                 getMS(),
                 GenderUnit.MALE,
@@ -139,7 +93,6 @@ class UserPrefsFragment : Fragment() {
             ))
         }
         userPrefsBinding.rbFemale.setOnClickListener {
-            //genderViewModel.insert(Gender(GenderUnit.FEMALE))
             userPrefsViewModel.insert(UserPrefs(
                 getMS(),
                 GenderUnit.FEMALE,
@@ -157,28 +110,6 @@ class UserPrefsFragment : Fragment() {
 //                userPrefsBinding.tvDobValue.text = it.dob.toString()
 //            }
 //        }
-//        // Observe the LiveData
-//        dobViewModel.dobValue.observe(viewLifecycleOwner, dobObserver)
-
-//        val dobPicker = MaterialDatePicker.Builder.datePicker()
-//            .setTitleText(getString(R.string.dob))
-//            .setInputMode(MaterialDatePicker.INPUT_MODE_TEXT)
-//            .build()
-//        userPrefsBinding.btnSelectDate.setOnClickListener {
-//            dobPicker.show(childFragmentManager, "DOB")
-//        }
-//        dobPicker.addOnPositiveButtonClickListener {
-//            //val dobValue = Date(dobPicker.selection!!)
-//            //dobViewModel.insert(Dob(dobValue))
-//            userPrefsViewModel.insert(UserPrefs(
-//                getMS(),
-//                getGender(),
-//                Date(dobPicker.selection!!),
-//                getMasValue(), getMasUnit(),
-//                getHeightValue(), getHeightUnit(),
-//                getWeightValue(), getWeightUnit()
-//            ))
-//        }
 
         userPrefsBinding.etAgeValue.onFocusChangeListener = OnFocusChangeListener { _, hasFocus ->
             if (!hasFocus) {
@@ -193,23 +124,8 @@ class UserPrefsFragment : Fragment() {
             }
         }
 
-        // MAS
-//        val masObserver = Observer<Mas> { mas ->
-//            mas?.let {
-//                userPrefsBinding.tiMasValue.editText?.setText(it.masValue.toString())
-//            }
-//        }
-//        masViewModel.masValue.observe(viewLifecycleOwner, masObserver)
-
         userPrefsBinding.etMasValue.onFocusChangeListener = OnFocusChangeListener { _, hasFocus ->
             if (!hasFocus) {
-//                val mas = userPrefsBinding.tiMasValue.editText?.text.toString().toDouble()
-//                var unitMas = SpeedUnit.KMH
-//                when(userPrefsBinding.tvUnitMas.text.toString()) {
-//                    "km/h" -> unitMas = SpeedUnit.KMH
-//                    "mph" -> unitMas =SpeedUnit.MPH
-//                }
-//                masViewModel.insert(Mas(mas, unitMas))
                 userPrefsViewModel.insert(UserPrefs(
                     getMS(),
                     getGender(),
@@ -220,24 +136,9 @@ class UserPrefsFragment : Fragment() {
                 ))
             }
         }
-
-        // Height
-//        val heightObserver = Observer<Height> { height ->
-//            height?.let {
-//                userPrefsBinding.tiHeightValue.editText?.setText(it.heightValue.toString())
-//            }
-//        }
-//        heightViewModel.heightValue.observe(viewLifecycleOwner, heightObserver)
 
         userPrefsBinding.etHeightValue.onFocusChangeListener = OnFocusChangeListener { _, hasFocus ->
             if (!hasFocus) {
-//                val height = userPrefsBinding.tiHeightValue.editText?.text.toString().toInt()
-//                var unitHeight = LengthUnit.CM
-//                when(userPrefsBinding.tvUnitHeight.text.toString()) {
-//                    "cm" -> unitHeight = LengthUnit.CM
-//                    "in" -> unitHeight = LengthUnit.IN
-//                }
-//                heightViewModel.insert((Height(height, unitHeight)))
                 userPrefsViewModel.insert(UserPrefs(
                     getMS(),
                     getGender(),
@@ -249,23 +150,8 @@ class UserPrefsFragment : Fragment() {
             }
         }
 
-        // Weight
-//        val weightObserver = Observer<Weight> { weight ->
-//            weight?.let {
-//                userPrefsBinding.tiWeightValue.editText?.setText(it.weightValue.toString())
-//            }
-//        }
-//        weightViewModel.weightValue.observe(viewLifecycleOwner, weightObserver)
-
         userPrefsBinding.etWeightValue.onFocusChangeListener = OnFocusChangeListener { _, hasFocus ->
             if (!hasFocus) {
-//                val weight = userPrefsBinding.tiWeightValue.editText?.text.toString().toDouble()
-//                var unitWeight = WeightUnit.KG
-//                when(userPrefsBinding.tvUnitWeight.text.toString()) {
-//                    "kg" -> unitWeight = WeightUnit.KG
-//                    "lb" -> unitWeight = WeightUnit.LB
-//                }
-//                weightViewModel.insert(Weight(weight, unitWeight))
                 userPrefsViewModel.insert(UserPrefs(
                     getMS(),
                     getGender(),
