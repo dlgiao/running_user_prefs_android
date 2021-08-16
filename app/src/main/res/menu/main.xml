@@ -6,11 +6,9 @@
         android:orderInCategory="100"
         app:showAsAction="never" />
     <item android:id="@+id/nav_user_prefs"
-        android:icon="@drawable/ic_baseline_manage_accounts_24"
         android:title="@string/user_prefs"
         android:contentDescription="@string/content_description_user_prefs" />
     <item android:id="@+id/nav_info"
-        android:icon="@drawable/ic_baseline_info_24"
         android:title="@string/info"
         android:contentDescription="@string/content_description_info" />
 </menu>
