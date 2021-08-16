@@ -23,7 +23,9 @@
 
     <string name="home">Home</string>
     <string name="user_prefs">User preferences</string>
+    <string name="content_description_user_prefs">Content description user prefs</string>
     <string name="info">Info</string>
+    <string name="content_description_info">Content description info</string>
     <string name="help">Help</string>
 
     <!-- TODO: Remove or change this placeholder text -->
