@@ -60,61 +60,33 @@ class UserPrefsFragment : Fragment() {
         userPrefsViewModel.userPrefsValue.observe(viewLifecycleOwner, userPrefsObserver)
 
         userPrefsBinding.rbMetric.setOnClickListener {
-            userPrefsViewModel.insert(UserPrefs(
-                MeasuringSystemUnit.METRIC,
-                getGender(),
-                getAge(),
-                getMasValue(), getMasUnit(),
-                getHeightValue(), getHeightUnit(),
-                getWeightValue(), getWeightUnit()
-            ))
+            insert1(MeasuringSystemUnit.METRIC, getGender())
         }
         userPrefsBinding.rbImperial.setOnClickListener {
-            userPrefsViewModel.insert(UserPrefs(
-                MeasuringSystemUnit.IMPERIAL,
-                getGender(),
-                getAge(),
-                getMasValue(), getMasUnit(),
-                getHeightValue(), getHeightUnit(),
-                getWeightValue(), getWeightUnit()
-            ))
+            insert1(MeasuringSystemUnit.IMPERIAL, getGender())
         }
 
         userPrefsBinding.rbMale.setOnClickListener {
-            userPrefsViewModel.insert(UserPrefs(
-                getMS(),
-                GenderUnit.MALE,
-                getAge(),
-                getMasValue(), getMasUnit(),
-                getHeightValue(), getHeightUnit(),
-                getWeightValue(), getWeightUnit()
-            ))
+            insert1(getMS(), GenderUnit.MALE)
         }
         userPrefsBinding.rbFemale.setOnClickListener {
-            userPrefsViewModel.insert(UserPrefs(
-                getMS(),
-                GenderUnit.FEMALE,
-                getAge(),
-                getMasValue(), getMasUnit(),
-                getHeightValue(), getHeightUnit(),
-                getWeightValue(), getWeightUnit()
-            ))
+            insert1(getMS(), GenderUnit.FEMALE)
         }
 
         userPrefsBinding.etAgeValue.onFocusChangeListener = OnFocusChangeListener { _, hasFocus ->
-            hasFocus(hasFocus)
+            insert2(hasFocus)
         }
 
         userPrefsBinding.etMasValue.onFocusChangeListener = OnFocusChangeListener { _, hasFocus ->
-            hasFocus(hasFocus)
+            insert2(hasFocus)
         }
 
         userPrefsBinding.etHeightValue.onFocusChangeListener = OnFocusChangeListener { _, hasFocus ->
-            hasFocus(hasFocus)
+            insert2(hasFocus)
         }
 
         userPrefsBinding.etWeightValue.onFocusChangeListener = OnFocusChangeListener { _, hasFocus ->
-            hasFocus(hasFocus)
+            insert2(hasFocus)
         }
 
         return rootView
@@ -123,6 +95,19 @@ class UserPrefsFragment : Fragment() {
     override fun onDestroy() {
         super.onDestroy()
         _userPrefsBinding = null
+    }
+
+    private fun insert1(ms: MeasuringSystemUnit, gender: GenderUnit) {
+        userPrefsViewModel.insert(
+            UserPrefs(
+                ms,
+                gender,
+                getAge(),
+                getMasValue(), getMasUnit(),
+                getHeightValue(), getHeightUnit(),
+                getWeightValue(), getWeightUnit()
+            )
+        )
     }
 
     private fun getMS(): MeasuringSystemUnit {
@@ -193,7 +178,7 @@ class UserPrefsFragment : Fragment() {
         return weightUnit
     }
 
-    private fun hasFocus(hasFocus: Boolean) {
+    private fun insert2(hasFocus: Boolean) {
         if (!hasFocus) {
             userPrefsViewModel.insert(UserPrefs(
                 getMS(),
