@@ -132,10 +132,12 @@ class UserPrefsFragment : Fragment() {
         return gender
     }
 
+    // TODO: Null exception
     private fun getAge(): Int {
         return userPrefsBinding.tiAgeValue.editText?.text.toString().toInt()
     }
 
+    // TODO: Null exception
     private fun getMasValue(): Double {
         return userPrefsBinding.tiMasValue.editText?.text.toString().toDouble()
     }
@@ -150,6 +152,7 @@ class UserPrefsFragment : Fragment() {
         return masUnit
     }
 
+    // TODO: Null exception
     private fun getHeightValue(): Int {
         return userPrefsBinding.tiHeightValue.editText?.text.toString().toInt()
     }
@@ -164,6 +167,7 @@ class UserPrefsFragment : Fragment() {
         return heightUnit
     }
 
+    // TODO: Null exception
     private fun getWeightValue(): Double {
         return userPrefsBinding.tiWeightValue.editText?.text.toString().toDouble()
     }
