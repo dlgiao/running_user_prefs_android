@@ -9,7 +9,15 @@
         android:id="@+id/nav_home"
         android:name="com.kmmania.runninguserpreferences.ui.home.HomeFragment"
         android:label="@string/home"
-        tools:layout="@layout/fragment_home" />
+        tools:layout="@layout/fragment_home" >
+        <action
+            android:id="@+id/action_nav_home_to_durationFragment"
+            app:destination="@id/durationFragment"
+            app:enterAnim="@anim/slide_in_right"
+            app:exitAnim="@anim/slide_out_left"
+            app:popEnterAnim="@anim/slide_in_left"
+            app:popExitAnim="@anim/slide_out_right"/>
+    </fragment>
     <fragment
         android:id="@+id/nav_user_prefs"
         android:name="com.kmmania.runninguserpreferences.ui.user_prefs.UserPrefsFragment"
@@ -21,4 +29,9 @@
         android:name="com.kmmania.runninguserpreferences.ui.info.InfoFragment"
         android:label="@string/info"
         tools:layout="@layout/fragment_info" />
+    <fragment
+        android:id="@+id/durationFragment"
+        android:name="com.kmmania.runninguserpreferences.ui.duration.DurationFragment"
+        android:label="@string/duration"
+        tools:layout="@layout/fragment_duration" />
 </navigation>
