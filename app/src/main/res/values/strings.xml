@@ -33,6 +33,10 @@
     <string name="duration_from_distance_speed">Duration from distance speed</string>
     <string name="duration_from_distance_pace">Duration from distance pace</string>
 
+    <string name="distance">Distance</string>
+
+    <string name="speed">Speed</string>
+
     <!-- TODO: Remove or change this placeholder text -->
     <string name="hello_blank_fragment">Hello blank fragment</string>
 </resources>

@@ -7,14 +7,60 @@
     android:layout_height="match_parent"
     tools:context=".ui.duration.DurationFromDistanceSpeedFragment">
 
-    <TextView
-        android:id="@+id/textView"
+    <com.google.android.material.textfield.TextInputLayout
+        android:id="@+id/ti_distance_value"
         android:layout_width="0dp"
-        android:layout_height="0dp"
-        android:text="@string/duration_from_distance_speed"
-        app:layout_constraintBottom_toBottomOf="parent"
+        android:layout_height="wrap_content"
+        android:hint="@string/distance"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent">
+
+        <com.kmmania.runninguserpreferences.utils.BaseTextInputEditText
+            android:id="@+id/et_distance_value"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:inputType="none|numberDecimal"
+            tools:ignore="TextContrastCheck,DuplicateClickableBoundsCheck" />
+
+    </com.google.android.material.textfield.TextInputLayout>
+
+    <TextView
+        android:id="@+id/tv_unit_distance"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:hint="@string/unknown"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent" />
+        app:layout_constraintTop_toBottomOf="@+id/ti_distance_value"
+        tools:ignore="TextContrastCheck" />
+
+    <com.google.android.material.textfield.TextInputLayout
+        android:id="@+id/ti_speed_value"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:hint="@string/speed"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/tv_unit_distance">
+
+        <com.kmmania.runninguserpreferences.utils.BaseTextInputEditText
+            android:id="@+id/et_speed_value"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:inputType="none|numberDecimal"
+            tools:ignore="TextContrastCheck" />
+
+    </com.google.android.material.textfield.TextInputLayout>
+
+    <TextView
+        android:id="@+id/tv_unit_speed"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:hint="@string/unknown"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/ti_speed_value"
+        tools:ignore="TextContrastCheck" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>
