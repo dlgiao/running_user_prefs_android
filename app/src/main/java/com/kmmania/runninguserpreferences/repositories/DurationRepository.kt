@@ -1,10 +1,22 @@
 package com.kmmania.runninguserpreferences.repositories
 
+import androidx.annotation.WorkerThread
 import com.kmmania.runninguserpreferences.model.*
 import kotlinx.coroutines.flow.Flow
 
-class DurationRepository(lengthDao: LengthDao, speedDao: SpeedDao, paceDao: PaceDao) {
-    val distance: Flow<Length> = lengthDao.getLength()
-    val speed: Flow<Speed> = speedDao.getSpeed()
-    val pace: Flow<Pace> = paceDao.getPace()
+class DurationRepository(private val durationDao: DurationDao) {
+
+    private val duration: Flow<Duration> = durationDao.getDuration()
+
+    @Suppress("RedundantSuspendModifier")
+    @WorkerThread
+    suspend fun getDurationFromDistanceSpeed(distance: Length, speed: Speed) {
+        durationDao.getDurationFromDistanceSpeed(distance, speed)
+    }
+
+    @Suppress("RedundantSuspendModifier")
+    @WorkerThread
+    suspend fun getDurationFromDistancePace(distance: Length, pace: Pace) {
+        durationDao.getDurationFromDistancePace(distance, pace)
+    }
 }
