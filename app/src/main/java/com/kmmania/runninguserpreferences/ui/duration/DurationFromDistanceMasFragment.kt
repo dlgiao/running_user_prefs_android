@@ -13,11 +13,13 @@ class DurationFromDistanceMasFragment : Fragment() {
     private val durationFromDistanceMasBinding get() = _durationFromDistanceMasBinding!!
 
     override fun onCreateView(
-        inflater: LayoutInflater, container: ViewGroup?,
+        inflater: LayoutInflater,
+        container: ViewGroup?,
         savedInstanceState: Bundle?
     ): View? {
 
-        _durationFromDistanceMasBinding = FragmentDurationFromDistanceMasBinding.inflate(inflater, container, false)
+        _durationFromDistanceMasBinding = FragmentDurationFromDistanceMasBinding
+            .inflate(inflater, container, false)
         val rootView = durationFromDistanceMasBinding.root
 
         return rootView
