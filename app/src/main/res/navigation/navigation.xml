@@ -36,11 +36,15 @@
         tools:layout="@layout/fragment_duration" >
         <action
             android:id="@+id/action_durationFragment_to_durationFromDistanceMasFragment"
-            app:destination="@id/durationFromDistanceMasFragment" />
+            app:destination="@id/durationFromDistanceMasFragment"
+            app:enterAnim="@anim/slide_in_right"
+            app:exitAnim="@anim/slide_out_left"
+            app:popEnterAnim="@anim/slide_in_left"
+            app:popExitAnim="@anim/slide_out_right"/>
     </fragment>
     <fragment
         android:id="@+id/durationFromDistanceMasFragment"
         android:name="com.kmmania.runninguserpreferences.ui.duration.DurationFromDistanceMasFragment"
-        android:label="fragment_duration_from_distance_mas"
+        android:label="@string/duration_from_distance_mas"
         tools:layout="@layout/fragment_duration_from_distance_mas" />
 </navigation>
