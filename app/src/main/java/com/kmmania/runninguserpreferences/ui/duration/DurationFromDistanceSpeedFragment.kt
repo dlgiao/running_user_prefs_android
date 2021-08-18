@@ -9,14 +9,14 @@ import com.kmmania.runninguserpreferences.R
 import com.kmmania.runninguserpreferences.databinding.FragmentDurationFromDistanceSpeedBinding
 
 class DurationFromDistanceSpeedFragment : Fragment() {
-    private var _durationFromDistanceSpeed: FragmentDurationFromDistanceSpeedBinding? =  null
-    private val durationFromDistanceSpeedBinding get() = _durationFromDistanceSpeed!!
+    private var _durationFromDistanceSpeedBinding: FragmentDurationFromDistanceSpeedBinding? =  null
+    private val durationFromDistanceSpeedBinding get() = _durationFromDistanceSpeedBinding!!
 
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
         savedInstanceState: Bundle?
     ): View? {
-        _durationFromDistanceSpeed = FragmentDurationFromDistanceSpeedBinding
+        _durationFromDistanceSpeedBinding = FragmentDurationFromDistanceSpeedBinding
             .inflate(inflater, container, false)
         val rootView = durationFromDistanceSpeedBinding.root
 
@@ -25,6 +25,6 @@ class DurationFromDistanceSpeedFragment : Fragment() {
 
     override fun onDestroy() {
         super.onDestroy()
-        _durationFromDistanceSpeed = null
+        _durationFromDistanceSpeedBinding = null
     }
 }
