@@ -48,6 +48,13 @@
             app:exitAnim="@anim/slide_out_left"
             app:popEnterAnim="@anim/slide_in_left"
             app:popExitAnim="@anim/slide_out_right" />
+        <action
+            android:id="@+id/action_durationFragment_to_durationFromDistancePaceFragment"
+            app:destination="@id/durationFromDistancePaceFragment"
+            app:enterAnim="@anim/slide_in_right"
+            app:exitAnim="@anim/slide_out_left"
+            app:popEnterAnim="@anim/slide_in_left"
+            app:popExitAnim="@anim/slide_out_right" />
     </fragment>
     <fragment
         android:id="@+id/durationFromDistanceMasFragment"
@@ -59,4 +66,9 @@
         android:name="com.kmmania.runninguserpreferences.ui.duration.DurationFromDistanceSpeedFragment"
         android:label="@string/duration_from_distance_speed"
         tools:layout="@layout/fragment_duration_from_distance_speed" />
+    <fragment
+        android:id="@+id/durationFromDistancePaceFragment"
+        android:name="com.kmmania.runninguserpreferences.ui.duration.DurationFromDistancePaceFragment"
+        android:label="@string/duration_from_distance_pace"
+        tools:layout="@layout/fragment_duration_from_distance_pace" />
 </navigation>
