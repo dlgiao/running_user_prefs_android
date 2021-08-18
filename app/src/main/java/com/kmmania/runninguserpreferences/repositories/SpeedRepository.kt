@@ -6,5 +6,5 @@ import kotlinx.coroutines.flow.Flow
 
 class SpeedRepository(private val speedDao: SpeedDao) {
 
-    private val speed: Flow<Speed> = speedDao.getSpeed()
+    val speed: Flow<Speed> = speedDao.getSpeed()
 }

@@ -3,10 +3,13 @@ package com.kmmania.runninguserpreferences.repositories
 import androidx.annotation.WorkerThread
 import com.kmmania.runninguserpreferences.model.*
 import kotlinx.coroutines.flow.Flow
+import javax.inject.Inject
+import javax.inject.Singleton
 
-class DurationRepository(private val durationDao: DurationDao) {
+@Singleton
+class DurationRepository @Inject constructor(private val durationDao: DurationDao) {
 
-    private val duration: Flow<Duration> = durationDao.getDuration()
+    val duration: Flow<Duration> = durationDao.getDuration()
 
     @Suppress("RedundantSuspendModifier")
     @WorkerThread

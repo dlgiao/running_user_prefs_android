@@ -6,5 +6,5 @@ import kotlinx.coroutines.flow.Flow
 
 class LengthRepository(private val lengthDao: LengthDao) {
 
-    private val length: Flow<Length> = lengthDao.getLength()
+    val length: Flow<Length> = lengthDao.getLength()
 }
