@@ -16,4 +16,22 @@
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
 
+    <TextView
+        android:id="@+id/tv_duration_from_distance_speed"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:text="@string/duration_from_distance_speed"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/tv_duration_from_distance_mas"/>
+
+    <TextView
+        android:id="@+id/tv_duration_from_distance_pace"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:text="@string/duration_from_distance_pace"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/tv_duration_from_distance_speed"/>
+
 </androidx.constraintlayout.widget.ConstraintLayout>
