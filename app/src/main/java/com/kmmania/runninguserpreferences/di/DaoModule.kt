@@ -10,6 +10,6 @@ import dagger.hilt.android.components.ActivityComponent
 @Module
 @InstallIn(ActivityComponent::class)
 abstract class DaoModule {
-    @Binds
-    abstract fun bindDurationDao(durationRepository: DurationRepository): DurationDao
+//    @Binds
+//    abstract fun bindDurationDao(durationRepository: DurationRepository): DurationDao
 }

@@ -7,7 +7,6 @@ import javax.inject.Inject
 import javax.inject.Singleton
 
 class DurationRepository(private val durationDao: DurationDao) {
-
     val duration: Flow<Duration> = durationDao.getDuration()
 
     @Suppress("RedundantSuspendModifier")
