@@ -12,7 +12,8 @@ import dagger.hilt.android.lifecycle.HiltViewModel
 import kotlinx.coroutines.launch
 import javax.inject.Inject
 
-class DurationFromDistanceSpeedViewModel(
+@HiltViewModel
+class DurationFromDistanceSpeedViewModel @Inject constructor(
     private val durationRepository: DurationRepository
 ): ViewModel() {
     val duration: LiveData<Duration> = durationRepository.duration.asLiveData()

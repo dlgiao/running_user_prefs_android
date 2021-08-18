@@ -17,10 +17,13 @@ import dagger.hilt.android.AndroidEntryPoint
 class DurationFromDistanceSpeedFragment : Fragment() {
     private var _durationFromDistanceSpeedBinding: FragmentDurationFromDistanceSpeedBinding? =  null
     private val durationFromDistanceSpeedBinding get() = _durationFromDistanceSpeedBinding!!
+
     private val userPrefsViewModel: UserPrefsViewModel by viewModels()
+    private val durationFromDistanceSpeedViewModel: DurationFromDistanceSpeedViewModel by viewModels()
 
     override fun onCreateView(
-        inflater: LayoutInflater, container: ViewGroup?,
+        inflater: LayoutInflater,
+        container: ViewGroup?,
         savedInstanceState: Bundle?
     ): View? {
         _durationFromDistanceSpeedBinding = FragmentDurationFromDistanceSpeedBinding
