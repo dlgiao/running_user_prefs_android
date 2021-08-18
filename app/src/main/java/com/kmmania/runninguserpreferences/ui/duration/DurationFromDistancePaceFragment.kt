@@ -6,8 +6,11 @@ import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import com.kmmania.runninguserpreferences.R
+import com.kmmania.runninguserpreferences.databinding.FragmentDurationFromDistancePaceBinding
 
 class DurationFromDistancePaceFragment : Fragment() {
+    private var _durationFromDistancePaceBinding: FragmentDurationFromDistancePaceBinding? = null
+    private val durationFromDistancePaceBinding get() = _durationFromDistancePaceBinding!!
 
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
