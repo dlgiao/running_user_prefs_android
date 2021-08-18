@@ -105,15 +105,6 @@
             tools:ignore="TextContrastCheck" />
     </com.google.android.material.textfield.TextInputLayout>
 
-<!--    <Button
-        android:id="@+id/btn_select_date"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:text="@string/select_date"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/tv_dob_title" />-->
-
     <TextView
         android:id="@+id/tv_yo"
         android:layout_width="0dp"
