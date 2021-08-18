@@ -13,7 +13,8 @@ class DurationFromDistancePaceFragment : Fragment() {
     private val durationFromDistancePaceBinding get() = _durationFromDistancePaceBinding!!
 
     override fun onCreateView(
-        inflater: LayoutInflater, container: ViewGroup?,
+        inflater: LayoutInflater,
+        container: ViewGroup?,
         savedInstanceState: Bundle?
     ): View? {
         _durationFromDistancePaceBinding = FragmentDurationFromDistancePaceBinding
