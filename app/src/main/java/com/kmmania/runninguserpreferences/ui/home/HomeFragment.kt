@@ -5,6 +5,8 @@ import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import androidx.navigation.fragment.findNavController
+import com.kmmania.runninguserpreferences.R
 import com.kmmania.runninguserpreferences.databinding.FragmentHomeBinding
 
 class HomeFragment : Fragment() {
@@ -19,6 +21,10 @@ class HomeFragment : Fragment() {
 
         _homeBinding = FragmentHomeBinding.inflate(inflater, container, false)
         val rootView = homeBinding.root
+
+        homeBinding.tvDuration.setOnClickListener {
+            findNavController().navigate(R.id.action_nav_home_to_durationFragment)
+        }
 
         return rootView
     }
