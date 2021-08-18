@@ -29,6 +29,10 @@ class DurationFragment : Fragment() {
             findNavController().navigate(R.id.action_durationFragment_to_durationFromDistanceSpeedFragment)
         }
 
+        durationBinding.tvDurationFromDistancePace.setOnClickListener {
+            findNavController().navigate(R.id.action_durationFragment_to_durationFromDistancePaceFragment)
+        }
+
         return rootView
     }
 
