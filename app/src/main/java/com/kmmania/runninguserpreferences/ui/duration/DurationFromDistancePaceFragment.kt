@@ -16,7 +16,15 @@ class DurationFromDistancePaceFragment : Fragment() {
         inflater: LayoutInflater, container: ViewGroup?,
         savedInstanceState: Bundle?
     ): View? {
-        // Inflate the layout for this fragment
-        return inflater.inflate(R.layout.fragment_duration_from_distance_pace, container, false)
+        _durationFromDistancePaceBinding = FragmentDurationFromDistancePaceBinding
+            .inflate(inflater, container, false)
+        val rootView = durationFromDistancePaceBinding.root
+
+        return rootView
+    }
+
+    override fun onDestroy() {
+        super.onDestroy()
+        _durationFromDistancePaceBinding = null
     }
 }
