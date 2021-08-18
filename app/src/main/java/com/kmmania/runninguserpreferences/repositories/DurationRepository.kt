@@ -12,7 +12,7 @@ class DurationRepository(private val durationDao: DurationDao) {
 
     @Suppress("RedundantSuspendModifier")
     @WorkerThread
-    suspend fun getDurationFromDistanceSpeed(distance: Length, speed: Speed): Duration{
+    suspend fun getDurationFromDistanceSpeed(distance: Length, speed: Speed): Duration {
         val distanceValue = distance.lengthValue
         val speedValue = speed.speedValue
         val timeInSec = distanceValue?.div(speedValue!!)?.times(3600)
@@ -27,7 +27,18 @@ class DurationRepository(private val durationDao: DurationDao) {
 
     @Suppress("RedundantSuspendModifier")
     @WorkerThread
-    suspend fun getDurationFromDistancePace(distance: Length, pace: Pace) {
-        //durationDao.getDurationFromDistancePace(distance, pace)
+    suspend fun getDurationFromDistancePace(distance: Length, pace: Pace): Duration {
+        val distanceValue = distance.lengthValue
+        val paceMnValue = pace.paceMin
+        val paceScValue = pace.paceSec
+        val paceInSec = paceMnValue?.times(60)?.plus(paceScValue!!)
+        val timeInSec = paceInSec?.times(distanceValue!!)
+
+        return Duration(
+            timeInSec?.div(3600)?.toInt(),
+            timeInSec?.rem(3600)?.div(60)?.toInt(),
+            timeInSec?.rem(3600)?.rem(60)?.toInt()!!,
+            timeInSec.minus(timeInSec.toInt()).times(1000).toInt()
+        )
     }
 }
