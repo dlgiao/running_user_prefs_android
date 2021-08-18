@@ -20,4 +20,9 @@ class DurationFragment : Fragment() {
 
         return rootView
     }
+
+    override fun onDestroy() {
+        super.onDestroy()
+        _durationBinding = null
+    }
 }
