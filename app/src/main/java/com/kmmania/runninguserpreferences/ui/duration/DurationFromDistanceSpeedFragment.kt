@@ -6,15 +6,25 @@ import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import com.kmmania.runninguserpreferences.R
+import com.kmmania.runninguserpreferences.databinding.FragmentDurationFromDistanceSpeedBinding
 
 class DurationFromDistanceSpeedFragment : Fragment() {
+    private var _durationFromDistanceSpeed: FragmentDurationFromDistanceSpeedBinding? =  null
+    private val durationFromDistanceSpeedBinding get() = _durationFromDistanceSpeed!!
 
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
         savedInstanceState: Bundle?
     ): View? {
-        // Inflate the layout for this fragment
-        return inflater.inflate(R.layout.fragment_duration_from_distance_speed, container, false)
+        _durationFromDistanceSpeed = FragmentDurationFromDistanceSpeedBinding
+            .inflate(inflater, container, false)
+        val rootView = durationFromDistanceSpeedBinding.root
+
+        return rootView
     }
 
+    override fun onDestroy() {
+        super.onDestroy()
+        _durationFromDistanceSpeed = null
+    }
 }
