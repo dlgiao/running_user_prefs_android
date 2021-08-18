@@ -1,4 +1,4 @@
-package com.kmmania.runninguserpreferences
+package com.kmmania.runninguserpreferences.application
 
 import android.app.Application
 import dagger.hilt.android.HiltAndroidApp

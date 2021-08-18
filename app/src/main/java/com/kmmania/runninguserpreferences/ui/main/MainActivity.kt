@@ -1,4 +1,4 @@
-package com.kmmania.runninguserpreferences
+package com.kmmania.runninguserpreferences.ui.main
 
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
