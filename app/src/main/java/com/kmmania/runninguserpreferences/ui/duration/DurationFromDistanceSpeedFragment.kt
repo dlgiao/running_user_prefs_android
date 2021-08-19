@@ -11,6 +11,8 @@ import com.kmmania.runninguserpreferences.databinding.FragmentDurationFromDistan
 import com.kmmania.runninguserpreferences.model.UserPrefs
 import com.kmmania.runninguserpreferences.ui.user_prefs.UserPrefsViewModel
 import androidx.lifecycle.Observer
+import com.kmmania.runninguserpreferences.model.Length
+import com.kmmania.runninguserpreferences.model.Speed
 import com.kmmania.runninguserpreferences.model.units.LengthUnit
 import com.kmmania.runninguserpreferences.model.units.SpeedUnit
 import dagger.hilt.android.AndroidEntryPoint
@@ -32,9 +34,9 @@ class DurationFromDistanceSpeedFragment : Fragment() {
             .inflate(inflater, container, false)
         val rootView = durationFromDistanceSpeedBinding.root
 
-        val distanceValue = durationFromDistanceSpeedBinding.etDistanceValue.text.toString().toDouble()
+        var distanceValue = 0.0
         var distanceUnit = LengthUnit.KM
-        val speedValue = durationFromDistanceSpeedBinding.etSpeedValue.text.toString().toDouble()
+        var speedValue = 0.0
         var speedUnit = SpeedUnit.KMH
 
         val userPrefsObserver = Observer<UserPrefs> { userPrefs ->
@@ -57,6 +59,32 @@ class DurationFromDistanceSpeedFragment : Fragment() {
             }
         }
         userPrefsViewModel.userPrefsValue.observe(viewLifecycleOwner, userPrefsObserver)
+
+        durationFromDistanceSpeedBinding.etDistanceValue.onFocusChangeListener = View.OnFocusChangeListener { _, hasFocus ->
+            if (!hasFocus) {
+                distanceValue = durationFromDistanceSpeedBinding.tiDistanceValue.editText?.text.toString().toDouble()
+            }
+        }
+
+        durationFromDistanceSpeedBinding.etSpeedValue.onFocusChangeListener = View.OnFocusChangeListener { _, hasFocus ->
+            if (!hasFocus) {
+                speedValue = durationFromDistanceSpeedBinding.tiSpeedValue.editText?.text.toString().toDouble()
+            }
+        }
+
+        val distance = Length(distanceValue, distanceUnit)
+        val speed = Speed(speedValue, speedUnit)
+
+        val time2run = durationFromDistanceSpeedViewModel.getDurationFromDistanceSpeed(distance, speed)
+
+        val hr = time2run.hr.toString()
+        val min = time2run.min.toString()
+        val sec = time2run.sec.toString()
+        val ms = time2run.ms.toString()
+
+        val time2runValue = "{$hr}:{$min}:{$sec}:{$ms}"
+
+        durationFromDistanceSpeedBinding.tvDurationValue.text = time2runValue
 
         return rootView
     }
