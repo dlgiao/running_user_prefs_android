@@ -6,7 +6,9 @@ import javax.inject.Inject
 import javax.inject.Singleton
 
 @Singleton
-class DurationFromDistanceSpeedRepository @Inject constructor(private val durationRepository: DurationRepository): DurationFromDistanceSpeedDao {
+class DurationFromDistanceSpeedRepository @Inject constructor(
+    private val durationRepository: DurationRepository
+): DurationFromDistanceSpeedDao {
     override fun getDuration(distance: Length?, speed: Speed?): Duration {
         val distanceValue = distance?.lengthValue
         //val distanceUnit = distance?.lengthUnit
