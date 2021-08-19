@@ -12,7 +12,6 @@ import com.kmmania.runninguserpreferences.user_prefs.UserPrefs
 import com.kmmania.runninguserpreferences.user_prefs.UserPrefsViewModel
 import androidx.lifecycle.Observer
 import com.kmmania.runninguserpreferences.length.LengthViewModel
-import com.kmmania.runninguserpreferences.speed.Speed
 import com.kmmania.runninguserpreferences.speed.SpeedViewModel
 import com.kmmania.runninguserpreferences.utils.units.LengthUnit
 import com.kmmania.runninguserpreferences.utils.units.SpeedUnit
