@@ -61,7 +61,8 @@ class DurationFromDistanceSpeedFragment : Fragment() {
         }
         userPrefsViewModel.userPrefsValue.observe(viewLifecycleOwner, userPrefsObserver)
 
-        durationFromDistanceSpeedBinding.etDistanceValue.onFocusChangeListener = View.OnFocusChangeListener { _, hasFocus ->
+        durationFromDistanceSpeedBinding.etDistanceValue.onFocusChangeListener =
+            View.OnFocusChangeListener { _, hasFocus ->
             if (!hasFocus) {
                 distanceValue = durationFromDistanceSpeedBinding
                     .tiDistanceValue
@@ -72,7 +73,8 @@ class DurationFromDistanceSpeedFragment : Fragment() {
             }
         }
 
-        durationFromDistanceSpeedBinding.etSpeedValue.onFocusChangeListener = View.OnFocusChangeListener { _, hasFocus ->
+        durationFromDistanceSpeedBinding.etSpeedValue.onFocusChangeListener =
+            View.OnFocusChangeListener { _, hasFocus ->
             if (!hasFocus) {
                 speedValue = durationFromDistanceSpeedBinding
                     .tiSpeedValue
