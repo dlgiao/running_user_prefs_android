@@ -13,6 +13,7 @@ import com.kmmania.runninguserpreferences.user_prefs.UserPrefsViewModel
 import androidx.lifecycle.Observer
 import com.kmmania.runninguserpreferences.length.LengthViewModel
 import com.kmmania.runninguserpreferences.speed.Speed
+import com.kmmania.runninguserpreferences.speed.SpeedViewModel
 import com.kmmania.runninguserpreferences.utils.units.LengthUnit
 import com.kmmania.runninguserpreferences.utils.units.SpeedUnit
 import dagger.hilt.android.AndroidEntryPoint
@@ -25,6 +26,7 @@ class DurationFromDistanceSpeedFragment : Fragment() {
     private val userPrefsViewModel: UserPrefsViewModel by viewModels()
     private val durationFromDistanceSpeedViewModel: DurationFromDistanceSpeedViewModel by viewModels()
     private val lengthViewModel: LengthViewModel by viewModels()
+    private val speedViewModel: SpeedViewModel by viewModels()
 
     override fun onCreateView(
         inflater: LayoutInflater,
@@ -83,7 +85,7 @@ class DurationFromDistanceSpeedFragment : Fragment() {
         }
 
         val distance = lengthViewModel.getLength(distanceValue, distanceUnit)
-        val speed = Speed(speedValue, speedUnit)
+        val speed = speedViewModel.getSpeed(speedValue, speedUnit)
 
         val time2run = durationFromDistanceSpeedViewModel.getDurationFromDistanceSpeed(distance, speed)
 
