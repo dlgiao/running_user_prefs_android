@@ -1,4 +1,4 @@
-package com.kmmania.runninguserpreferences.ui.duration
+package com.kmmania.runninguserpreferences.duration_from_distance_mas
 
 import android.os.Bundle
 import androidx.fragment.app.Fragment
@@ -9,7 +9,7 @@ import androidx.fragment.app.viewModels
 import com.kmmania.runninguserpreferences.R
 import com.kmmania.runninguserpreferences.databinding.FragmentDurationFromDistanceSpeedBinding
 import com.kmmania.runninguserpreferences.model.UserPrefs
-import com.kmmania.runninguserpreferences.ui.user_prefs.UserPrefsViewModel
+import com.kmmania.runninguserpreferences.user_prefs.UserPrefsViewModel
 import androidx.lifecycle.Observer
 import com.kmmania.runninguserpreferences.model.Length
 import com.kmmania.runninguserpreferences.model.Speed

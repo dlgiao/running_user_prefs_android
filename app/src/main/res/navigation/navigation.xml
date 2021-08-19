@@ -20,7 +20,7 @@
     </fragment>
     <fragment
         android:id="@+id/nav_user_prefs"
-        android:name="com.kmmania.runninguserpreferences.ui.user_prefs.UserPrefsFragment"
+        android:name="com.kmmania.runninguserpreferences.user_prefs.UserPrefsFragment"
         android:label="@string/user_prefs"
         tools:layout="@layout/fragment_user_prefs" >
     </fragment>
@@ -63,7 +63,7 @@
         tools:layout="@layout/fragment_duration_from_distance_mas" />
     <fragment
         android:id="@+id/durationFromDistanceSpeedFragment"
-        android:name="com.kmmania.runninguserpreferences.ui.duration.DurationFromDistanceSpeedFragment"
+        android:name="com.kmmania.runninguserpreferences.duration_from_distance_mas.DurationFromDistanceSpeedFragment"
         android:label="@string/duration_from_distance_speed"
         tools:layout="@layout/fragment_duration_from_distance_speed" />
     <fragment

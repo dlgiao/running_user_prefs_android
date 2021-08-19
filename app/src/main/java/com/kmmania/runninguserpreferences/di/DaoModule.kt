@@ -1,6 +1,6 @@
 package com.kmmania.runninguserpreferences.di
 
-import com.kmmania.runninguserpreferences.model.DurationFromDistanceMasDao
+import com.kmmania.runninguserpreferences.duration_from_distance_mas.DurationFromDistanceMasDao
 import dagger.Binds
 import dagger.Module
 import dagger.hilt.InstallIn

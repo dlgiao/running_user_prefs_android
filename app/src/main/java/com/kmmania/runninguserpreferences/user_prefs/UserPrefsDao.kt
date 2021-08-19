@@ -1,6 +1,7 @@
-package com.kmmania.runninguserpreferences.model
+package com.kmmania.runninguserpreferences.user_prefs
 
 import androidx.room.*
+import com.kmmania.runninguserpreferences.model.UserPrefs
 import kotlinx.coroutines.flow.Flow
 
 @Dao

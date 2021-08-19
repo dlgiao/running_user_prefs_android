@@ -5,7 +5,7 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".ui.user_prefs.UserPrefsFragment"
+    tools:context=".user_prefs.UserPrefsFragment"
     android:clickable="true"
     android:focusableInTouchMode="true"
     android:focusable="true">

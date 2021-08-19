@@ -1,4 +1,4 @@
-package com.kmmania.runninguserpreferences.repositories
+package com.kmmania.runninguserpreferences.duration_from_distance_mas
 
 import com.kmmania.runninguserpreferences.model.*
 import javax.inject.Inject

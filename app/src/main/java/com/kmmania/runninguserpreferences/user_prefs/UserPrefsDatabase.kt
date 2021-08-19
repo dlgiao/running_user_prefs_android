@@ -1,7 +1,8 @@
-package com.kmmania.runninguserpreferences.model
+package com.kmmania.runninguserpreferences.user_prefs
 
 import androidx.room.Database
 import androidx.room.RoomDatabase
+import com.kmmania.runninguserpreferences.model.UserPrefs
 
 @Database(entities = [UserPrefs::class], version = 1, exportSchema = false)
 abstract class UserPrefsDatabase: RoomDatabase() {

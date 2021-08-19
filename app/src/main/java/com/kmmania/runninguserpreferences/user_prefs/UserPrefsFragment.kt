@@ -1,4 +1,4 @@
-package com.kmmania.runninguserpreferences.ui.user_prefs
+package com.kmmania.runninguserpreferences.user_prefs
 
 import android.os.Bundle
 import androidx.fragment.app.Fragment
@@ -24,7 +24,7 @@ class UserPrefsFragment : Fragment() {
         inflater: LayoutInflater,
         container: ViewGroup?,
         savedInstanceState: Bundle?
-    ): View? {
+    ): View {
 
         _userPrefsBinding = FragmentUserPrefsBinding.inflate(inflater, container, false)
         val rootView = userPrefsBinding.root

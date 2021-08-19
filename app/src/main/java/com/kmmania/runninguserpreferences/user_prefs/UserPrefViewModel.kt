@@ -1,8 +1,7 @@
-package com.kmmania.runninguserpreferences.ui.user_prefs
+package com.kmmania.runninguserpreferences.user_prefs
 
 import androidx.lifecycle.*
 import com.kmmania.runninguserpreferences.model.UserPrefs
-import com.kmmania.runninguserpreferences.repositories.UserPrefsRepository
 import dagger.hilt.android.lifecycle.HiltViewModel
 import kotlinx.coroutines.launch
 import javax.inject.Inject
