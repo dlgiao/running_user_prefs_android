@@ -12,7 +12,6 @@ class DurationFromDistanceSpeedViewModel @Inject constructor(
     private val durationFromDistanceSpeedRepository: DurationFromDistanceSpeedRepository
 ): ViewModel() {
 
-    fun getDurationFromDistanceSpeed(distance: Length, speed: Speed): Duration {
-        return durationFromDistanceSpeedRepository.getDuration(distance, speed)
-    }
+    fun getDurationFromDistanceSpeed(distance: Length, speed: Speed): Duration =
+        durationFromDistanceSpeedRepository.getDuration(distance, speed)
 }

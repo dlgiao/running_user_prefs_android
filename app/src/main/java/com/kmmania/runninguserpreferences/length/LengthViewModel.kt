@@ -9,5 +9,6 @@ import javax.inject.Inject
 class LengthViewModel @Inject constructor(
     private val lengthRepository: LengthRepository
 ): ViewModel() {
-    fun getLength(lengthValue: Double?, lengthUnit: LengthUnit?): Length = lengthRepository.getLength(lengthValue, lengthUnit)
+    fun getLength(lengthValue: Double?, lengthUnit: LengthUnit?): Length =
+        lengthRepository.getLength(lengthValue, lengthUnit)
 }
