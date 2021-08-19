@@ -6,13 +6,8 @@ import javax.inject.Inject
 import javax.inject.Singleton
 
 @Singleton
-class DurationRepository @Inject constructor(
-    private val hr: Int?,
-    private val min: Int?,
-    private val sec: Int?,
-    private val ms: Int?
-): DurationDao {
-    override fun getDuration(): Duration {
+class DurationRepository @Inject constructor(): DurationDao {
+    override fun getDuration(hr: Int?, min: Int?, sec: Int?, ms: Int?): Duration {
         return Duration(hr, min, sec!!, ms)
     }
 }
