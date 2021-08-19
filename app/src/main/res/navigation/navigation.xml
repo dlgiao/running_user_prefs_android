@@ -58,7 +58,7 @@
     </fragment>
     <fragment
         android:id="@+id/durationFromDistanceMasFragment"
-        android:name="com.kmmania.runninguserpreferences.duration_from_distance_mas.DurationFromDistanceMasFragment"
+        android:name="com.kmmania.runninguserpreferences.duration.duration_from_distance_mas.DurationFromDistanceMasFragment"
         android:label="@string/duration_from_distance_mas"
         tools:layout="@layout/fragment_duration_from_distance_mas" />
     <fragment
