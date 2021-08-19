@@ -5,6 +5,8 @@ import com.kmmania.runninguserpreferences.duration.DurationDao
 import com.kmmania.runninguserpreferences.duration.DurationRepository
 import com.kmmania.runninguserpreferences.length.LengthDao
 import com.kmmania.runninguserpreferences.length.LengthRepository
+import com.kmmania.runninguserpreferences.speed.SpeedDao
+import com.kmmania.runninguserpreferences.speed.SpeedRepository
 import dagger.Binds
 import dagger.Module
 import dagger.hilt.InstallIn
@@ -24,4 +26,7 @@ abstract class DaoModule {
 
     @Binds
     abstract fun bindLengthDao(lengthRepository: LengthRepository): LengthDao
+
+    @Binds
+    abstract fun bindSpeedDao(speedRepository: SpeedRepository): SpeedDao
 }
