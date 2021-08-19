@@ -1,4 +1,4 @@
-package com.kmmania.runninguserpreferences.model.units
+package com.kmmania.runninguserpreferences.utils.units
 
 enum class MeasuringSystemUnit {
     METRIC, IMPERIAL

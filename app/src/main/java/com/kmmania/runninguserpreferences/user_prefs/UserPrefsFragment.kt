@@ -10,7 +10,7 @@ import androidx.fragment.app.viewModels
 import androidx.lifecycle.Observer
 import com.kmmania.runninguserpreferences.R
 import com.kmmania.runninguserpreferences.databinding.FragmentUserPrefsBinding
-import com.kmmania.runninguserpreferences.model.units.*
+import com.kmmania.runninguserpreferences.utils.units.*
 import dagger.hilt.android.AndroidEntryPoint
 
 @AndroidEntryPoint

@@ -1,4 +1,4 @@
-package com.kmmania.runninguserpreferences.model
+package com.kmmania.runninguserpreferences.utils
 
 import androidx.room.TypeConverter
 import java.util.*

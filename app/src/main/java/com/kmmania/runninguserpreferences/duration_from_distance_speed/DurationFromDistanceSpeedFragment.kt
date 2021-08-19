@@ -13,8 +13,8 @@ import com.kmmania.runninguserpreferences.user_prefs.UserPrefsViewModel
 import androidx.lifecycle.Observer
 import com.kmmania.runninguserpreferences.model.Length
 import com.kmmania.runninguserpreferences.model.Speed
-import com.kmmania.runninguserpreferences.model.units.LengthUnit
-import com.kmmania.runninguserpreferences.model.units.SpeedUnit
+import com.kmmania.runninguserpreferences.utils.units.LengthUnit
+import com.kmmania.runninguserpreferences.utils.units.SpeedUnit
 import dagger.hilt.android.AndroidEntryPoint
 
 @AndroidEntryPoint

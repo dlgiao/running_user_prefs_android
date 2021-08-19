@@ -3,7 +3,7 @@ package com.kmmania.runninguserpreferences.user_prefs
 import androidx.room.ColumnInfo
 import androidx.room.Entity
 import androidx.room.PrimaryKey
-import com.kmmania.runninguserpreferences.model.units.*
+import com.kmmania.runninguserpreferences.utils.units.*
 
 @Entity(tableName = "user_prefs_table")
 data class UserPrefs(
