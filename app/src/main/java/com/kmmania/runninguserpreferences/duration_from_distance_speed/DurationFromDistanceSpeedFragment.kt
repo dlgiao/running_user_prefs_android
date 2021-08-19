@@ -88,14 +88,12 @@ class DurationFromDistanceSpeedFragment : Fragment() {
 
         val distance = lengthViewModel.getLength(distanceValue, distanceUnit)
         val speed = speedViewModel.getSpeed(speedValue, speedUnit)
-
         val time2run = durationFromDistanceSpeedViewModel.getDurationFromDistanceSpeed(distance, speed)
 
         val hr = time2run.hr.toString()
         val min = time2run.min.toString()
         val sec = time2run.sec.toString()
         val ms = time2run.ms.toString()
-
         val time2runValue = "{$hr}:{$min}:{$sec}:{$ms}"
 
         durationFromDistanceSpeedBinding.tvDurationValue.text = time2runValue
