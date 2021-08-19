@@ -1,4 +1,4 @@
-package com.kmmania.runninguserpreferences.duration_from_distance_mas
+package com.kmmania.runninguserpreferences.duration_from_distance_speed
 
 import android.os.Bundle
 import androidx.fragment.app.Fragment

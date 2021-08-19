@@ -1,6 +1,6 @@
 package com.kmmania.runninguserpreferences.di
 
-import com.kmmania.runninguserpreferences.duration_from_distance_mas.DurationFromDistanceMasDao
+import com.kmmania.runninguserpreferences.duration_from_distance_speed.DurationFromDistanceSpeedDao
 import dagger.Binds
 import dagger.Module
 import dagger.hilt.InstallIn
@@ -11,6 +11,6 @@ import dagger.hilt.android.components.ActivityComponent
 abstract class DaoModule {
     @Binds
     abstract fun bindDurationFromDistanceMasDao(
-        durationRFromDistanceMasDao: DurationFromDistanceMasDao
-    ): DurationFromDistanceMasDao
+        durationRFromDistanceSpeedDao: DurationFromDistanceSpeedDao
+    ): DurationFromDistanceSpeedDao
 }

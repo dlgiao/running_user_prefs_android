@@ -1,4 +1,4 @@
-package com.kmmania.runninguserpreferences.ui.duration
+package com.kmmania.runninguserpreferences.duration_from_distance_mas
 
 import android.os.Bundle
 import androidx.fragment.app.Fragment
@@ -16,7 +16,7 @@ class DurationFromDistanceMasFragment : Fragment() {
         inflater: LayoutInflater,
         container: ViewGroup?,
         savedInstanceState: Bundle?
-    ): View? {
+    ): View {
 
         _durationFromDistanceMasBinding = FragmentDurationFromDistanceMasBinding
             .inflate(inflater, container, false)

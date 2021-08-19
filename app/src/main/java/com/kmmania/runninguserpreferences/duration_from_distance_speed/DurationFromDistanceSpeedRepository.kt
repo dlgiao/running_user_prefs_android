@@ -1,11 +1,11 @@
-package com.kmmania.runninguserpreferences.duration_from_distance_mas
+package com.kmmania.runninguserpreferences.duration_from_distance_speed
 
 import com.kmmania.runninguserpreferences.model.*
 import javax.inject.Inject
 import javax.inject.Singleton
 
 @Singleton
-class DurationFromDistanceSpeedRepository @Inject constructor(): DurationFromDistanceMasDao {
+class DurationFromDistanceSpeedRepository @Inject constructor(): DurationFromDistanceSpeedDao {
     override fun getDuration(distance: Length?, speed: Speed?): Duration {
         val distanceValue = distance?.lengthValue
         //val distanceUnit = distance?.lengthUnit

@@ -58,12 +58,12 @@
     </fragment>
     <fragment
         android:id="@+id/durationFromDistanceMasFragment"
-        android:name="com.kmmania.runninguserpreferences.ui.duration.DurationFromDistanceMasFragment"
+        android:name="com.kmmania.runninguserpreferences.duration_from_distance_mas.DurationFromDistanceMasFragment"
         android:label="@string/duration_from_distance_mas"
         tools:layout="@layout/fragment_duration_from_distance_mas" />
     <fragment
         android:id="@+id/durationFromDistanceSpeedFragment"
-        android:name="com.kmmania.runninguserpreferences.duration_from_distance_mas.DurationFromDistanceSpeedFragment"
+        android:name="com.kmmania.runninguserpreferences.duration_from_distance_speed.DurationFromDistanceSpeedFragment"
         android:label="@string/duration_from_distance_speed"
         tools:layout="@layout/fragment_duration_from_distance_speed" />
     <fragment

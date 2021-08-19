@@ -5,7 +5,7 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".duration_from_distance_mas.DurationFromDistanceSpeedFragment"
+    tools:context=".duration_from_distance_speed.DurationFromDistanceSpeedFragment"
     android:clickable="true"
     android:focusableInTouchMode="true"
     android:focusable="true">
