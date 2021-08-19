@@ -5,7 +5,10 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".ui.duration.DurationFromDistanceSpeedFragment">
+    tools:context=".ui.duration.DurationFromDistanceSpeedFragment"
+    android:clickable="true"
+    android:focusableInTouchMode="true"
+    android:focusable="true">
 
     <com.google.android.material.textfield.TextInputLayout
         android:id="@+id/ti_distance_value"
