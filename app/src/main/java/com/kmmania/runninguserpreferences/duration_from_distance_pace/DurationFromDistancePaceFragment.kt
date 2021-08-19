@@ -1,4 +1,4 @@
-package com.kmmania.runninguserpreferences.ui.duration
+package com.kmmania.runninguserpreferences.duration_from_distance_pace
 
 import android.os.Bundle
 import androidx.fragment.app.Fragment
@@ -16,7 +16,7 @@ class DurationFromDistancePaceFragment : Fragment() {
         inflater: LayoutInflater,
         container: ViewGroup?,
         savedInstanceState: Bundle?
-    ): View? {
+    ): View {
         _durationFromDistancePaceBinding = FragmentDurationFromDistancePaceBinding
             .inflate(inflater, container, false)
         val rootView = durationFromDistancePaceBinding.root
