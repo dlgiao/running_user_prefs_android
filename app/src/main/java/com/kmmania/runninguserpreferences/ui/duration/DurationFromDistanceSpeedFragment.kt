@@ -29,7 +29,7 @@ class DurationFromDistanceSpeedFragment : Fragment() {
         inflater: LayoutInflater,
         container: ViewGroup?,
         savedInstanceState: Bundle?
-    ): View? {
+    ): View {
         _durationFromDistanceSpeedBinding = FragmentDurationFromDistanceSpeedBinding
             .inflate(inflater, container, false)
         val rootView = durationFromDistanceSpeedBinding.root
