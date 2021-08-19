@@ -5,7 +5,6 @@ import javax.inject.Singleton
 
 @Singleton
 class DurationRepository @Inject constructor(): DurationDao {
-    override fun getDuration(hr: Int?, min: Int?, sec: Int?, ms: Int?): Duration {
-        return Duration(hr, min, sec!!, ms)
-    }
+    override fun getDuration(hr: Int?, min: Int?, sec: Int?, ms: Int?): Duration =
+        Duration(hr, min, sec!!, ms)
 }

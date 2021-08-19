@@ -6,7 +6,6 @@ import javax.inject.Singleton
 
 @Singleton
 class LengthRepository @Inject constructor(): LengthDao {
-    override fun getLength(lengthValue: Double?, lengthUnit: LengthUnit?): Length {
-        return Length(lengthValue, lengthUnit)
-    }
+    override fun getLength(lengthValue: Double?, lengthUnit: LengthUnit?): Length =
+        Length(lengthValue, lengthUnit)
 }
