@@ -98,7 +98,6 @@ class DurationFromDistanceSpeedFragment : Fragment() {
 
         durationFromDistanceSpeedBinding.tvDurationValue.text = time2runValue
 
-
         return rootView
     }
 
