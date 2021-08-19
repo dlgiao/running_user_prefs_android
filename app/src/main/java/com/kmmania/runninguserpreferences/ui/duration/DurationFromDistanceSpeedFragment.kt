@@ -11,6 +11,8 @@ import com.kmmania.runninguserpreferences.databinding.FragmentDurationFromDistan
 import com.kmmania.runninguserpreferences.model.UserPrefs
 import com.kmmania.runninguserpreferences.ui.user_prefs.UserPrefsViewModel
 import androidx.lifecycle.Observer
+import com.kmmania.runninguserpreferences.model.units.LengthUnit
+import com.kmmania.runninguserpreferences.model.units.SpeedUnit
 import dagger.hilt.android.AndroidEntryPoint
 
 @AndroidEntryPoint
@@ -30,6 +32,11 @@ class DurationFromDistanceSpeedFragment : Fragment() {
             .inflate(inflater, container, false)
         val rootView = durationFromDistanceSpeedBinding.root
 
+        val distanceValue = durationFromDistanceSpeedBinding.etDistanceValue.text.toString().toDouble()
+        var distanceUnit = LengthUnit.KM
+        val speedValue = durationFromDistanceSpeedBinding.etSpeedValue.text.toString().toDouble()
+        var speedUnit = SpeedUnit.KMH
+
         val userPrefsObserver = Observer<UserPrefs> { userPrefs ->
             userPrefs?.let {
                 when(it.measuringSystem.toString()) {
@@ -37,10 +44,14 @@ class DurationFromDistanceSpeedFragment : Fragment() {
                         durationFromDistanceSpeedBinding.tvUnitDistance.text =
                             getString(R.string.km)
                         durationFromDistanceSpeedBinding.tvUnitSpeed.text = getString(R.string.kmh)
+                        distanceUnit = LengthUnit.KM
+                        speedUnit = SpeedUnit.KMH
                     }
                     "IMPERIAL" -> {
                         durationFromDistanceSpeedBinding.tvUnitDistance.text = getString(R.string.mi)
                         durationFromDistanceSpeedBinding.tvUnitSpeed.text = getString(R.string.mph)
+                        distanceUnit = LengthUnit.MI
+                        speedUnit = SpeedUnit.MPH
                     }
                 }
             }
