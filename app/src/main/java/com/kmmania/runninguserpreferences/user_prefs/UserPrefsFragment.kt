@@ -10,7 +10,6 @@ import androidx.fragment.app.viewModels
 import androidx.lifecycle.Observer
 import com.kmmania.runninguserpreferences.R
 import com.kmmania.runninguserpreferences.databinding.FragmentUserPrefsBinding
-import com.kmmania.runninguserpreferences.model.*
 import com.kmmania.runninguserpreferences.model.units.*
 import dagger.hilt.android.AndroidEntryPoint
 
@@ -184,14 +183,16 @@ class UserPrefsFragment : Fragment() {
 
     private fun insert2(hasFocus: Boolean) {
         if (!hasFocus) {
-            userPrefsViewModel.insert(UserPrefs(
+            userPrefsViewModel.insert(
+                UserPrefs(
                 getMS(),
                 getGender(),
                 getAge(),
                 getMasValue(), getMasUnit(),
                 getHeightValue(), getHeightUnit(),
                 getWeightValue(), getWeightUnit()
-            ))
+            )
+            )
         }
     }
 }

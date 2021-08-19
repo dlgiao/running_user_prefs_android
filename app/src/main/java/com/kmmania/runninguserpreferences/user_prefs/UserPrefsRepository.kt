@@ -1,7 +1,6 @@
 package com.kmmania.runninguserpreferences.user_prefs
 
 import androidx.annotation.WorkerThread
-import com.kmmania.runninguserpreferences.model.UserPrefs
 import kotlinx.coroutines.flow.Flow
 import javax.inject.Inject
 import javax.inject.Singleton

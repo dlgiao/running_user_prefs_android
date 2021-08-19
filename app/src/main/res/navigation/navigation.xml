@@ -7,7 +7,7 @@
 
     <fragment
         android:id="@+id/nav_home"
-        android:name="com.kmmania.runninguserpreferences.ui.home.HomeFragment"
+        android:name="com.kmmania.runninguserpreferences.home.HomeFragment"
         android:label="@string/home"
         tools:layout="@layout/fragment_home" >
         <action
@@ -26,12 +26,12 @@
     </fragment>
     <fragment
         android:id="@+id/nav_info"
-        android:name="com.kmmania.runninguserpreferences.ui.info.InfoFragment"
+        android:name="com.kmmania.runninguserpreferences.info.InfoFragment"
         android:label="@string/info"
         tools:layout="@layout/fragment_info" />
     <fragment
         android:id="@+id/durationFragment"
-        android:name="com.kmmania.runninguserpreferences.ui.duration.DurationFragment"
+        android:name="com.kmmania.runninguserpreferences.duration.DurationFragment"
         android:label="@string/duration"
         tools:layout="@layout/fragment_duration" >
         <action
@@ -58,7 +58,7 @@
     </fragment>
     <fragment
         android:id="@+id/durationFromDistanceMasFragment"
-        android:name="com.kmmania.runninguserpreferences.duration.duration_from_distance_mas.DurationFromDistanceMasFragment"
+        android:name="com.kmmania.runninguserpreferences.duration_from_distance_mas.DurationFromDistanceMasFragment"
         android:label="@string/duration_from_distance_mas"
         tools:layout="@layout/fragment_duration_from_distance_mas" />
     <fragment

@@ -1,4 +1,4 @@
-package com.kmmania.runninguserpreferences.ui.duration
+package com.kmmania.runninguserpreferences.duration
 
 import android.os.Bundle
 import androidx.fragment.app.Fragment

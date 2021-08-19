@@ -1,8 +1,8 @@
 package com.kmmania.runninguserpreferences.di
 
 import com.kmmania.runninguserpreferences.duration_from_distance_speed.DurationFromDistanceSpeedDao
-import com.kmmania.runninguserpreferences.model.DurationDao
-import com.kmmania.runninguserpreferences.ui.duration.DurationRepository
+import com.kmmania.runninguserpreferences.duration.DurationDao
+import com.kmmania.runninguserpreferences.duration.DurationRepository
 import dagger.Binds
 import dagger.Module
 import dagger.hilt.InstallIn

@@ -1,4 +1,4 @@
-package com.kmmania.runninguserpreferences.model
+package com.kmmania.runninguserpreferences.user_prefs
 
 import androidx.room.ColumnInfo
 import androidx.room.Entity

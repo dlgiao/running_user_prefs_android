@@ -1,7 +1,8 @@
 package com.kmmania.runninguserpreferences.duration_from_distance_speed
 
+import com.kmmania.runninguserpreferences.duration.Duration
 import com.kmmania.runninguserpreferences.model.*
-import com.kmmania.runninguserpreferences.ui.duration.DurationRepository
+import com.kmmania.runninguserpreferences.duration.DurationRepository
 import javax.inject.Inject
 import javax.inject.Singleton
 

@@ -1,7 +1,5 @@
-package com.kmmania.runninguserpreferences.ui.duration
+package com.kmmania.runninguserpreferences.duration
 
-import com.kmmania.runninguserpreferences.model.Duration
-import com.kmmania.runninguserpreferences.model.DurationDao
 import javax.inject.Inject
 import javax.inject.Singleton
 

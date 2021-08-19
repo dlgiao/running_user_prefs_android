@@ -8,7 +8,7 @@ import android.view.ViewGroup
 import androidx.fragment.app.viewModels
 import com.kmmania.runninguserpreferences.R
 import com.kmmania.runninguserpreferences.databinding.FragmentDurationFromDistanceSpeedBinding
-import com.kmmania.runninguserpreferences.model.UserPrefs
+import com.kmmania.runninguserpreferences.user_prefs.UserPrefs
 import com.kmmania.runninguserpreferences.user_prefs.UserPrefsViewModel
 import androidx.lifecycle.Observer
 import com.kmmania.runninguserpreferences.model.Length

@@ -1,7 +1,7 @@
 package com.kmmania.runninguserpreferences.duration_from_distance_speed
 
 import androidx.lifecycle.ViewModel
-import com.kmmania.runninguserpreferences.model.Duration
+import com.kmmania.runninguserpreferences.duration.Duration
 import com.kmmania.runninguserpreferences.model.Length
 import com.kmmania.runninguserpreferences.model.Speed
 import dagger.hilt.android.lifecycle.HiltViewModel
