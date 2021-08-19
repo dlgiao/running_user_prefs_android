@@ -1,4 +1,4 @@
-package com.kmmania.runninguserpreferences.home
+package com.kmmania.runninguserpreferences.main
 
 import android.os.Bundle
 import androidx.fragment.app.Fragment
