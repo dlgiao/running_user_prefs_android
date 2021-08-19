@@ -43,8 +43,7 @@ class DurationFromDistanceSpeedFragment : Fragment() {
             userPrefs?.let {
                 when(it.measuringSystem.toString()) {
                     "METRIC" -> {
-                        durationFromDistanceSpeedBinding.tvUnitDistance.text =
-                            getString(R.string.km)
+                        durationFromDistanceSpeedBinding.tvUnitDistance.text = getString(R.string.km)
                         durationFromDistanceSpeedBinding.tvUnitSpeed.text = getString(R.string.kmh)
                         distanceUnit = LengthUnit.KM
                         speedUnit = SpeedUnit.KMH
@@ -85,6 +84,7 @@ class DurationFromDistanceSpeedFragment : Fragment() {
         val time2runValue = "{$hr}:{$min}:{$sec}:{$ms}"
 
         durationFromDistanceSpeedBinding.tvDurationValue.text = time2runValue
+
 
         return rootView
     }
