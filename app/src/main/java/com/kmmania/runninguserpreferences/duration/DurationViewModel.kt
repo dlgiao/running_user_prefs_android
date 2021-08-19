@@ -8,7 +8,6 @@ import javax.inject.Inject
 class DurationViewModel @Inject constructor(
     private val durationRepository: DurationRepository
 ): ViewModel() {
-    fun getDuration(hr: Int?, min: Int?, sec: Int?, ms: Int?): Duration {
-        return durationRepository.getDuration(hr, min, sec, ms)
-    }
+    fun getDuration(hr: Int?, min: Int?, sec: Int?, ms: Int?): Duration =
+        durationRepository.getDuration(hr, min, sec, ms)
 }
