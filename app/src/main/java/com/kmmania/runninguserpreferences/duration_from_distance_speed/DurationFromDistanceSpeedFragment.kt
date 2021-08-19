@@ -4,6 +4,7 @@ import android.os.Bundle
 import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
+import android.view.View.OnFocusChangeListener
 import android.view.ViewGroup
 import androidx.fragment.app.viewModels
 import com.kmmania.runninguserpreferences.R
@@ -62,19 +63,19 @@ class DurationFromDistanceSpeedFragment : Fragment() {
         userPrefsViewModel.userPrefsValue.observe(viewLifecycleOwner, userPrefsObserver)
 
         durationFromDistanceSpeedBinding.etDistanceValue.onFocusChangeListener =
-            View.OnFocusChangeListener { _, hasFocus ->
-            if (!hasFocus) {
-                distanceValue = durationFromDistanceSpeedBinding
-                    .tiDistanceValue
-                    .editText
-                    ?.text
-                    .toString()
-                    .toDouble()
+            OnFocusChangeListener { _, hasFocus ->
+                if (!hasFocus) {
+                    distanceValue = durationFromDistanceSpeedBinding
+                        .tiDistanceValue
+                        .editText
+                        ?.text
+                        .toString()
+                        .toDouble()
+                }
             }
-        }
 
         durationFromDistanceSpeedBinding.etSpeedValue.onFocusChangeListener =
-            View.OnFocusChangeListener { _, hasFocus ->
+            OnFocusChangeListener { _, hasFocus ->
             if (!hasFocus) {
                 speedValue = durationFromDistanceSpeedBinding
                     .tiSpeedValue
