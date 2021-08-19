@@ -76,15 +76,15 @@ class DurationFromDistanceSpeedFragment : Fragment() {
 
         durationFromDistanceSpeedBinding.etSpeedValue.onFocusChangeListener =
             OnFocusChangeListener { _, hasFocus ->
-            if (!hasFocus) {
-                speedValue = durationFromDistanceSpeedBinding
-                    .tiSpeedValue
-                    .editText
-                    ?.text
-                    .toString()
-                    .toDouble()
+                if (!hasFocus) {
+                    speedValue = durationFromDistanceSpeedBinding
+                        .tiSpeedValue
+                        .editText
+                        ?.text
+                        .toString()
+                        .toDouble()
+                }
             }
-        }
 
         val distance = lengthViewModel.getLength(distanceValue, distanceUnit)
         val speed = speedViewModel.getSpeed(speedValue, speedUnit)
