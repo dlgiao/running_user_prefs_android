@@ -37,10 +37,10 @@ class DurationFromDistanceSpeedFragment : Fragment() {
             .inflate(inflater, container, false)
         val rootView = durationFromDistanceSpeedBinding.root
 
-        var distanceValue = 0.0
-        var distanceUnit = LengthUnit.KM
-        var speedValue = 0.0
-        var speedUnit = SpeedUnit.KMH
+        var distanceValue: Double? = 0.0
+        var distanceUnit: LengthUnit = LengthUnit.KM
+        var speedValue: Double? = 0.0
+        var speedUnit: SpeedUnit = SpeedUnit.KMH
 
         val userPrefsObserver = Observer<UserPrefs> { userPrefs ->
             userPrefs?.let {
