@@ -11,8 +11,8 @@ import com.kmmania.runninguserpreferences.databinding.FragmentDurationFromDistan
 import com.kmmania.runninguserpreferences.user_prefs.UserPrefs
 import com.kmmania.runninguserpreferences.user_prefs.UserPrefsViewModel
 import androidx.lifecycle.Observer
-import com.kmmania.runninguserpreferences.model.Length
-import com.kmmania.runninguserpreferences.model.Speed
+import com.kmmania.runninguserpreferences.length.Length
+import com.kmmania.runninguserpreferences.speed.Speed
 import com.kmmania.runninguserpreferences.utils.units.LengthUnit
 import com.kmmania.runninguserpreferences.utils.units.SpeedUnit
 import dagger.hilt.android.AndroidEntryPoint

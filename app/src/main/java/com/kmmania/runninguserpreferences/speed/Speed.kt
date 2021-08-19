@@ -1,4 +1,4 @@
-package com.kmmania.runninguserpreferences.model
+package com.kmmania.runninguserpreferences.speed
 
 import com.kmmania.runninguserpreferences.utils.units.SpeedUnit
 
