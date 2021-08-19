@@ -3,6 +3,8 @@ package com.kmmania.runninguserpreferences.di
 import com.kmmania.runninguserpreferences.duration_from_distance_speed.DurationFromDistanceSpeedDao
 import com.kmmania.runninguserpreferences.duration.DurationDao
 import com.kmmania.runninguserpreferences.duration.DurationRepository
+import com.kmmania.runninguserpreferences.length.LengthDao
+import com.kmmania.runninguserpreferences.length.LengthRepository
 import dagger.Binds
 import dagger.Module
 import dagger.hilt.InstallIn
@@ -19,4 +21,7 @@ abstract class DaoModule {
     abstract fun bindDurationFromDistanceMasDao(
         durationRFromDistanceSpeedDao: DurationFromDistanceSpeedDao
     ): DurationFromDistanceSpeedDao
+
+    @Binds
+    abstract fun bindLengthDao(lengthRepository: LengthRepository): LengthDao
 }
