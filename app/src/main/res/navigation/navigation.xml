@@ -24,6 +24,13 @@
             app:exitAnim="@anim/slide_out_left"
             app:popEnterAnim="@anim/slide_in_left"
             app:popExitAnim="@anim/slide_out_right" />
+        <action
+            android:id="@+id/action_nav_home_to_speedFragment"
+            app:destination="@id/speedFragment"
+            app:enterAnim="@anim/slide_in_right"
+            app:exitAnim="@anim/slide_out_left"
+            app:popEnterAnim="@anim/slide_in_left"
+            app:popExitAnim="@anim/slide_out_right" />
     </fragment>
     <fragment
         android:id="@+id/nav_user_prefs"
@@ -83,4 +90,9 @@
         android:name="com.kmmania.runninguserpreferences.length.LengthFragment"
         android:label="@string/length"
         tools:layout="@layout/fragment_length" />
+    <fragment
+        android:id="@+id/speedFragment"
+        android:name="com.kmmania.runninguserpreferences.speed.SpeedFragment"
+        android:label="@string/speed"
+        tools:layout="@layout/fragment_speed" />
 </navigation>
