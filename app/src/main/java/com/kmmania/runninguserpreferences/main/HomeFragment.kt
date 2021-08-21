@@ -28,6 +28,9 @@ class HomeFragment : Fragment() {
         homeBinding.tvDistance.setOnClickListener {
             findNavController().navigate(R.id.action_nav_home_to_lengthFragment)
         }
+        homeBinding.tvSpeed.setOnClickListener {
+            findNavController().navigate(R.id.action_nav_home_to_speedFragment)
+        }
 
         return rootView
     }
