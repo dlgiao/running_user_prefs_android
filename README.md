@@ -14,6 +14,6 @@ Allow app users save their preferences
 1. Set up dependency injection (Dagger Hilt in Android, Resolve in IOS)
 1. Set up the UI interface
 ##Author
-Dac Linh Giao Nguyen, head developper [@KMMania](https://github.com/kmmania, "KM Mania")
+Dac Linh Giao NGUYEN (dlg.nguyen@gmail.com), head developer [@KMMania](https://github.com/kmmania, "KM Mania")
 ##License
 Resolver is available under the MIT license. See the LICENSE file for more info.
