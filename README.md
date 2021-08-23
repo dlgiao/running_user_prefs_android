@@ -4,8 +4,9 @@ Manage app user preferences for Android and IOS apps.
 Allow app users save their preferences
 ##Features
 * Measuring system: metric/imperial
+* Gender
+* Age
 * MAS (maximum aerobic speed), the unit (km/h or mph depends on measuring system)
-* Date of birth
 * Height, the unit (cm or in depends on measuring system)
 * Weight, the unit (kg or lb depends on measuring system)
 ##Roadmap
