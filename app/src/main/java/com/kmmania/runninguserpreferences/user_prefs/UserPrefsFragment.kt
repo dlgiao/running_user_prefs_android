@@ -168,13 +168,11 @@ class UserPrefsFragment : Fragment() {
     }
 
     private fun getWeightUnit(): WeightUnit {
-        var weightUnit = WeightUnit.KG
-        when(userPrefsBinding.tvUnitWeight.text.toString()) {
-            "KG" -> weightUnit = WeightUnit.KG
-            "LB" -> weightUnit = WeightUnit.LB
+        return when(userPrefsBinding.tvUnitWeight.text.toString()) {
+            "KG" -> WeightUnit.KG
+            "LB" -> WeightUnit.LB
+            else -> WeightUnit.KG
         }
-
-        return weightUnit
     }
 
     private fun insert2(hasFocus: Boolean) {
