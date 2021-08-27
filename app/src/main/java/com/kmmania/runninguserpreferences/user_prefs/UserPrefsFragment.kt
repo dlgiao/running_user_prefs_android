@@ -118,14 +118,11 @@ class UserPrefsFragment : Fragment() {
     }
 
     private fun getGender(): GenderUnit {
-        var gender = GenderUnit.MALE
-        if (userPrefsBinding.rbMale.isChecked) {
-            gender = GenderUnit.MALE
-        } else if (userPrefsBinding.rbFemale.isChecked) {
-            gender = GenderUnit.FEMALE
+        return if (userPrefsBinding.rbMale.isChecked) {
+            GenderUnit.MALE
+        } else {
+            GenderUnit.FEMALE
         }
-
-        return gender
     }
 
     // TODO: Null exception
