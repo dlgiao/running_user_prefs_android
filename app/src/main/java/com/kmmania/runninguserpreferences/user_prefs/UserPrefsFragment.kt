@@ -157,13 +157,11 @@ class UserPrefsFragment : Fragment() {
     }
 
     private fun getHeightUnit(): LengthUnit {
-        var heightUnit = LengthUnit.CM
-        when(userPrefsBinding.tvUnitHeight.text.toString()) {
-            "CM" -> heightUnit = LengthUnit.CM
-            "IN" -> heightUnit = LengthUnit.IN
+        return when(userPrefsBinding.tvUnitHeight.text.toString()) {
+            "CM" -> LengthUnit.CM
+            "IN" -> LengthUnit.IN
+            else -> LengthUnit.CM
         }
-
-        return heightUnit
     }
 
     // TODO: Null exception
