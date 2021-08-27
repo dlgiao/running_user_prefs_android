@@ -20,11 +20,11 @@ import dagger.hilt.android.AndroidEntryPoint
 
 @AndroidEntryPoint
 class DurationFromDistanceSpeedFragment : Fragment() {
-    private var _durationFromDistanceSpeedBinding: FragmentDurationFromDistanceSpeedBinding? =  null
-    private val durationFromDistanceSpeedBinding get() = _durationFromDistanceSpeedBinding!!
+    private var _binding: FragmentDurationFromDistanceSpeedBinding? =  null
+    private val binding get() = _binding!!
 
     private val userPrefsViewModel: UserPrefsViewModel by viewModels()
-    private val durationFromDistanceSpeedViewModel: DurationFromDistanceSpeedViewModel by viewModels()
+    private val durationViewModel: DurationFromDistanceSpeedViewModel by viewModels()
     private val lengthViewModel: LengthViewModel by viewModels()
     private val speedViewModel: SpeedViewModel by viewModels()
 
@@ -33,9 +33,9 @@ class DurationFromDistanceSpeedFragment : Fragment() {
         container: ViewGroup?,
         savedInstanceState: Bundle?
     ): View {
-        _durationFromDistanceSpeedBinding = FragmentDurationFromDistanceSpeedBinding
+        _binding = FragmentDurationFromDistanceSpeedBinding
             .inflate(inflater, container, false)
-        val rootView = durationFromDistanceSpeedBinding.root
+        val rootView = binding.root
 
         // TODO: Do not work yet!
         var distanceValue: Double? = 0.0
@@ -47,14 +47,14 @@ class DurationFromDistanceSpeedFragment : Fragment() {
             userPrefs?.let {
                 when(it.measuringSystem.toString()) {
                     "METRIC" -> {
-                        durationFromDistanceSpeedBinding.tvUnitDistance.text = getString(R.string.km)
-                        durationFromDistanceSpeedBinding.tvUnitSpeed.text = getString(R.string.kmh)
+                        binding.tvUnitDistance.text = getString(R.string.km)
+                        binding.tvUnitSpeed.text = getString(R.string.kmh)
                         distanceUnit = LengthUnit.KM
                         speedUnit = SpeedUnit.KMH
                     }
                     "IMPERIAL" -> {
-                        durationFromDistanceSpeedBinding.tvUnitDistance.text = getString(R.string.mi)
-                        durationFromDistanceSpeedBinding.tvUnitSpeed.text = getString(R.string.mph)
+                        binding.tvUnitDistance.text = getString(R.string.mi)
+                        binding.tvUnitSpeed.text = getString(R.string.mph)
                         distanceUnit = LengthUnit.MI
                         speedUnit = SpeedUnit.MPH
                     }
@@ -63,10 +63,10 @@ class DurationFromDistanceSpeedFragment : Fragment() {
         }
         userPrefsViewModel.userPrefsValue.observe(viewLifecycleOwner, userPrefsObserver)
 
-        durationFromDistanceSpeedBinding.etDistanceValue.onFocusChangeListener =
+        binding.etDistanceValue.onFocusChangeListener =
             OnFocusChangeListener { _, hasFocus ->
                 if (!hasFocus) {
-                    distanceValue = durationFromDistanceSpeedBinding
+                    distanceValue = binding
                         .tiDistanceValue
                         .editText
                         ?.text
@@ -75,10 +75,10 @@ class DurationFromDistanceSpeedFragment : Fragment() {
                 }
             }
 
-        durationFromDistanceSpeedBinding.etSpeedValue.onFocusChangeListener =
+        binding.etSpeedValue.onFocusChangeListener =
             OnFocusChangeListener { _, hasFocus ->
                 if (!hasFocus) {
-                    speedValue = durationFromDistanceSpeedBinding
+                    speedValue = binding
                         .tiSpeedValue
                         .editText
                         ?.text
@@ -89,7 +89,7 @@ class DurationFromDistanceSpeedFragment : Fragment() {
 
         val distance = lengthViewModel.getLength(distanceValue, distanceUnit)
         val speed = speedViewModel.getSpeed(speedValue, speedUnit)
-        val time2run = durationFromDistanceSpeedViewModel.getDurationFromDistanceSpeed(distance, speed)
+        val time2run = durationViewModel.getDurationFromDistanceSpeed(distance, speed)
 
         val hr = time2run.hr.toString()
         val min = time2run.min.toString()
@@ -97,13 +97,13 @@ class DurationFromDistanceSpeedFragment : Fragment() {
         val ms = time2run.ms.toString()
         val time2runValue = "{$hr}:{$min}:{$sec}:{$ms}"
 
-        durationFromDistanceSpeedBinding.tvDurationValue.text = time2runValue
+        binding.tvDurationValue.text = time2runValue
 
         return rootView
     }
 
     override fun onDestroy() {
         super.onDestroy()
-        _durationFromDistanceSpeedBinding = null
+        _binding = null
     }
 }
