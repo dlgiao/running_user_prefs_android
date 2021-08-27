@@ -38,8 +38,9 @@ class DurationFromDistanceSpeedFragment : Fragment() {
         container: ViewGroup?,
         savedInstanceState: Bundle?
     ): View {
-        _binding = FragmentDurationFromDistanceSpeedBinding
-            .inflate(inflater, container, false)
+        _binding = FragmentDurationFromDistanceSpeedBinding.inflate(
+            inflater, container, false
+        )
         val rootView = binding.root
 
         val userPrefsObserver = Observer<UserPrefs> { userPrefs ->
