@@ -66,24 +66,14 @@ class DurationFromDistanceSpeedFragment : Fragment() {
         binding.etDistanceValue.onFocusChangeListener =
             OnFocusChangeListener { _, hasFocus ->
                 if (!hasFocus) {
-                    distanceValue = binding
-                        .tiDistanceValue
-                        .editText
-                        ?.text
-                        .toString()
-                        .toDouble()
+                    distanceValue = binding.tiDistanceValue.editText?.text.toString().toDouble()
                 }
             }
 
         binding.etSpeedValue.onFocusChangeListener =
             OnFocusChangeListener { _, hasFocus ->
                 if (!hasFocus) {
-                    speedValue = binding
-                        .tiSpeedValue
-                        .editText
-                        ?.text
-                        .toString()
-                        .toDouble()
+                    speedValue = binding.tiSpeedValue.editText?.text.toString().toDouble()
                 }
             }
 
