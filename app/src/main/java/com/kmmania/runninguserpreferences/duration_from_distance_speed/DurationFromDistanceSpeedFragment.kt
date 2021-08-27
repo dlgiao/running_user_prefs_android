@@ -1,11 +1,14 @@
 package com.kmmania.runninguserpreferences.duration_from_distance_speed
 
 import android.os.Bundle
+import android.text.Editable
+import android.text.TextWatcher
 import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
 import android.view.View.OnFocusChangeListener
 import android.view.ViewGroup
+import androidx.core.widget.doAfterTextChanged
 import androidx.fragment.app.viewModels
 import com.kmmania.runninguserpreferences.R
 import com.kmmania.runninguserpreferences.databinding.FragmentDurationFromDistanceSpeedBinding
@@ -28,6 +31,11 @@ class DurationFromDistanceSpeedFragment : Fragment() {
     private val lengthViewModel: LengthViewModel by viewModels()
     private val speedViewModel: SpeedViewModel by viewModels()
 
+    private var distanceValue: Double? = 0.0
+    private var distanceUnit: LengthUnit = LengthUnit.KM
+    private var speedValue: Double? = 0.0
+    private var speedUnit: SpeedUnit = SpeedUnit.KMH
+
     override fun onCreateView(
         inflater: LayoutInflater,
         container: ViewGroup?,
@@ -36,11 +44,6 @@ class DurationFromDistanceSpeedFragment : Fragment() {
         _binding = FragmentDurationFromDistanceSpeedBinding
             .inflate(inflater, container, false)
         val rootView = binding.root
-
-        var distanceValue: Double? = 0.0
-        var distanceUnit: LengthUnit = LengthUnit.KM
-        var speedValue: Double? = 0.0
-        var speedUnit: SpeedUnit = SpeedUnit.KMH
 
         val userPrefsObserver = Observer<UserPrefs> { userPrefs ->
             userPrefs?.let {
@@ -62,19 +65,41 @@ class DurationFromDistanceSpeedFragment : Fragment() {
         }
         userPrefsViewModel.userPrefsValue.observe(viewLifecycleOwner, userPrefsObserver)
 
-        binding.etDistanceValue.onFocusChangeListener =
-            OnFocusChangeListener { _, hasFocus ->
-                if (!hasFocus) {
-                    distanceValue = binding.tiDistanceValue.editText?.text.toString().toDouble()
-                }
-            }
+//        binding.etDistanceValue.onFocusChangeListener =
+//            OnFocusChangeListener { _, hasFocus ->
+//                if (!hasFocus) {
+//                    distanceValue = binding.tiDistanceValue.editText?.text.toString().toDouble()
+//                }
+//            }
+//
+//        binding.etSpeedValue.onFocusChangeListener =
+//            OnFocusChangeListener { _, hasFocus ->
+//                if (!hasFocus) {
+//                    speedValue = binding.tiSpeedValue.editText?.text.toString().toDouble()
+//                }
+//            }
 
-        binding.etSpeedValue.onFocusChangeListener =
-            OnFocusChangeListener { _, hasFocus ->
-                if (!hasFocus) {
-                    speedValue = binding.tiSpeedValue.editText?.text.toString().toDouble()
-                }
-            }
+//        binding.etDistanceValue.addTextChangedListener(object : TextWatcher {
+//            override fun beforeTextChanged(s: CharSequence?, start: Int, count: Int, after: Int) {
+//                //
+//            }
+//
+//            override fun onTextChanged(s: CharSequence?, start: Int, before: Int, count: Int) {
+//                //
+//            }
+//
+//            override fun afterTextChanged(s: Editable?) {
+//                distanceValue = s.toString().toDouble()
+//            }
+//        })
+
+        binding.etDistanceValue.doAfterTextChanged {
+            distanceValue = it.toString().toDouble()
+        }
+
+        binding.etSpeedValue.doAfterTextChanged {
+            speedValue = it.toString().toDouble()
+        }
 
         val distance = lengthViewModel.getLength(distanceValue, distanceUnit)
         val speed = speedViewModel.getSpeed(speedValue, speedUnit)
@@ -87,6 +112,8 @@ class DurationFromDistanceSpeedFragment : Fragment() {
         val time2runValue = "$hr:$min:$sec:$ms"
 
         binding.tvDurationValue.text = time2runValue
+
+
 
         return rootView
     }
