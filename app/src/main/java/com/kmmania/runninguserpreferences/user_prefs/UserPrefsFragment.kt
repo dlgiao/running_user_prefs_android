@@ -110,14 +110,11 @@ class UserPrefsFragment : Fragment() {
     }
 
     private fun getMS(): MeasuringSystemUnit {
-        var ms = MeasuringSystemUnit.METRIC
-        if (userPrefsBinding.rbMetric.isChecked) {
-            ms = MeasuringSystemUnit.METRIC
-        } else if (userPrefsBinding.rbImperial.isChecked) {
-            ms = MeasuringSystemUnit.IMPERIAL
+        return if (userPrefsBinding.rbMetric.isChecked) {
+            MeasuringSystemUnit.METRIC
+        } else {
+            MeasuringSystemUnit.IMPERIAL
         }
-
-        return ms
     }
 
     private fun getGender(): GenderUnit {
