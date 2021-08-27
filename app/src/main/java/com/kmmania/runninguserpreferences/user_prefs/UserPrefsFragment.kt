@@ -184,14 +184,14 @@ class UserPrefsFragment : Fragment() {
     private fun insert2(hasFocus: Boolean) {
         if (!hasFocus) {
             userPrefsViewModel.insert(
-                UserPrefs(
-                getMS(),
-                getGender(),
-                getAge(),
-                getMasValue(), getMasUnit(),
-                getHeightValue(), getHeightUnit(),
-                getWeightValue(), getWeightUnit()
-            )
+                    UserPrefs(
+                    getMS(),
+                    getGender(),
+                    getAge(),
+                    getMasValue(), getMasUnit(),
+                    getHeightValue(), getHeightUnit(),
+                    getWeightValue(), getWeightUnit()
+                )
             )
         }
     }
