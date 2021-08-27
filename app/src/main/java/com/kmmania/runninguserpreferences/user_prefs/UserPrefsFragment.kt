@@ -142,13 +142,11 @@ class UserPrefsFragment : Fragment() {
     }
 
     private fun getMasUnit(): SpeedUnit {
-        var masUnit = SpeedUnit.KMH
-        when(userPrefsBinding.tvUnitMas.text.toString()) {
-            "km/h" -> masUnit = SpeedUnit.KMH
-            "mph" -> masUnit = SpeedUnit.MPH
+        return when(userPrefsBinding.tvUnitMas.text.toString()) {
+            "km/h" -> SpeedUnit.KMH
+            "mph" -> SpeedUnit.MPH
+            else -> SpeedUnit.KMH
         }
-
-        return masUnit
     }
 
     // TODO: Null exception
