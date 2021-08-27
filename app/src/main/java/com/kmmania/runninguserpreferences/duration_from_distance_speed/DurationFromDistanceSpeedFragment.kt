@@ -84,7 +84,7 @@ class DurationFromDistanceSpeedFragment : Fragment() {
         val min = time2run.min.toString()
         val sec = time2run.sec.toString()
         val ms = time2run.ms.toString()
-        val time2runValue = "{$hr}:{$min}:{$sec}:{$ms}"
+        val time2runValue = "$hr:$min:$sec:$ms"
 
         binding.tvDurationValue.text = time2runValue
 
