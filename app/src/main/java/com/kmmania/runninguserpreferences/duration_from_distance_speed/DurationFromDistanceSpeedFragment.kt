@@ -65,34 +65,6 @@ class DurationFromDistanceSpeedFragment : Fragment() {
         }
         userPrefsViewModel.userPrefsValue.observe(viewLifecycleOwner, userPrefsObserver)
 
-//        binding.etDistanceValue.onFocusChangeListener =
-//            OnFocusChangeListener { _, hasFocus ->
-//                if (!hasFocus) {
-//                    distanceValue = binding.tiDistanceValue.editText?.text.toString().toDouble()
-//                }
-//            }
-//
-//        binding.etSpeedValue.onFocusChangeListener =
-//            OnFocusChangeListener { _, hasFocus ->
-//                if (!hasFocus) {
-//                    speedValue = binding.tiSpeedValue.editText?.text.toString().toDouble()
-//                }
-//            }
-
-//        binding.etDistanceValue.addTextChangedListener(object : TextWatcher {
-//            override fun beforeTextChanged(s: CharSequence?, start: Int, count: Int, after: Int) {
-//                //
-//            }
-//
-//            override fun onTextChanged(s: CharSequence?, start: Int, before: Int, count: Int) {
-//                //
-//            }
-//
-//            override fun afterTextChanged(s: Editable?) {
-//                distanceValue = s.toString().toDouble()
-//            }
-//        })
-
         binding.etDistanceValue.doAfterTextChanged {
             distanceValue = it.toString().toDouble()
         }
